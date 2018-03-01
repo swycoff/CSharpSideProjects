@@ -48,6 +48,8 @@
             this.fileName_text = new System.Windows.Forms.TextBox();
             this.file_header_text = new System.Windows.Forms.TextBox();
             this.fileHeaders = new System.Windows.Forms.Label();
+            this.labelmn = new System.Windows.Forms.Label();
+            this.middle_name_text = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.studentsToGenerateNumber)).BeginInit();
             this.SuspendLayout();
             // 
@@ -137,7 +139,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(35, 265);
+            this.label6.Location = new System.Drawing.Point(36, 302);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(45, 17);
             this.label6.TabIndex = 10;
@@ -147,21 +149,21 @@
             // 
             this.grade_combo_box.FormattingEnabled = true;
             this.grade_combo_box.Items.AddRange(new object[] {
-            "GradePrek = DBValue 1",
-            "GradeK = DBValue 2",
-            "Grade1 = DBValue 3",
-            "Grade2 = DBValue 4",
-            "Grade3 = DBValue 5",
-            "Grade4 = DBValue 6",
-            "Grade5 = DBValue 7",
-            "Grade6 = DBValue 8",
-            "Grade7 = DBValue 9",
-            "Grade8 = DBValue 10",
-            "Grade9 = DBValue 11",
-            "Grade10 = DBValue 12",
-            "Grade11 = DBValue 13",
-            "Grade12 = DBValue 14"});
-            this.grade_combo_box.Location = new System.Drawing.Point(165, 256);
+            "Prek",
+            "K",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.grade_combo_box.Location = new System.Drawing.Point(166, 293);
             this.grade_combo_box.Name = "grade_combo_box";
             this.grade_combo_box.Size = new System.Drawing.Size(232, 24);
             this.grade_combo_box.TabIndex = 11;
@@ -169,7 +171,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(35, 303);
+            this.label7.Location = new System.Drawing.Point(36, 340);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(71, 17);
             this.label7.TabIndex = 12;
@@ -177,7 +179,7 @@
             // 
             // username_text
             // 
-            this.username_text.Location = new System.Drawing.Point(165, 303);
+            this.username_text.Location = new System.Drawing.Point(166, 340);
             this.username_text.Name = "username_text";
             this.username_text.Size = new System.Drawing.Size(232, 22);
             this.username_text.TabIndex = 13;
@@ -185,7 +187,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(36, 343);
+            this.label8.Location = new System.Drawing.Point(37, 380);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(68, 17);
             this.label8.TabIndex = 14;
@@ -193,7 +195,7 @@
             // 
             // password_text
             // 
-            this.password_text.Location = new System.Drawing.Point(165, 343);
+            this.password_text.Location = new System.Drawing.Point(166, 380);
             this.password_text.Name = "password_text";
             this.password_text.Size = new System.Drawing.Size(232, 22);
             this.password_text.TabIndex = 15;
@@ -201,7 +203,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(36, 389);
+            this.label9.Location = new System.Drawing.Point(37, 426);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(222, 17);
             this.label9.TabIndex = 16;
@@ -209,7 +211,7 @@
             // 
             // studentsToGenerateNumber
             // 
-            this.studentsToGenerateNumber.Location = new System.Drawing.Point(264, 389);
+            this.studentsToGenerateNumber.Location = new System.Drawing.Point(265, 426);
             this.studentsToGenerateNumber.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -231,7 +233,7 @@
             // 
             // generateCVSButton
             // 
-            this.generateCVSButton.Location = new System.Drawing.Point(175, 544);
+            this.generateCVSButton.Location = new System.Drawing.Point(176, 581);
             this.generateCVSButton.Name = "generateCVSButton";
             this.generateCVSButton.Size = new System.Drawing.Size(257, 23);
             this.generateCVSButton.TabIndex = 19;
@@ -242,7 +244,7 @@
             // file_path_text
             // 
             this.file_path_text.AutoSize = true;
-            this.file_path_text.Location = new System.Drawing.Point(35, 427);
+            this.file_path_text.Location = new System.Drawing.Point(36, 464);
             this.file_path_text.Name = "file_path_text";
             this.file_path_text.Size = new System.Drawing.Size(59, 17);
             this.file_path_text.TabIndex = 20;
@@ -251,7 +253,7 @@
             // 
             // filePathText
             // 
-            this.filePathText.Location = new System.Drawing.Point(130, 427);
+            this.filePathText.Location = new System.Drawing.Point(131, 464);
             this.filePathText.Name = "filePathText";
             this.filePathText.Size = new System.Drawing.Size(511, 22);
             this.filePathText.TabIndex = 21;
@@ -261,7 +263,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(36, 468);
+            this.label11.Location = new System.Drawing.Point(37, 505);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(67, 17);
             this.label11.TabIndex = 22;
@@ -269,7 +271,7 @@
             // 
             // fileName_text
             // 
-            this.fileName_text.Location = new System.Drawing.Point(130, 465);
+            this.fileName_text.Location = new System.Drawing.Point(131, 502);
             this.fileName_text.Name = "fileName_text";
             this.fileName_text.Size = new System.Drawing.Size(511, 22);
             this.fileName_text.TabIndex = 23;
@@ -277,27 +279,48 @@
             // 
             // file_header_text
             // 
-            this.file_header_text.Location = new System.Drawing.Point(130, 498);
+            this.file_header_text.Location = new System.Drawing.Point(131, 535);
             this.file_header_text.Name = "file_header_text";
-            this.file_header_text.Size = new System.Drawing.Size(511, 22);
+            this.file_header_text.Size = new System.Drawing.Size(596, 22);
             this.file_header_text.TabIndex = 24;
-            this.file_header_text.Text = "school_id,school_name,sis_id,last_name,first_name,grade,username,password";
+            this.file_header_text.Text = "school_id,school_name,sis_id,last_name,first_name,middle_name,grade,username,pass" +
+    "word";
             // 
             // fileHeaders
             // 
             this.fileHeaders.AutoSize = true;
-            this.fileHeaders.Location = new System.Drawing.Point(36, 498);
+            this.fileHeaders.Location = new System.Drawing.Point(37, 535);
             this.fileHeaders.Name = "fileHeaders";
             this.fileHeaders.Size = new System.Drawing.Size(88, 17);
             this.fileHeaders.TabIndex = 25;
             this.fileHeaders.Text = "File Headers";
             this.fileHeaders.Click += new System.EventHandler(this.label12_Click);
             // 
+            // labelmn
+            // 
+            this.labelmn.AutoSize = true;
+            this.labelmn.Location = new System.Drawing.Point(36, 259);
+            this.labelmn.Name = "labelmn";
+            this.labelmn.Size = new System.Drawing.Size(92, 17);
+            this.labelmn.TabIndex = 26;
+            this.labelmn.Text = "middle_name";
+            this.labelmn.Click += new System.EventHandler(this.label10_Click_1);
+            // 
+            // middle_name_text
+            // 
+            this.middle_name_text.Location = new System.Drawing.Point(165, 259);
+            this.middle_name_text.Name = "middle_name_text";
+            this.middle_name_text.Size = new System.Drawing.Size(233, 22);
+            this.middle_name_text.TabIndex = 27;
+            this.middle_name_text.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1240, 857);
+            this.Controls.Add(this.middle_name_text);
+            this.Controls.Add(this.labelmn);
             this.Controls.Add(this.fileHeaders);
             this.Controls.Add(this.file_header_text);
             this.Controls.Add(this.fileName_text);
@@ -358,6 +381,8 @@
         private System.Windows.Forms.TextBox fileName_text;
         private System.Windows.Forms.TextBox file_header_text;
         private System.Windows.Forms.Label fileHeaders;
+        private System.Windows.Forms.Label labelmn;
+        private System.Windows.Forms.TextBox middle_name_text;
     }
 }
 
