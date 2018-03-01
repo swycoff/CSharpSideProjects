@@ -87,7 +87,11 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                     student.Username = username_text.Text + i;
                 }
                 if (password_text.Text != "") {
-                    student.Password = password_text.Text + i;
+                    if (auto_increment_pw_chkbox.Checked) {
+                        student.Password = password_text.Text + i;
+                    } else {
+                        student.Password = password_text.Text;
+                    }                    
                 }
                 studentsForCSVFileList.Add(student);
             }

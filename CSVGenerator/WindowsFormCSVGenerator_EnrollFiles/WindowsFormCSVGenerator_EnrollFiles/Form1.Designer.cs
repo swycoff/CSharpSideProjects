@@ -54,6 +54,7 @@
             this.rolling_grade_checkbox = new System.Windows.Forms.CheckBox();
             this.randomize_grade_checkbox = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.auto_increment_pw_chkbox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.studentsToGenerateNumber)).BeginInit();
             this.SuspendLayout();
             // 
@@ -360,11 +361,22 @@
             this.label12.TabIndex = 31;
             this.label12.Text = "Patience Required";
             // 
+            // auto_increment_pw_chkbox
+            // 
+            this.auto_increment_pw_chkbox.AutoSize = true;
+            this.auto_increment_pw_chkbox.Location = new System.Drawing.Point(421, 375);
+            this.auto_increment_pw_chkbox.Name = "auto_increment_pw_chkbox";
+            this.auto_increment_pw_chkbox.Size = new System.Drawing.Size(262, 21);
+            this.auto_increment_pw_chkbox.TabIndex = 32;
+            this.auto_increment_pw_chkbox.Text = "Auto Increment Password Text Given";
+            this.auto_increment_pw_chkbox.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1686, 876);
+            this.Controls.Add(this.auto_increment_pw_chkbox);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.randomize_grade_checkbox);
             this.Controls.Add(this.rolling_grade_checkbox);
@@ -437,6 +449,7 @@
         private System.Windows.Forms.CheckBox rolling_grade_checkbox;
         private System.Windows.Forms.CheckBox randomize_grade_checkbox;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.CheckBox auto_increment_pw_chkbox;
     }
 }
 
