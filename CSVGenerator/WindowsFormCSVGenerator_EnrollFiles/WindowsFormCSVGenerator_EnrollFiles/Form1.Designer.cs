@@ -50,6 +50,10 @@
             this.fileHeaders = new System.Windows.Forms.Label();
             this.labelmn = new System.Windows.Forms.Label();
             this.middle_name_text = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.rolling_grade_checkbox = new System.Windows.Forms.CheckBox();
+            this.randomize_grade_checkbox = new System.Windows.Forms.CheckBox();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.studentsToGenerateNumber)).BeginInit();
             this.SuspendLayout();
             // 
@@ -149,6 +153,7 @@
             // 
             this.grade_combo_box.FormattingEnabled = true;
             this.grade_combo_box.Items.AddRange(new object[] {
+            "Use Random Or Rolling Instead",
             "Prek",
             "K",
             "1",
@@ -167,6 +172,7 @@
             this.grade_combo_box.Name = "grade_combo_box";
             this.grade_combo_box.Size = new System.Drawing.Size(232, 24);
             this.grade_combo_box.TabIndex = 11;
+            this.grade_combo_box.SelectedIndexChanged += new System.EventHandler(this.grade_combo_box_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -314,11 +320,55 @@
             this.middle_name_text.TabIndex = 27;
             this.middle_name_text.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(162, 28);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(137, 17);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "Single Building Form";
+            // 
+            // rolling_grade_checkbox
+            // 
+            this.rolling_grade_checkbox.AutoSize = true;
+            this.rolling_grade_checkbox.Location = new System.Drawing.Point(421, 295);
+            this.rolling_grade_checkbox.Name = "rolling_grade_checkbox";
+            this.rolling_grade_checkbox.Size = new System.Drawing.Size(200, 21);
+            this.rolling_grade_checkbox.TabIndex = 29;
+            this.rolling_grade_checkbox.Text = "Rolling PreK to 12th Grade";
+            this.rolling_grade_checkbox.UseVisualStyleBackColor = true;
+            this.rolling_grade_checkbox.CheckedChanged += new System.EventHandler(this.rolling_grade_checkbox_CheckedChanged);
+            // 
+            // randomize_grade_checkbox
+            // 
+            this.randomize_grade_checkbox.AutoSize = true;
+            this.randomize_grade_checkbox.Location = new System.Drawing.Point(627, 293);
+            this.randomize_grade_checkbox.Name = "randomize_grade_checkbox";
+            this.randomize_grade_checkbox.Size = new System.Drawing.Size(152, 21);
+            this.randomize_grade_checkbox.TabIndex = 30;
+            this.randomize_grade_checkbox.Text = "Randomize Grades";
+            this.randomize_grade_checkbox.UseVisualStyleBackColor = true;
+            this.randomize_grade_checkbox.CheckedChanged += new System.EventHandler(this.randomize_grade_checkbox_CheckedChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(627, 270);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(125, 17);
+            this.label12.TabIndex = 31;
+            this.label12.Text = "Patience Required";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1240, 857);
+            this.ClientSize = new System.Drawing.Size(1686, 876);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.randomize_grade_checkbox);
+            this.Controls.Add(this.rolling_grade_checkbox);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.middle_name_text);
             this.Controls.Add(this.labelmn);
             this.Controls.Add(this.fileHeaders);
@@ -383,6 +433,10 @@
         private System.Windows.Forms.Label fileHeaders;
         private System.Windows.Forms.Label labelmn;
         private System.Windows.Forms.TextBox middle_name_text;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.CheckBox rolling_grade_checkbox;
+        private System.Windows.Forms.CheckBox randomize_grade_checkbox;
+        private System.Windows.Forms.Label label12;
     }
 }
 
