@@ -197,7 +197,7 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
             // Xpath loads the XML document into a list of objects we can enumerate over
             XElement xelement;
             IEnumerable<XElement> enrollBuildingsInXML;
-            xelement = XElement.Parse(MB_output_xml_path.Text);
+            xelement = XElement.Load(MB_output_xml_path.Text);
             enrollBuildingsInXML = xelement.Elements();
 
             #region List of building objects to hold XML data sorted by size           
@@ -223,21 +223,21 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                     enrollBuilding.School_Name = building.Element("school_name").Value;
                     smallBuildingsList.Add(enrollBuilding);
                 }
-                if(building.Element(size).Value == "2") {
+                if(building.Element("size").Value == "2") {
                     //These are medium buildings
                     enrollBuilding.Size = building.Element("size").Value;
                     enrollBuilding.School_Id = building.Element("school_id").Value;
                     enrollBuilding.School_Name = building.Element("school_name").Value;
                     mediumBuildingsList.Add(enrollBuilding);
                 }
-                if (building.Element(size).Value == "3") {
+                if (building.Element("size").Value == "3") {
                     //These are large buildings
                     enrollBuilding.Size = building.Element("size").Value;
                     enrollBuilding.School_Id = building.Element("school_id").Value;
                     enrollBuilding.School_Name = building.Element("school_name").Value;
                     largeBuildingsList.Add(enrollBuilding);
                 }
-                if (building.Element(size).Value == "4") {
+                if (building.Element("size").Value == "4") {
                     //These are XL buildings
                     enrollBuilding.Size = building.Element("size").Value;
                     enrollBuilding.School_Id = building.Element("school_id").Value;

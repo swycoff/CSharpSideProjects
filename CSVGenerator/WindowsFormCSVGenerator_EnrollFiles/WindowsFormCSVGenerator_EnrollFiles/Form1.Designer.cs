@@ -780,9 +780,24 @@
             // MB_SmallBldg_Min_NumOfSA
             // 
             this.MB_SmallBldg_Min_NumOfSA.Location = new System.Drawing.Point(387, 174);
+            this.MB_SmallBldg_Min_NumOfSA.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.MB_SmallBldg_Min_NumOfSA.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.MB_SmallBldg_Min_NumOfSA.Name = "MB_SmallBldg_Min_NumOfSA";
             this.MB_SmallBldg_Min_NumOfSA.Size = new System.Drawing.Size(93, 22);
             this.MB_SmallBldg_Min_NumOfSA.TabIndex = 7;
+            this.MB_SmallBldg_Min_NumOfSA.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label17
             // 
