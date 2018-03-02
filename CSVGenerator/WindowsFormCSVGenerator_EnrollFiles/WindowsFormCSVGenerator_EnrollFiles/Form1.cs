@@ -305,14 +305,16 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
             #endregion
 
             #region  Build The Student Object From The Form (FOR EACH BUILDING LIST BY SIZE)
-            int trackRollingGradeState = 1;
+
             #region SMALL BUILDINGS
+            int trackRollingGradeStateSmallBldg = 1;
             studentsForCSVFileListSmallBuilding = new List<EnrollStudent>();
             foreach (EnrollBuilding enrollBuilding in smallBuildingsList) {
                 rnd = new Random();
                 int smallBuildingMinRange = Convert.ToInt32(MB_SmallBldg_Min_NumOfSA.Value);
                 int smallBuildingMaxRange = Convert.ToInt32(MB_SmallBldg_Max_NumOfSA.Value + 1);
                 int numberOfStudentsToGenerateForThisBldg = rnd.Next(smallBuildingMinRange, smallBuildingMaxRange);
+                System.Threading.Thread.Sleep(50);
 
                 for (int i = 0; i < numberOfStudentsToGenerateForThisBldg; i++) {
                     enrollStudent = new EnrollStudent();
@@ -336,12 +338,12 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                     }
                     #region Grade
                     if (MB_Rolling_Chbx.Checked) {
-                        if (trackRollingGradeState >= 0 || trackRollingGradeState <= 14) {
-                            enrollStudent.Grade = GetStudentGradeText(trackRollingGradeState);
-                            if (trackRollingGradeState == 14) {
-                                trackRollingGradeState = 1;
+                        if (trackRollingGradeStateSmallBldg >= 0 || trackRollingGradeStateSmallBldg <= 14) {
+                            enrollStudent.Grade = GetStudentGradeText(trackRollingGradeStateSmallBldg);
+                            if (trackRollingGradeStateSmallBldg == 14) {
+                                trackRollingGradeStateSmallBldg = 1;
                             } else {
-                                trackRollingGradeState++;
+                                trackRollingGradeStateSmallBldg++;
                             }
                         } else {
                             enrollStudent.Grade = "In generating a grade name, the number was not between 1 and 14 for the db grade ID";
@@ -377,13 +379,15 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                 }
             #endregion
 
-            #region MEDIUM BUILDINGS                
+            #region MEDIUM BUILDINGS     
+            int trackRollingGradeStateMedBldg = 1;
             studentsForCSVFileListMediumBuilding = new List<EnrollStudent>();
             foreach (EnrollBuilding enrollBuildingMed in mediumBuildingsList) {
                 rnd = new Random();
                 int medBuildingMinRange = Convert.ToInt32(MB_MediumBldg_Min_NumOfSA.Value);
                 int medBuildingMaxRange = Convert.ToInt32(MB_MediumBldg_Min_NumOfSA.Value + 1);
                 int numberOfStudentsToGenerateForThisMediumBldg = rnd.Next(medBuildingMinRange, medBuildingMaxRange);
+                System.Threading.Thread.Sleep(50);
 
                 for (int i = 0; i < numberOfStudentsToGenerateForThisMediumBldg; i++) {
                     enrollStudent = new EnrollStudent();
@@ -407,12 +411,12 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                     }
                     #region Grade
                     if (MB_Rolling_Chbx.Checked) {
-                        if (trackRollingGradeState >= 0 || trackRollingGradeState <= 14) {
-                            enrollStudent.Grade = GetStudentGradeText(trackRollingGradeState);
-                            if (trackRollingGradeState == 14) {
-                                trackRollingGradeState = 1;
+                        if (trackRollingGradeStateMedBldg >= 0 || trackRollingGradeStateMedBldg <= 14) {
+                            enrollStudent.Grade = GetStudentGradeText(trackRollingGradeStateMedBldg);
+                            if (trackRollingGradeStateMedBldg == 14) {
+                                trackRollingGradeStateMedBldg = 1;
                             } else {
-                                trackRollingGradeState++;
+                                trackRollingGradeStateMedBldg++;
                             }
                         } else {
                             enrollStudent.Grade = "In generating a grade name, the number was not between 1 and 14 for the db grade ID";
@@ -449,12 +453,14 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
             #endregion
 
             #region LARGE BUILDINGS
+            int trackRollingGradeStateLargeBldg = 1;
             studentsForCSVFileListLargeBuilding = new List<EnrollStudent>();
             foreach (EnrollBuilding enrollBuildingLarge in largeBuildingsList) {
                 rnd = new Random();
                 int largeBuildingMinRange = Convert.ToInt32(MB_LargeBldg_Min_NumOfSA.Value);
                 int largeBuildingMaxRange = Convert.ToInt32(MB_LargeBldg_Max_NumOfSA.Value + 1);
                 int numberOfStudentsToGenerateForThisLargeBldg = rnd.Next(largeBuildingMinRange, largeBuildingMaxRange);
+                System.Threading.Thread.Sleep(50);
 
                 for (int i = 0; i < numberOfStudentsToGenerateForThisLargeBldg; i++) {
                     enrollStudent = new EnrollStudent();
@@ -478,12 +484,12 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                     }
                     #region Grade
                     if (MB_Rolling_Chbx.Checked) {
-                        if (trackRollingGradeState >= 0 || trackRollingGradeState <= 14) {
-                            enrollStudent.Grade = GetStudentGradeText(trackRollingGradeState);
-                            if (trackRollingGradeState == 14) {
-                                trackRollingGradeState = 1;
+                        if (trackRollingGradeStateLargeBldg >= 0 || trackRollingGradeStateLargeBldg <= 14) {
+                            enrollStudent.Grade = GetStudentGradeText(trackRollingGradeStateLargeBldg);
+                            if (trackRollingGradeStateLargeBldg == 14) {
+                                trackRollingGradeStateLargeBldg = 1;
                             } else {
-                                trackRollingGradeState++;
+                                trackRollingGradeStateLargeBldg++;
                             }
                         } else {
                             enrollStudent.Grade = "In generating a grade name, the number was not between 1 and 14 for the db grade ID";
@@ -519,12 +525,14 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
             #endregion
 
             #region XL BUILDINGS
+            int trackRollingGradeStateXLargeBldg = 1;
             studentsForCSVFileListXLargeBuilding = new List<EnrollStudent>();
             foreach (EnrollBuilding enrollBuildingXLarge in extraLargeBuildingsList) {
                 rnd = new Random();
                 int XLargeBuildingMinRange = Convert.ToInt32(MB_XLargeBldg_Min_NumOfSA.Value);
                 int XLargeBuildingMaxRange = Convert.ToInt32(MB_XLargeBldg_Max_NumOfSA.Value + 1);
                 int numberOfStudentsToGenerateForThisLargeBldg = rnd.Next(XLargeBuildingMinRange, XLargeBuildingMaxRange);
+                System.Threading.Thread.Sleep(50);
 
                 for (int i = 0; i < numberOfStudentsToGenerateForThisLargeBldg; i++) {
                     enrollStudent = new EnrollStudent();
@@ -548,12 +556,12 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                     }
                     #region Grade
                     if (MB_Rolling_Chbx.Checked) {
-                        if (trackRollingGradeState >= 0 || trackRollingGradeState <= 14) {
-                            enrollStudent.Grade = GetStudentGradeText(trackRollingGradeState);
-                            if (trackRollingGradeState == 14) {
-                                trackRollingGradeState = 1;
+                        if (trackRollingGradeStateXLargeBldg >= 0 || trackRollingGradeStateXLargeBldg <= 14) {
+                            enrollStudent.Grade = GetStudentGradeText(trackRollingGradeStateXLargeBldg);
+                            if (trackRollingGradeStateXLargeBldg == 14) {
+                                trackRollingGradeStateXLargeBldg = 1;
                             } else {
-                                trackRollingGradeState++;
+                                trackRollingGradeStateXLargeBldg++;
                             }
                         } else {
                             enrollStudent.Grade = "In generating a grade name, the number was not between 1 and 14 for the db grade ID";
@@ -666,8 +674,11 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
 
         }
 
+
         #endregion
 
+        private void MB_MediumBldg_Min_NumOfSA_ValueChanged(object sender, EventArgs e) {
 
+        }
     }
 }

@@ -621,7 +621,7 @@
             this.MB_SmallBldg_Max_NumOfSA.Size = new System.Drawing.Size(128, 22);
             this.MB_SmallBldg_Max_NumOfSA.TabIndex = 9;
             this.MB_SmallBldg_Max_NumOfSA.Value = new decimal(new int[] {
-            100,
+            800,
             0,
             0,
             0});
@@ -727,7 +727,7 @@
             this.MB_MediumBldg_Max_NumOfSA.Size = new System.Drawing.Size(128, 22);
             this.MB_MediumBldg_Max_NumOfSA.TabIndex = 62;
             this.MB_MediumBldg_Max_NumOfSA.Value = new decimal(new int[] {
-            100,
+            1600,
             0,
             0,
             0});
@@ -758,10 +758,11 @@
             this.MB_MediumBldg_Min_NumOfSA.Size = new System.Drawing.Size(119, 22);
             this.MB_MediumBldg_Min_NumOfSA.TabIndex = 60;
             this.MB_MediumBldg_Min_NumOfSA.Value = new decimal(new int[] {
-            1,
+            801,
             0,
             0,
             0});
+            this.MB_MediumBldg_Min_NumOfSA.ValueChanged += new System.EventHandler(this.MB_MediumBldg_Min_NumOfSA_ValueChanged);
             // 
             // label33
             // 
@@ -789,7 +790,7 @@
             this.MB_LargeBldg_Max_NumOfSA.Size = new System.Drawing.Size(128, 22);
             this.MB_LargeBldg_Max_NumOfSA.TabIndex = 66;
             this.MB_LargeBldg_Max_NumOfSA.Value = new decimal(new int[] {
-            100,
+            3200,
             0,
             0,
             0});
@@ -820,7 +821,7 @@
             this.MB_LargeBldg_Min_NumOfSA.Size = new System.Drawing.Size(119, 22);
             this.MB_LargeBldg_Min_NumOfSA.TabIndex = 64;
             this.MB_LargeBldg_Min_NumOfSA.Value = new decimal(new int[] {
-            1,
+            1601,
             0,
             0,
             0});
@@ -851,7 +852,7 @@
             this.MB_XLargeBldg_Max_NumOfSA.Size = new System.Drawing.Size(128, 22);
             this.MB_XLargeBldg_Max_NumOfSA.TabIndex = 70;
             this.MB_XLargeBldg_Max_NumOfSA.Value = new decimal(new int[] {
-            100,
+            10000,
             0,
             0,
             0});
@@ -882,7 +883,7 @@
             this.MB_XLargeBldg_Min_NumOfSA.Size = new System.Drawing.Size(119, 22);
             this.MB_XLargeBldg_Min_NumOfSA.TabIndex = 68;
             this.MB_XLargeBldg_Min_NumOfSA.Value = new decimal(new int[] {
-            1,
+            3201,
             0,
             0,
             0});
