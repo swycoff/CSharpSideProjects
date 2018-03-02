@@ -185,6 +185,43 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                 randomize_grade_checkbox.Enabled = false;
             }
         }
+        private void MB_Rolling_Chbx_CheckedChanged(object sender, EventArgs e) {
+            if (MB_Rolling_Chbx.Checked) {
+                MB_Grade_ComboBox.Enabled = false;
+                MB_Grade_ComboBox.Text = "";
+                MB_RandomGradeCHBX.Checked = false;
+                MB_RandomGradeCHBX.Enabled = false;
+            } else {
+                MB_Grade_ComboBox.Enabled = true;
+                MB_RandomGradeCHBX.Enabled = true;
+            }
+        }
+
+        private void MB_RandomGradeCHBX_CheckedChanged(object sender, EventArgs e) {
+            if (MB_RandomGradeCHBX.Checked) {
+                MB_Grade_ComboBox.Enabled = false;
+                MB_Grade_ComboBox.Text = "";
+                MB_Rolling_Chbx.Checked = false;
+                MB_Rolling_Chbx.Enabled = false;
+            } else {
+                MB_Grade_ComboBox.Enabled = true;
+                MB_Rolling_Chbx.Enabled = true;
+            }
+
+        }
+
+        private void MB_Grade_ComboBox_SelectedIndexChanged(object sender, EventArgs e) {
+            //If we select an item in this list, we want to grey out the rolling checkbox and random grade checkbox
+            if (MB_Grade_ComboBox.SelectedIndex == 0) {
+                MB_Rolling_Chbx.Enabled = true;
+                MB_RandomGradeCHBX.Enabled = true;
+            } else {
+                MB_Rolling_Chbx.Enabled = false;
+                MB_RandomGradeCHBX.Enabled = false;
+            }
+        }
+
+
 
         private void GenerateBuildingData_Click(object sender, EventArgs e) {
             #region Take the file given and convert it to XML for easy parsing of different district sizes            
@@ -333,10 +370,12 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                 }
                 #endregion
             }
+            //Should be able to se the foreach (enrollStudent student in ..... med building just above this to continue to append lines for each building)
 
 
 
-            //Creates the file based on the file path and file name
+
+            //Creates the file based on the file path and file name (after all buildings and students are added to the list.
             File.AppendAllText(fullFillePathAndFileName, csvcontent.ToString());
 
         }
@@ -358,6 +397,8 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
             );
             return xml;
         }
+
+
 
         #region Unused Methods - designer freaks out if deleted
         private void label1_Click(object sender, EventArgs e) {
@@ -393,10 +434,24 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
         private void label13_Click(object sender, EventArgs e) {
 
         }
-        #endregion
-
         private void label30_Click(object sender, EventArgs e) {
 
         }
+
+        private void label39_Click(object sender, EventArgs e) {
+
+        }
+
+        private void label38_Click(object sender, EventArgs e) {
+
+        }
+
+        private void MB_AutoIncrementPW_CheckedChanged(object sender, EventArgs e) {
+
+        }
+
+        #endregion
+
+
     }
 }
