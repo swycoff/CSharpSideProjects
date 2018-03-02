@@ -439,6 +439,13 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                     studentsForCSVFileListMediumBuilding.Add(enrollStudent);
                 }
             }//Ends Foreach Building
+
+            //Adds Each Student To a line in string builder
+            foreach (EnrollStudent student in studentsForCSVFileListMediumBuilding) {
+                csvcontent.AppendLine(student.School_Id + "," + student.School_Name + "," + student.Sis_Id + "," +
+                    student.Last_Name + "," + student.First_Name + "," + student.Middle_Name + "," + student.Grade + "," +
+                    student.Username + "," + student.Password);
+            }
             #endregion
 
             #region LARGE BUILDINGS
@@ -503,6 +510,12 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                     studentsForCSVFileListLargeBuilding.Add(enrollStudent);
                 }
             }//Ends Foreach Building
+             //Adds Each Student To a line in string builder
+            foreach (EnrollStudent student in studentsForCSVFileListLargeBuilding) {
+                csvcontent.AppendLine(student.School_Id + "," + student.School_Name + "," + student.Sis_Id + "," +
+                    student.Last_Name + "," + student.First_Name + "," + student.Middle_Name + "," + student.Grade + "," +
+                    student.Username + "," + student.Password);
+            }
             #endregion
 
             #region XL BUILDINGS
@@ -567,6 +580,13 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                     studentsForCSVFileListXLargeBuilding.Add(enrollStudent);
                 }
             }//Ends Foreach Building
+
+            //Adds Each Student To a line in string builder
+            foreach (EnrollStudent student in studentsForCSVFileListXLargeBuilding) {
+                csvcontent.AppendLine(student.School_Id + "," + student.School_Name + "," + student.Sis_Id + "," +
+                    student.Last_Name + "," + student.First_Name + "," + student.Middle_Name + "," + student.Grade + "," +
+                    student.Username + "," + student.Password);
+            }
             #endregion
             #endregion  Build Student Object                          
             #endregion Actions on Building Data
