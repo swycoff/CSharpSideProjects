@@ -30,6 +30,7 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
         StringBuilder csvcontent;
         EnrollFaculty enrollFaculty;
 
+
         public Form1() {
             InitializeComponent();
         }
@@ -908,6 +909,19 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
             } else {
                 MessageBox.Show("Please select a checkbox to generate a student file or faculty file");
                 return false;
+            }
+        }
+
+        private void MB_GenerateRosterFile_BTN_Click(object sender, EventArgs e) {
+            string facultyFilePathName = MB_EnrollCSVOutputPath.Text + MB_EnrollCSVFacultyOutputFileName.Text;
+            string studentFilePathName = MB_EnrollCSVOutputPath.Text + MB_EnrollCSVStudentOutputFileName.Text;
+            if (File.Exists(facultyFilePathName) && File.Exists(studentFilePathName)) {
+
+                //Read the XML file and build a roster object, then write it to its own Roster.CSV file
+                
+            } else {
+                //figure out error prompting for user                
+                return;
             }
         }
     }
