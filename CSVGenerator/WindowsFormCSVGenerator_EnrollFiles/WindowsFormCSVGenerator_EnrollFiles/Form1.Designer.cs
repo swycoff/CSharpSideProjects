@@ -54,81 +54,92 @@
             this.auto_increment_password_checkbox = new System.Windows.Forms.CheckBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.MB_GenerateFacultyFileCHBX = new System.Windows.Forms.CheckBox();
+            this.MB_GenerateStudentFileCHBX = new System.Windows.Forms.CheckBox();
+            this.generate_building_data = new System.Windows.Forms.Button();
+            this.MB_FacultyHeader = new System.Windows.Forms.TextBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.MB_Email = new System.Windows.Forms.TextBox();
+            this.label = new System.Windows.Forms.Label();
             this.MB_AutoIncrementPW = new System.Windows.Forms.CheckBox();
             this.label19 = new System.Windows.Forms.Label();
             this.MB_RandomGradeCHBX = new System.Windows.Forms.CheckBox();
             this.MB_Rolling_Chbx = new System.Windows.Forms.CheckBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.MB_FileHeaderLine = new System.Windows.Forms.TextBox();
-            this.MB_EnrollCSVOutputFileName = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.MB_EnrollCSVOutputPath = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
+            this.MB_MiddleName = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.MB_sisIDText = new System.Windows.Forms.TextBox();
+            this.MB_LastName = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.MB_FirstName = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.MB_Grade_ComboBox = new System.Windows.Forms.ComboBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.MB_Username = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.MB_Password = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
             this.MB_output_xml_path = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.generate_building_data = new System.Windows.Forms.Button();
-            this.MB_SmallBldg_Max_NumOfSA = new System.Windows.Forms.NumericUpDown();
-            this.label18 = new System.Windows.Forms.Label();
-            this.MB_SmallBldg_Min_NumOfSA = new System.Windows.Forms.NumericUpDown();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.MB_buildingCsvFilePath = new System.Windows.Forms.TextBox();
             this.csv_building_filePath = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.MB_MediumBldg_Max_NumOfSA = new System.Windows.Forms.NumericUpDown();
-            this.label32 = new System.Windows.Forms.Label();
-            this.MB_MediumBldg_Min_NumOfSA = new System.Windows.Forms.NumericUpDown();
-            this.label33 = new System.Windows.Forms.Label();
-            this.MB_LargeBldg_Max_NumOfSA = new System.Windows.Forms.NumericUpDown();
-            this.label34 = new System.Windows.Forms.Label();
-            this.MB_LargeBldg_Min_NumOfSA = new System.Windows.Forms.NumericUpDown();
-            this.label35 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.MB_XLargeBldg_Max_NumOfSA = new System.Windows.Forms.NumericUpDown();
             this.label36 = new System.Windows.Forms.Label();
             this.MB_XLargeBldg_Min_NumOfSA = new System.Windows.Forms.NumericUpDown();
             this.label37 = new System.Windows.Forms.Label();
+            this.MB_LargeBldg_Max_NumOfSA = new System.Windows.Forms.NumericUpDown();
+            this.label34 = new System.Windows.Forms.Label();
+            this.MB_LargeBldg_Min_NumOfSA = new System.Windows.Forms.NumericUpDown();
+            this.label35 = new System.Windows.Forms.Label();
+            this.MB_MediumBldg_Max_NumOfSA = new System.Windows.Forms.NumericUpDown();
+            this.label32 = new System.Windows.Forms.Label();
+            this.MB_MediumBldg_Min_NumOfSA = new System.Windows.Forms.NumericUpDown();
+            this.label33 = new System.Windows.Forms.Label();
+            this.MB_SmallBldg_Max_NumOfSA = new System.Windows.Forms.NumericUpDown();
+            this.label18 = new System.Windows.Forms.Label();
+            this.MB_SmallBldg_Min_NumOfSA = new System.Windows.Forms.NumericUpDown();
+            this.label17 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.MB_Username = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.MB_Grade_ComboBox = new System.Windows.Forms.ComboBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.MB_FirstName = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.MB_LastName = new System.Windows.Forms.TextBox();
-            this.MB_sisIDText = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.MB_MiddleName = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.MB_StudentFileHeader = new System.Windows.Forms.TextBox();
+            this.MB_EnrollCSVStudentOutputFileName = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.MB_EnrollCSVOutputPath = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.MB_EnrollCSVFacultyOutputFileName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.studentsToGenerateNumber)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MB_SmallBldg_Max_NumOfSA)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MB_SmallBldg_Min_NumOfSA)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MB_MediumBldg_Max_NumOfSA)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MB_MediumBldg_Min_NumOfSA)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MB_LargeBldg_Max_NumOfSA)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MB_LargeBldg_Min_NumOfSA)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MB_XLargeBldg_Max_NumOfSA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MB_XLargeBldg_Min_NumOfSA)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MB_LargeBldg_Max_NumOfSA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MB_LargeBldg_Min_NumOfSA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MB_MediumBldg_Max_NumOfSA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MB_MediumBldg_Min_NumOfSA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MB_SmallBldg_Max_NumOfSA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MB_SmallBldg_Min_NumOfSA)).BeginInit();
             this.SuspendLayout();
             // 
             // generateCVSButton
@@ -445,19 +456,83 @@
             this.tabPage1.Text = "Single Building Form";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(32, 641);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(309, 17);
+            this.label11.TabIndex = 51;
+            this.label11.Text = "What Are The Valid Headers For Each Column?";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(32, 574);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(359, 17);
+            this.label40.TabIndex = 48;
+            this.label40.Text = "What Do You Want Your File Called: (don\'t forget .csv)?";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(30, 518);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(356, 17);
+            this.label38.TabIndex = 46;
+            this.label38.Text = "Where Do You Want Your Finished File Generated To?";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.auto_increment_password_checkbox);
+            this.groupBox4.Controls.Add(this.school_name_text);
+            this.groupBox4.Controls.Add(this.label12);
+            this.groupBox4.Controls.Add(this.label1);
+            this.groupBox4.Controls.Add(this.randomize_grade_checkbox);
+            this.groupBox4.Controls.Add(this.school_id_text);
+            this.groupBox4.Controls.Add(this.rolling_grade_checkbox);
+            this.groupBox4.Controls.Add(this.label2);
+            this.groupBox4.Controls.Add(this.middle_name_text);
+            this.groupBox4.Controls.Add(this.label3);
+            this.groupBox4.Controls.Add(this.labelmn);
+            this.groupBox4.Controls.Add(this.sis_id_student_text);
+            this.groupBox4.Controls.Add(this.last_name_text);
+            this.groupBox4.Controls.Add(this.label4);
+            this.groupBox4.Controls.Add(this.label5);
+            this.groupBox4.Controls.Add(this.first_name_text);
+            this.groupBox4.Controls.Add(this.label6);
+            this.groupBox4.Controls.Add(this.grade_combo_box);
+            this.groupBox4.Controls.Add(this.label7);
+            this.groupBox4.Controls.Add(this.studentsToGenerateNumber);
+            this.groupBox4.Controls.Add(this.username_text);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.password_text);
+            this.groupBox4.Location = new System.Drawing.Point(17, 62);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(810, 415);
+            this.groupBox4.TabIndex = 33;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Student Data:";
+            // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.MB_EnrollCSVFacultyOutputFileName);
+            this.tabPage2.Controls.Add(this.label43);
+            this.tabPage2.Controls.Add(this.groupBox5);
+            this.tabPage2.Controls.Add(this.MB_FacultyHeader);
+            this.tabPage2.Controls.Add(this.label41);
             this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.label39);
             this.tabPage2.Controls.Add(this.label22);
-            this.tabPage2.Controls.Add(this.MB_FileHeaderLine);
-            this.tabPage2.Controls.Add(this.MB_EnrollCSVOutputFileName);
+            this.tabPage2.Controls.Add(this.MB_StudentFileHeader);
+            this.tabPage2.Controls.Add(this.MB_EnrollCSVStudentOutputFileName);
             this.tabPage2.Controls.Add(this.label25);
             this.tabPage2.Controls.Add(this.MB_EnrollCSVOutputPath);
             this.tabPage2.Controls.Add(this.label27);
-            this.tabPage2.Controls.Add(this.generate_building_data);
             this.tabPage2.Controls.Add(this.label14);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
@@ -467,10 +542,127 @@
             this.tabPage2.Text = "Multi Building Form";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.label42);
+            this.groupBox5.Controls.Add(this.MB_GenerateFacultyFileCHBX);
+            this.groupBox5.Controls.Add(this.MB_GenerateStudentFileCHBX);
+            this.groupBox5.Controls.Add(this.generate_building_data);
+            this.groupBox5.Location = new System.Drawing.Point(834, 593);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(226, 174);
+            this.groupBox5.TabIndex = 82;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "File Type To Generate";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.Location = new System.Drawing.Point(14, 54);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(34, 20);
+            this.label42.TabIndex = 81;
+            this.label42.Text = "OR";
+            // 
+            // MB_GenerateFacultyFileCHBX
+            // 
+            this.MB_GenerateFacultyFileCHBX.AutoSize = true;
+            this.MB_GenerateFacultyFileCHBX.Location = new System.Drawing.Point(19, 82);
+            this.MB_GenerateFacultyFileCHBX.Name = "MB_GenerateFacultyFileCHBX";
+            this.MB_GenerateFacultyFileCHBX.Size = new System.Drawing.Size(165, 21);
+            this.MB_GenerateFacultyFileCHBX.TabIndex = 80;
+            this.MB_GenerateFacultyFileCHBX.Text = "Generate Faculty File";
+            this.MB_GenerateFacultyFileCHBX.UseVisualStyleBackColor = true;
+            this.MB_GenerateFacultyFileCHBX.CheckedChanged += new System.EventHandler(this.MB_GenerateFacultyFileCHBX_CheckedChanged);
+            // 
+            // MB_GenerateStudentFileCHBX
+            // 
+            this.MB_GenerateStudentFileCHBX.AutoSize = true;
+            this.MB_GenerateStudentFileCHBX.Location = new System.Drawing.Point(18, 27);
+            this.MB_GenerateStudentFileCHBX.Name = "MB_GenerateStudentFileCHBX";
+            this.MB_GenerateStudentFileCHBX.Size = new System.Drawing.Size(169, 21);
+            this.MB_GenerateStudentFileCHBX.TabIndex = 79;
+            this.MB_GenerateStudentFileCHBX.Text = "Generate Student File";
+            this.MB_GenerateStudentFileCHBX.UseVisualStyleBackColor = true;
+            this.MB_GenerateStudentFileCHBX.CheckedChanged += new System.EventHandler(this.MB_GenerateStudentFileCHBX_CheckedChanged);
+            // 
+            // generate_building_data
+            // 
+            this.generate_building_data.Location = new System.Drawing.Point(15, 115);
+            this.generate_building_data.Name = "generate_building_data";
+            this.generate_building_data.Size = new System.Drawing.Size(191, 43);
+            this.generate_building_data.TabIndex = 10;
+            this.generate_building_data.Text = "Generate Data Files";
+            this.generate_building_data.UseVisualStyleBackColor = true;
+            this.generate_building_data.Click += new System.EventHandler(this.GenerateBuildingData_Click);
+            // 
+            // MB_FacultyHeader
+            // 
+            this.MB_FacultyHeader.Location = new System.Drawing.Point(175, 685);
+            this.MB_FacultyHeader.Name = "MB_FacultyHeader";
+            this.MB_FacultyHeader.Size = new System.Drawing.Size(596, 22);
+            this.MB_FacultyHeader.TabIndex = 78;
+            this.MB_FacultyHeader.Text = "school_id,school_name,sis_id,last_name,first_name,email,username,password";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(17, 690);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(137, 17);
+            this.label41.TabIndex = 77;
+            this.label41.Text = "Faculty File Headers";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.MB_Email);
+            this.groupBox3.Controls.Add(this.label);
+            this.groupBox3.Controls.Add(this.MB_AutoIncrementPW);
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.MB_RandomGradeCHBX);
+            this.groupBox3.Controls.Add(this.MB_Rolling_Chbx);
+            this.groupBox3.Controls.Add(this.MB_MiddleName);
+            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.label21);
+            this.groupBox3.Controls.Add(this.MB_sisIDText);
+            this.groupBox3.Controls.Add(this.MB_LastName);
+            this.groupBox3.Controls.Add(this.label23);
+            this.groupBox3.Controls.Add(this.label24);
+            this.groupBox3.Controls.Add(this.MB_FirstName);
+            this.groupBox3.Controls.Add(this.label26);
+            this.groupBox3.Controls.Add(this.MB_Grade_ComboBox);
+            this.groupBox3.Controls.Add(this.label28);
+            this.groupBox3.Controls.Add(this.MB_Username);
+            this.groupBox3.Controls.Add(this.label29);
+            this.groupBox3.Controls.Add(this.MB_Password);
+            this.groupBox3.Location = new System.Drawing.Point(493, 234);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(847, 350);
+            this.groupBox3.TabIndex = 76;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "User Data";
+            // 
+            // MB_Email
+            // 
+            this.MB_Email.Location = new System.Drawing.Point(187, 297);
+            this.MB_Email.Name = "MB_Email";
+            this.MB_Email.Size = new System.Drawing.Size(232, 22);
+            this.MB_Email.TabIndex = 58;
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Location = new System.Drawing.Point(19, 297);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(114, 17);
+            this.label.TabIndex = 57;
+            this.label.Text = "email (FA ONLY)";
+            // 
             // MB_AutoIncrementPW
             // 
             this.MB_AutoIncrementPW.AutoSize = true;
-            this.MB_AutoIncrementPW.Location = new System.Drawing.Point(403, 255);
+            this.MB_AutoIncrementPW.Location = new System.Drawing.Point(443, 255);
             this.MB_AutoIncrementPW.Name = "MB_AutoIncrementPW";
             this.MB_AutoIncrementPW.Size = new System.Drawing.Size(190, 21);
             this.MB_AutoIncrementPW.TabIndex = 56;
@@ -481,7 +673,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(609, 150);
+            this.label19.Location = new System.Drawing.Point(649, 150);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(125, 17);
             this.label19.TabIndex = 55;
@@ -490,7 +682,7 @@
             // MB_RandomGradeCHBX
             // 
             this.MB_RandomGradeCHBX.AutoSize = true;
-            this.MB_RandomGradeCHBX.Location = new System.Drawing.Point(609, 173);
+            this.MB_RandomGradeCHBX.Location = new System.Drawing.Point(649, 173);
             this.MB_RandomGradeCHBX.Name = "MB_RandomGradeCHBX";
             this.MB_RandomGradeCHBX.Size = new System.Drawing.Size(152, 21);
             this.MB_RandomGradeCHBX.TabIndex = 54;
@@ -501,7 +693,7 @@
             // MB_Rolling_Chbx
             // 
             this.MB_Rolling_Chbx.AutoSize = true;
-            this.MB_Rolling_Chbx.Location = new System.Drawing.Point(403, 175);
+            this.MB_Rolling_Chbx.Location = new System.Drawing.Point(443, 175);
             this.MB_Rolling_Chbx.Name = "MB_Rolling_Chbx";
             this.MB_Rolling_Chbx.Size = new System.Drawing.Size(200, 21);
             this.MB_Rolling_Chbx.TabIndex = 53;
@@ -509,57 +701,119 @@
             this.MB_Rolling_Chbx.UseVisualStyleBackColor = true;
             this.MB_Rolling_Chbx.CheckedChanged += new System.EventHandler(this.MB_Rolling_Chbx_CheckedChanged);
             // 
-            // label22
+            // MB_MiddleName
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(35, 668);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(309, 17);
-            this.label22.TabIndex = 50;
-            this.label22.Text = "What Are The Valid Headers For Each Column?";
+            this.MB_MiddleName.Location = new System.Drawing.Point(187, 139);
+            this.MB_MiddleName.Name = "MB_MiddleName";
+            this.MB_MiddleName.Size = new System.Drawing.Size(233, 22);
+            this.MB_MiddleName.TabIndex = 52;
             // 
-            // MB_FileHeaderLine
+            // label20
             // 
-            this.MB_FileHeaderLine.Location = new System.Drawing.Point(36, 699);
-            this.MB_FileHeaderLine.Name = "MB_FileHeaderLine";
-            this.MB_FileHeaderLine.Size = new System.Drawing.Size(596, 22);
-            this.MB_FileHeaderLine.TabIndex = 49;
-            this.MB_FileHeaderLine.Text = "school_id,school_name,sis_id,last_name,first_name,middle_name,grade,username,pass" +
-    "word";
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(19, 25);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(44, 17);
+            this.label20.TabIndex = 33;
+            this.label20.Text = "sis_id";
             // 
-            // MB_EnrollCSVOutputFileName
+            // label21
             // 
-            this.MB_EnrollCSVOutputFileName.Location = new System.Drawing.Point(36, 633);
-            this.MB_EnrollCSVOutputFileName.Name = "MB_EnrollCSVOutputFileName";
-            this.MB_EnrollCSVOutputFileName.Size = new System.Drawing.Size(511, 22);
-            this.MB_EnrollCSVOutputFileName.TabIndex = 48;
-            this.MB_EnrollCSVOutputFileName.Text = "\\testStudentFile1.csv";
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(18, 139);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(166, 17);
+            this.label21.TabIndex = 51;
+            this.label21.Text = "middle_name (SA ONLY)";
             // 
-            // label25
+            // MB_sisIDText
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(35, 603);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(359, 17);
-            this.label25.TabIndex = 47;
-            this.label25.Text = "What Do You Want Your File Called: (don\'t forget .csv)?";
+            this.MB_sisIDText.Location = new System.Drawing.Point(187, 25);
+            this.MB_sisIDText.Name = "MB_sisIDText";
+            this.MB_sisIDText.Size = new System.Drawing.Size(232, 22);
+            this.MB_sisIDText.TabIndex = 34;
             // 
-            // MB_EnrollCSVOutputPath
+            // MB_LastName
             // 
-            this.MB_EnrollCSVOutputPath.Location = new System.Drawing.Point(36, 569);
-            this.MB_EnrollCSVOutputPath.Name = "MB_EnrollCSVOutputPath";
-            this.MB_EnrollCSVOutputPath.Size = new System.Drawing.Size(511, 22);
-            this.MB_EnrollCSVOutputPath.TabIndex = 46;
-            this.MB_EnrollCSVOutputPath.Text = "C:\\\\temp";
+            this.MB_LastName.Location = new System.Drawing.Point(187, 63);
+            this.MB_LastName.Name = "MB_LastName";
+            this.MB_LastName.Size = new System.Drawing.Size(232, 22);
+            this.MB_LastName.TabIndex = 36;
             // 
-            // label27
+            // label23
             // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(35, 549);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(356, 17);
-            this.label27.TabIndex = 45;
-            this.label27.Text = "Where Do You Want Your Finished File Generated To?";
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(18, 69);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(73, 17);
+            this.label23.TabIndex = 35;
+            this.label23.Text = "last_name";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(18, 105);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(74, 17);
+            this.label24.TabIndex = 37;
+            this.label24.Text = "first_name";
+            // 
+            // MB_FirstName
+            // 
+            this.MB_FirstName.Location = new System.Drawing.Point(187, 105);
+            this.MB_FirstName.Name = "MB_FirstName";
+            this.MB_FirstName.Size = new System.Drawing.Size(232, 22);
+            this.MB_FirstName.TabIndex = 38;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(18, 182);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(119, 17);
+            this.label26.TabIndex = 39;
+            this.label26.Text = "grade (SA ONLY)";
+            // 
+            // MB_Grade_ComboBox
+            // 
+            this.MB_Grade_ComboBox.FormattingEnabled = true;
+            this.MB_Grade_ComboBox.Items.AddRange(new object[] {
+            "Use Random Or Rolling Instead",
+            "Prek",
+            "K",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.MB_Grade_ComboBox.Location = new System.Drawing.Point(188, 173);
+            this.MB_Grade_ComboBox.Name = "MB_Grade_ComboBox";
+            this.MB_Grade_ComboBox.Size = new System.Drawing.Size(232, 24);
+            this.MB_Grade_ComboBox.TabIndex = 40;
+            this.MB_Grade_ComboBox.SelectedIndexChanged += new System.EventHandler(this.MB_Grade_ComboBox_SelectedIndexChanged);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(18, 220);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(71, 17);
+            this.label28.TabIndex = 41;
+            this.label28.Text = "username";
+            // 
+            // MB_Username
+            // 
+            this.MB_Username.Location = new System.Drawing.Point(188, 220);
+            this.MB_Username.Name = "MB_Username";
+            this.MB_Username.Size = new System.Drawing.Size(232, 22);
+            this.MB_Username.TabIndex = 42;
             // 
             // label29
             // 
@@ -572,10 +826,47 @@
             // 
             // MB_Password
             // 
-            this.MB_Password.Location = new System.Drawing.Point(148, 260);
+            this.MB_Password.Location = new System.Drawing.Point(188, 260);
             this.MB_Password.Name = "MB_Password";
             this.MB_Password.Size = new System.Drawing.Size(232, 22);
             this.MB_Password.TabIndex = 44;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label31);
+            this.groupBox2.Controls.Add(this.label30);
+            this.groupBox2.Controls.Add(this.MB_output_xml_path);
+            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.MB_buildingCsvFilePath);
+            this.groupBox2.Controls.Add(this.csv_building_filePath);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Location = new System.Drawing.Point(20, 41);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(873, 177);
+            this.groupBox2.TabIndex = 75;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "SETUP Building Data File Location";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(198, 138);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(553, 17);
+            this.label31.TabIndex = 14;
+            this.label31.Text = "This can be the same directory as your building data.  The program generates this" +
+    " file.";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(198, 48);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(535, 17);
+            this.label30.TabIndex = 13;
+            this.label30.Text = "**Your computers location of the building CSV file with the proper headers and da" +
+    "ta.";
             // 
             // MB_output_xml_path
             // 
@@ -594,97 +885,6 @@
             this.label15.TabIndex = 11;
             this.label15.Text = "Output XML Path";
             // 
-            // generate_building_data
-            // 
-            this.generate_building_data.Location = new System.Drawing.Point(525, 745);
-            this.generate_building_data.Name = "generate_building_data";
-            this.generate_building_data.Size = new System.Drawing.Size(246, 43);
-            this.generate_building_data.TabIndex = 10;
-            this.generate_building_data.Text = "Generate Building Data";
-            this.generate_building_data.UseVisualStyleBackColor = true;
-            this.generate_building_data.Click += new System.EventHandler(this.GenerateBuildingData_Click);
-            // 
-            // MB_SmallBldg_Max_NumOfSA
-            // 
-            this.MB_SmallBldg_Max_NumOfSA.Location = new System.Drawing.Point(302, 42);
-            this.MB_SmallBldg_Max_NumOfSA.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.MB_SmallBldg_Max_NumOfSA.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.MB_SmallBldg_Max_NumOfSA.Name = "MB_SmallBldg_Max_NumOfSA";
-            this.MB_SmallBldg_Max_NumOfSA.Size = new System.Drawing.Size(128, 22);
-            this.MB_SmallBldg_Max_NumOfSA.TabIndex = 9;
-            this.MB_SmallBldg_Max_NumOfSA.Value = new decimal(new int[] {
-            800,
-            0,
-            0,
-            0});
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(261, 45);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(32, 17);
-            this.label18.TabIndex = 8;
-            this.label18.Text = "and";
-            // 
-            // MB_SmallBldg_Min_NumOfSA
-            // 
-            this.MB_SmallBldg_Min_NumOfSA.Location = new System.Drawing.Point(132, 43);
-            this.MB_SmallBldg_Min_NumOfSA.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.MB_SmallBldg_Min_NumOfSA.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.MB_SmallBldg_Min_NumOfSA.Name = "MB_SmallBldg_Min_NumOfSA";
-            this.MB_SmallBldg_Min_NumOfSA.Size = new System.Drawing.Size(119, 22);
-            this.MB_SmallBldg_Min_NumOfSA.TabIndex = 7;
-            this.MB_SmallBldg_Min_NumOfSA.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(11, 45);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(100, 17);
-            this.label17.TabIndex = 6;
-            this.label17.Text = "Small Building:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(198, 88);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(434, 17);
-            this.label16.TabIndex = 5;
-            this.label16.Text = "Size Values = 1-4 value  1=small, 2=medium, 3=large, 4=extra-large";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(197, 68);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(371, 17);
-            this.label13.TabIndex = 4;
-            this.label13.Text = "Valid column_headers = \"size\" \"school_id\" \"school_name\"";
-            this.label13.Click += new System.EventHandler(this.label13_Click);
-            // 
             // MB_buildingCsvFilePath
             // 
             this.MB_buildingCsvFilePath.Location = new System.Drawing.Point(201, 23);
@@ -702,13 +902,173 @@
             this.csv_building_filePath.TabIndex = 2;
             this.csv_building_filePath.Text = "Building Data CSV File Path";
             // 
-            // label14
+            // label13
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(281, 32);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(0, 17);
-            this.label14.TabIndex = 1;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(197, 68);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(371, 17);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "Valid column_headers = \"size\" \"school_id\" \"school_name\"";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(198, 88);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(434, 17);
+            this.label16.TabIndex = 5;
+            this.label16.Text = "Size Values = 1-4 value  1=small, 2=medium, 3=large, 4=extra-large";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.MB_XLargeBldg_Max_NumOfSA);
+            this.groupBox1.Controls.Add(this.label36);
+            this.groupBox1.Controls.Add(this.MB_XLargeBldg_Min_NumOfSA);
+            this.groupBox1.Controls.Add(this.label37);
+            this.groupBox1.Controls.Add(this.MB_LargeBldg_Max_NumOfSA);
+            this.groupBox1.Controls.Add(this.label34);
+            this.groupBox1.Controls.Add(this.MB_LargeBldg_Min_NumOfSA);
+            this.groupBox1.Controls.Add(this.label35);
+            this.groupBox1.Controls.Add(this.MB_MediumBldg_Max_NumOfSA);
+            this.groupBox1.Controls.Add(this.label32);
+            this.groupBox1.Controls.Add(this.MB_MediumBldg_Min_NumOfSA);
+            this.groupBox1.Controls.Add(this.label33);
+            this.groupBox1.Controls.Add(this.MB_SmallBldg_Max_NumOfSA);
+            this.groupBox1.Controls.Add(this.label18);
+            this.groupBox1.Controls.Add(this.MB_SmallBldg_Min_NumOfSA);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Location = new System.Drawing.Point(22, 234);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(465, 181);
+            this.groupBox1.TabIndex = 74;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "SET Random Number of Users To Create Per Building";
+            // 
+            // MB_XLargeBldg_Max_NumOfSA
+            // 
+            this.MB_XLargeBldg_Max_NumOfSA.Location = new System.Drawing.Point(301, 144);
+            this.MB_XLargeBldg_Max_NumOfSA.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.MB_XLargeBldg_Max_NumOfSA.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.MB_XLargeBldg_Max_NumOfSA.Name = "MB_XLargeBldg_Max_NumOfSA";
+            this.MB_XLargeBldg_Max_NumOfSA.Size = new System.Drawing.Size(128, 22);
+            this.MB_XLargeBldg_Max_NumOfSA.TabIndex = 70;
+            this.MB_XLargeBldg_Max_NumOfSA.Value = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(260, 147);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(32, 17);
+            this.label36.TabIndex = 69;
+            this.label36.Text = "and";
+            // 
+            // MB_XLargeBldg_Min_NumOfSA
+            // 
+            this.MB_XLargeBldg_Min_NumOfSA.Location = new System.Drawing.Point(131, 145);
+            this.MB_XLargeBldg_Min_NumOfSA.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.MB_XLargeBldg_Min_NumOfSA.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.MB_XLargeBldg_Min_NumOfSA.Name = "MB_XLargeBldg_Min_NumOfSA";
+            this.MB_XLargeBldg_Min_NumOfSA.Size = new System.Drawing.Size(119, 22);
+            this.MB_XLargeBldg_Min_NumOfSA.TabIndex = 68;
+            this.MB_XLargeBldg_Min_NumOfSA.Value = new decimal(new int[] {
+            3201,
+            0,
+            0,
+            0});
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(11, 147);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(112, 17);
+            this.label37.TabIndex = 67;
+            this.label37.Text = "XLarge Building:";
+            // 
+            // MB_LargeBldg_Max_NumOfSA
+            // 
+            this.MB_LargeBldg_Max_NumOfSA.Location = new System.Drawing.Point(301, 111);
+            this.MB_LargeBldg_Max_NumOfSA.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.MB_LargeBldg_Max_NumOfSA.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.MB_LargeBldg_Max_NumOfSA.Name = "MB_LargeBldg_Max_NumOfSA";
+            this.MB_LargeBldg_Max_NumOfSA.Size = new System.Drawing.Size(128, 22);
+            this.MB_LargeBldg_Max_NumOfSA.TabIndex = 66;
+            this.MB_LargeBldg_Max_NumOfSA.Value = new decimal(new int[] {
+            3200,
+            0,
+            0,
+            0});
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(260, 114);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(32, 17);
+            this.label34.TabIndex = 65;
+            this.label34.Text = "and";
+            // 
+            // MB_LargeBldg_Min_NumOfSA
+            // 
+            this.MB_LargeBldg_Min_NumOfSA.Location = new System.Drawing.Point(131, 112);
+            this.MB_LargeBldg_Min_NumOfSA.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.MB_LargeBldg_Min_NumOfSA.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.MB_LargeBldg_Min_NumOfSA.Name = "MB_LargeBldg_Min_NumOfSA";
+            this.MB_LargeBldg_Min_NumOfSA.Size = new System.Drawing.Size(119, 22);
+            this.MB_LargeBldg_Min_NumOfSA.TabIndex = 64;
+            this.MB_LargeBldg_Min_NumOfSA.Value = new decimal(new int[] {
+            1601,
+            0,
+            0,
+            0});
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(11, 114);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(103, 17);
+            this.label35.TabIndex = 63;
+            this.label35.Text = "Large Building:";
             // 
             // MB_MediumBldg_Max_NumOfSA
             // 
@@ -773,129 +1133,67 @@
             this.label33.TabIndex = 59;
             this.label33.Text = "Medium Building:";
             // 
-            // MB_LargeBldg_Max_NumOfSA
+            // MB_SmallBldg_Max_NumOfSA
             // 
-            this.MB_LargeBldg_Max_NumOfSA.Location = new System.Drawing.Point(301, 111);
-            this.MB_LargeBldg_Max_NumOfSA.Maximum = new decimal(new int[] {
+            this.MB_SmallBldg_Max_NumOfSA.Location = new System.Drawing.Point(302, 42);
+            this.MB_SmallBldg_Max_NumOfSA.Maximum = new decimal(new int[] {
             1000000,
             0,
             0,
             0});
-            this.MB_LargeBldg_Max_NumOfSA.Minimum = new decimal(new int[] {
+            this.MB_SmallBldg_Max_NumOfSA.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.MB_LargeBldg_Max_NumOfSA.Name = "MB_LargeBldg_Max_NumOfSA";
-            this.MB_LargeBldg_Max_NumOfSA.Size = new System.Drawing.Size(128, 22);
-            this.MB_LargeBldg_Max_NumOfSA.TabIndex = 66;
-            this.MB_LargeBldg_Max_NumOfSA.Value = new decimal(new int[] {
-            3200,
+            this.MB_SmallBldg_Max_NumOfSA.Name = "MB_SmallBldg_Max_NumOfSA";
+            this.MB_SmallBldg_Max_NumOfSA.Size = new System.Drawing.Size(128, 22);
+            this.MB_SmallBldg_Max_NumOfSA.TabIndex = 9;
+            this.MB_SmallBldg_Max_NumOfSA.Value = new decimal(new int[] {
+            800,
             0,
             0,
             0});
             // 
-            // label34
+            // label18
             // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(260, 114);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(32, 17);
-            this.label34.TabIndex = 65;
-            this.label34.Text = "and";
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(261, 45);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(32, 17);
+            this.label18.TabIndex = 8;
+            this.label18.Text = "and";
             // 
-            // MB_LargeBldg_Min_NumOfSA
+            // MB_SmallBldg_Min_NumOfSA
             // 
-            this.MB_LargeBldg_Min_NumOfSA.Location = new System.Drawing.Point(131, 112);
-            this.MB_LargeBldg_Min_NumOfSA.Maximum = new decimal(new int[] {
+            this.MB_SmallBldg_Min_NumOfSA.Location = new System.Drawing.Point(132, 43);
+            this.MB_SmallBldg_Min_NumOfSA.Maximum = new decimal(new int[] {
             1000000,
             0,
             0,
             0});
-            this.MB_LargeBldg_Min_NumOfSA.Minimum = new decimal(new int[] {
+            this.MB_SmallBldg_Min_NumOfSA.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.MB_LargeBldg_Min_NumOfSA.Name = "MB_LargeBldg_Min_NumOfSA";
-            this.MB_LargeBldg_Min_NumOfSA.Size = new System.Drawing.Size(119, 22);
-            this.MB_LargeBldg_Min_NumOfSA.TabIndex = 64;
-            this.MB_LargeBldg_Min_NumOfSA.Value = new decimal(new int[] {
-            1601,
-            0,
-            0,
-            0});
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(11, 114);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(103, 17);
-            this.label35.TabIndex = 63;
-            this.label35.Text = "Large Building:";
-            // 
-            // MB_XLargeBldg_Max_NumOfSA
-            // 
-            this.MB_XLargeBldg_Max_NumOfSA.Location = new System.Drawing.Point(301, 144);
-            this.MB_XLargeBldg_Max_NumOfSA.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.MB_XLargeBldg_Max_NumOfSA.Minimum = new decimal(new int[] {
+            this.MB_SmallBldg_Min_NumOfSA.Name = "MB_SmallBldg_Min_NumOfSA";
+            this.MB_SmallBldg_Min_NumOfSA.Size = new System.Drawing.Size(119, 22);
+            this.MB_SmallBldg_Min_NumOfSA.TabIndex = 7;
+            this.MB_SmallBldg_Min_NumOfSA.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.MB_XLargeBldg_Max_NumOfSA.Name = "MB_XLargeBldg_Max_NumOfSA";
-            this.MB_XLargeBldg_Max_NumOfSA.Size = new System.Drawing.Size(128, 22);
-            this.MB_XLargeBldg_Max_NumOfSA.TabIndex = 70;
-            this.MB_XLargeBldg_Max_NumOfSA.Value = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
             // 
-            // label36
+            // label17
             // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(260, 147);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(32, 17);
-            this.label36.TabIndex = 69;
-            this.label36.Text = "and";
-            // 
-            // MB_XLargeBldg_Min_NumOfSA
-            // 
-            this.MB_XLargeBldg_Min_NumOfSA.Location = new System.Drawing.Point(131, 145);
-            this.MB_XLargeBldg_Min_NumOfSA.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.MB_XLargeBldg_Min_NumOfSA.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.MB_XLargeBldg_Min_NumOfSA.Name = "MB_XLargeBldg_Min_NumOfSA";
-            this.MB_XLargeBldg_Min_NumOfSA.Size = new System.Drawing.Size(119, 22);
-            this.MB_XLargeBldg_Min_NumOfSA.TabIndex = 68;
-            this.MB_XLargeBldg_Min_NumOfSA.Value = new decimal(new int[] {
-            3201,
-            0,
-            0,
-            0});
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(11, 147);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(112, 17);
-            this.label37.TabIndex = 67;
-            this.label37.Text = "XLarge Building:";
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(11, 45);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(100, 17);
+            this.label17.TabIndex = 6;
+            this.label17.Text = "Small Building:";
             // 
             // label39
             // 
@@ -908,274 +1206,90 @@
             this.label39.Text = "Multiple Building Form";
             this.label39.Click += new System.EventHandler(this.label39_Click);
             // 
-            // groupBox1
+            // label22
             // 
-            this.groupBox1.Controls.Add(this.MB_XLargeBldg_Max_NumOfSA);
-            this.groupBox1.Controls.Add(this.label36);
-            this.groupBox1.Controls.Add(this.MB_XLargeBldg_Min_NumOfSA);
-            this.groupBox1.Controls.Add(this.label37);
-            this.groupBox1.Controls.Add(this.MB_LargeBldg_Max_NumOfSA);
-            this.groupBox1.Controls.Add(this.label34);
-            this.groupBox1.Controls.Add(this.MB_LargeBldg_Min_NumOfSA);
-            this.groupBox1.Controls.Add(this.label35);
-            this.groupBox1.Controls.Add(this.MB_MediumBldg_Max_NumOfSA);
-            this.groupBox1.Controls.Add(this.label32);
-            this.groupBox1.Controls.Add(this.MB_MediumBldg_Min_NumOfSA);
-            this.groupBox1.Controls.Add(this.label33);
-            this.groupBox1.Controls.Add(this.MB_SmallBldg_Max_NumOfSA);
-            this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.MB_SmallBldg_Min_NumOfSA);
-            this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Location = new System.Drawing.Point(22, 234);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(465, 181);
-            this.groupBox1.TabIndex = 74;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "SET Random Number of Students To Create Per Building";
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(17, 650);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(141, 17);
+            this.label22.TabIndex = 50;
+            this.label22.Text = "Student File Headers";
+            this.label22.Click += new System.EventHandler(this.label22_Click);
             // 
-            // groupBox2
+            // MB_StudentFileHeader
             // 
-            this.groupBox2.Controls.Add(this.label31);
-            this.groupBox2.Controls.Add(this.label30);
-            this.groupBox2.Controls.Add(this.MB_output_xml_path);
-            this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.MB_buildingCsvFilePath);
-            this.groupBox2.Controls.Add(this.csv_building_filePath);
-            this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Location = new System.Drawing.Point(20, 41);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(873, 177);
-            this.groupBox2.TabIndex = 75;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "SETUP Building Data File Location";
+            this.MB_StudentFileHeader.Location = new System.Drawing.Point(175, 645);
+            this.MB_StudentFileHeader.Name = "MB_StudentFileHeader";
+            this.MB_StudentFileHeader.Size = new System.Drawing.Size(596, 22);
+            this.MB_StudentFileHeader.TabIndex = 49;
+            this.MB_StudentFileHeader.Text = "school_id,school_name,sis_id,last_name,first_name,middle_name,grade,username,pass" +
+    "word";
             // 
-            // label30
+            // MB_EnrollCSVStudentOutputFileName
             // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(198, 48);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(535, 17);
-            this.label30.TabIndex = 13;
-            this.label30.Text = "**Your computers location of the building CSV file with the proper headers and da" +
-    "ta.";
+            this.MB_EnrollCSVStudentOutputFileName.Location = new System.Drawing.Point(20, 526);
+            this.MB_EnrollCSVStudentOutputFileName.Name = "MB_EnrollCSVStudentOutputFileName";
+            this.MB_EnrollCSVStudentOutputFileName.Size = new System.Drawing.Size(453, 22);
+            this.MB_EnrollCSVStudentOutputFileName.TabIndex = 48;
+            this.MB_EnrollCSVStudentOutputFileName.Text = "\\Students.csv";
+            this.MB_EnrollCSVStudentOutputFileName.TextChanged += new System.EventHandler(this.MB_EnrollCSVOutputFileName_TextChanged);
             // 
-            // MB_Username
+            // label25
             // 
-            this.MB_Username.Location = new System.Drawing.Point(148, 220);
-            this.MB_Username.Name = "MB_Username";
-            this.MB_Username.Size = new System.Drawing.Size(232, 22);
-            this.MB_Username.TabIndex = 42;
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(19, 499);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(412, 17);
+            this.label25.TabIndex = 47;
+            this.label25.Text = "What Do You Want Your Student File Called: (don\'t forget .csv)?";
             // 
-            // label28
+            // MB_EnrollCSVOutputPath
             // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(18, 220);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(71, 17);
-            this.label28.TabIndex = 41;
-            this.label28.Text = "username";
+            this.MB_EnrollCSVOutputPath.Location = new System.Drawing.Point(22, 467);
+            this.MB_EnrollCSVOutputPath.Name = "MB_EnrollCSVOutputPath";
+            this.MB_EnrollCSVOutputPath.Size = new System.Drawing.Size(451, 22);
+            this.MB_EnrollCSVOutputPath.TabIndex = 46;
+            this.MB_EnrollCSVOutputPath.Text = "C:\\\\temp";
             // 
-            // MB_Grade_ComboBox
+            // label27
             // 
-            this.MB_Grade_ComboBox.FormattingEnabled = true;
-            this.MB_Grade_ComboBox.Items.AddRange(new object[] {
-            "Use Random Or Rolling Instead",
-            "Prek",
-            "K",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
-            this.MB_Grade_ComboBox.Location = new System.Drawing.Point(148, 173);
-            this.MB_Grade_ComboBox.Name = "MB_Grade_ComboBox";
-            this.MB_Grade_ComboBox.Size = new System.Drawing.Size(232, 24);
-            this.MB_Grade_ComboBox.TabIndex = 40;
-            this.MB_Grade_ComboBox.SelectedIndexChanged += new System.EventHandler(this.MB_Grade_ComboBox_SelectedIndexChanged);
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(19, 436);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(356, 17);
+            this.label27.TabIndex = 45;
+            this.label27.Text = "Where Do You Want Your Finished File Generated To?";
             // 
-            // label26
+            // label14
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(18, 182);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(45, 17);
-            this.label26.TabIndex = 39;
-            this.label26.Text = "grade";
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(281, 32);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(0, 17);
+            this.label14.TabIndex = 1;
             // 
-            // MB_FirstName
+            // label43
             // 
-            this.MB_FirstName.Location = new System.Drawing.Point(147, 105);
-            this.MB_FirstName.Name = "MB_FirstName";
-            this.MB_FirstName.Size = new System.Drawing.Size(232, 22);
-            this.MB_FirstName.TabIndex = 38;
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(19, 567);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(408, 17);
+            this.label43.TabIndex = 83;
+            this.label43.Text = "What Do You Want Your Faculty File Called: (don\'t forget .csv)?";
             // 
-            // label24
+            // MB_EnrollCSVFacultyOutputFileName
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(18, 105);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(74, 17);
-            this.label24.TabIndex = 37;
-            this.label24.Text = "first_name";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(18, 69);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(73, 17);
-            this.label23.TabIndex = 35;
-            this.label23.Text = "last_name";
-            // 
-            // MB_LastName
-            // 
-            this.MB_LastName.Location = new System.Drawing.Point(147, 63);
-            this.MB_LastName.Name = "MB_LastName";
-            this.MB_LastName.Size = new System.Drawing.Size(232, 22);
-            this.MB_LastName.TabIndex = 36;
-            // 
-            // MB_sisIDText
-            // 
-            this.MB_sisIDText.Location = new System.Drawing.Point(147, 25);
-            this.MB_sisIDText.Name = "MB_sisIDText";
-            this.MB_sisIDText.Size = new System.Drawing.Size(232, 22);
-            this.MB_sisIDText.TabIndex = 34;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(18, 139);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(92, 17);
-            this.label21.TabIndex = 51;
-            this.label21.Text = "middle_name";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(19, 25);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(44, 17);
-            this.label20.TabIndex = 33;
-            this.label20.Text = "sis_id";
-            // 
-            // MB_MiddleName
-            // 
-            this.MB_MiddleName.Location = new System.Drawing.Point(147, 139);
-            this.MB_MiddleName.Name = "MB_MiddleName";
-            this.MB_MiddleName.Size = new System.Drawing.Size(233, 22);
-            this.MB_MiddleName.TabIndex = 52;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.MB_AutoIncrementPW);
-            this.groupBox3.Controls.Add(this.label19);
-            this.groupBox3.Controls.Add(this.MB_RandomGradeCHBX);
-            this.groupBox3.Controls.Add(this.MB_Rolling_Chbx);
-            this.groupBox3.Controls.Add(this.MB_MiddleName);
-            this.groupBox3.Controls.Add(this.label20);
-            this.groupBox3.Controls.Add(this.label21);
-            this.groupBox3.Controls.Add(this.MB_sisIDText);
-            this.groupBox3.Controls.Add(this.MB_LastName);
-            this.groupBox3.Controls.Add(this.label23);
-            this.groupBox3.Controls.Add(this.label24);
-            this.groupBox3.Controls.Add(this.MB_FirstName);
-            this.groupBox3.Controls.Add(this.label26);
-            this.groupBox3.Controls.Add(this.MB_Grade_ComboBox);
-            this.groupBox3.Controls.Add(this.label28);
-            this.groupBox3.Controls.Add(this.MB_Username);
-            this.groupBox3.Controls.Add(this.label29);
-            this.groupBox3.Controls.Add(this.MB_Password);
-            this.groupBox3.Location = new System.Drawing.Point(502, 234);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(783, 304);
-            this.groupBox3.TabIndex = 76;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Student Data";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(198, 138);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(553, 17);
-            this.label31.TabIndex = 14;
-            this.label31.Text = "This can be the same directory as your building data.  The program generates this" +
-    " file.";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.auto_increment_password_checkbox);
-            this.groupBox4.Controls.Add(this.school_name_text);
-            this.groupBox4.Controls.Add(this.label12);
-            this.groupBox4.Controls.Add(this.label1);
-            this.groupBox4.Controls.Add(this.randomize_grade_checkbox);
-            this.groupBox4.Controls.Add(this.school_id_text);
-            this.groupBox4.Controls.Add(this.rolling_grade_checkbox);
-            this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Controls.Add(this.middle_name_text);
-            this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Controls.Add(this.labelmn);
-            this.groupBox4.Controls.Add(this.sis_id_student_text);
-            this.groupBox4.Controls.Add(this.last_name_text);
-            this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Controls.Add(this.first_name_text);
-            this.groupBox4.Controls.Add(this.label6);
-            this.groupBox4.Controls.Add(this.grade_combo_box);
-            this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Controls.Add(this.studentsToGenerateNumber);
-            this.groupBox4.Controls.Add(this.username_text);
-            this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Controls.Add(this.password_text);
-            this.groupBox4.Location = new System.Drawing.Point(17, 62);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(810, 415);
-            this.groupBox4.TabIndex = 33;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Student Data:";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(30, 518);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(356, 17);
-            this.label38.TabIndex = 46;
-            this.label38.Text = "Where Do You Want Your Finished File Generated To?";
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(32, 574);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(359, 17);
-            this.label40.TabIndex = 48;
-            this.label40.Text = "What Do You Want Your File Called: (don\'t forget .csv)?";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(32, 641);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(309, 17);
-            this.label11.TabIndex = 51;
-            this.label11.Text = "What Are The Valid Headers For Each Column?";
+            this.MB_EnrollCSVFacultyOutputFileName.Location = new System.Drawing.Point(20, 593);
+            this.MB_EnrollCSVFacultyOutputFileName.Name = "MB_EnrollCSVFacultyOutputFileName";
+            this.MB_EnrollCSVFacultyOutputFileName.Size = new System.Drawing.Size(453, 22);
+            this.MB_EnrollCSVFacultyOutputFileName.TabIndex = 84;
+            this.MB_EnrollCSVFacultyOutputFileName.Text = "\\faculty.csv";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 863);
+            this.ClientSize = new System.Drawing.Size(1671, 1067);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -1183,24 +1297,26 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MB_SmallBldg_Max_NumOfSA)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MB_SmallBldg_Min_NumOfSA)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MB_MediumBldg_Max_NumOfSA)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MB_MediumBldg_Min_NumOfSA)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MB_LargeBldg_Max_NumOfSA)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MB_LargeBldg_Min_NumOfSA)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MB_XLargeBldg_Max_NumOfSA)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MB_XLargeBldg_Min_NumOfSA)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MB_XLargeBldg_Max_NumOfSA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MB_XLargeBldg_Min_NumOfSA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MB_LargeBldg_Max_NumOfSA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MB_LargeBldg_Min_NumOfSA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MB_MediumBldg_Max_NumOfSA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MB_MediumBldg_Min_NumOfSA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MB_SmallBldg_Max_NumOfSA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MB_SmallBldg_Min_NumOfSA)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1255,8 +1371,8 @@
         private System.Windows.Forms.CheckBox MB_RandomGradeCHBX;
         private System.Windows.Forms.CheckBox MB_Rolling_Chbx;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox MB_FileHeaderLine;
-        private System.Windows.Forms.TextBox MB_EnrollCSVOutputFileName;
+        private System.Windows.Forms.TextBox MB_StudentFileHeader;
+        private System.Windows.Forms.TextBox MB_EnrollCSVStudentOutputFileName;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox MB_EnrollCSVOutputPath;
         private System.Windows.Forms.Label label27;
@@ -1296,6 +1412,16 @@
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TextBox MB_FacultyHeader;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.TextBox MB_Email;
+        private System.Windows.Forms.Label label;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.CheckBox MB_GenerateFacultyFileCHBX;
+        private System.Windows.Forms.CheckBox MB_GenerateStudentFileCHBX;
+        private System.Windows.Forms.TextBox MB_EnrollCSVFacultyOutputFileName;
+        private System.Windows.Forms.Label label43;
     }
 }
 
