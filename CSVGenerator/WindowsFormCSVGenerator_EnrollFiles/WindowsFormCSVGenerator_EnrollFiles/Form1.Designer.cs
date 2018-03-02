@@ -94,6 +94,7 @@
             this.MB_buildingCsvFilePath = new System.Windows.Forms.TextBox();
             this.csv_building_filePath = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.studentsToGenerateNumber)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -470,6 +471,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label30);
             this.tabPage2.Controls.Add(this.MB_AutoIncrementPW);
             this.tabPage2.Controls.Add(this.label19);
             this.tabPage2.Controls.Add(this.MB_RandomGradeCHBX);
@@ -753,7 +755,7 @@
             // 
             // generate_building_data
             // 
-            this.generate_building_data.Location = new System.Drawing.Point(963, 297);
+            this.generate_building_data.Location = new System.Drawing.Point(583, 403);
             this.generate_building_data.Name = "generate_building_data";
             this.generate_building_data.Size = new System.Drawing.Size(246, 43);
             this.generate_building_data.TabIndex = 10;
@@ -867,6 +869,17 @@
             this.label14.Size = new System.Drawing.Size(0, 17);
             this.label14.TabIndex = 1;
             // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(666, 176);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(223, 18);
+            this.label30.TabIndex = 57;
+            this.label30.Text = "TO CREATE PER BUILDING";
+            this.label30.Click += new System.EventHandler(this.label30_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -959,6 +972,7 @@
         private System.Windows.Forms.TextBox MB_Username;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox MB_Password;
+        private System.Windows.Forms.Label label30;
     }
 }
 

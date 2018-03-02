@@ -279,7 +279,7 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                         enrollStudent.School_Name = enrollBuilding.School_Name;
                     }
                     if (MB_sisIDText.Text != "") {
-                        enrollStudent.Sis_Id = sis_id_student_text.Text + i;
+                        enrollStudent.Sis_Id = MB_sisIDText.Text + i;
                     }
                     if (MB_LastName.Text != "") {
                         enrollStudent.Last_Name = MB_LastName.Text + i;
@@ -394,5 +394,9 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
 
         }
         #endregion
+
+        private void label30_Click(object sender, EventArgs e) {
+
+        }
     }
 }
