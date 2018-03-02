@@ -65,7 +65,7 @@
             this.MB_MiddleName = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.MB_sisID = new System.Windows.Forms.TextBox();
+            this.MB_sisIDText = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.MB_LastName = new System.Windows.Forms.TextBox();
             this.MB_FileHeaderLine = new System.Windows.Forms.TextBox();
@@ -477,7 +477,7 @@
             this.tabPage2.Controls.Add(this.MB_MiddleName);
             this.tabPage2.Controls.Add(this.label20);
             this.tabPage2.Controls.Add(this.label21);
-            this.tabPage2.Controls.Add(this.MB_sisID);
+            this.tabPage2.Controls.Add(this.MB_sisIDText);
             this.tabPage2.Controls.Add(this.label22);
             this.tabPage2.Controls.Add(this.MB_LastName);
             this.tabPage2.Controls.Add(this.MB_FileHeaderLine);
@@ -578,12 +578,12 @@
             this.label21.TabIndex = 51;
             this.label21.Text = "middle_name";
             // 
-            // MB_sisID
+            // MB_sisIDText
             // 
-            this.MB_sisID.Location = new System.Drawing.Point(163, 375);
-            this.MB_sisID.Name = "MB_sisID";
-            this.MB_sisID.Size = new System.Drawing.Size(232, 22);
-            this.MB_sisID.TabIndex = 34;
+            this.MB_sisIDText.Location = new System.Drawing.Point(163, 375);
+            this.MB_sisIDText.Name = "MB_sisIDText";
+            this.MB_sisIDText.Size = new System.Drawing.Size(232, 22);
+            this.MB_sisIDText.TabIndex = 34;
             // 
             // label22
             // 
@@ -764,9 +764,24 @@
             // MB_SmallBldg_Max_NumOfSA
             // 
             this.MB_SmallBldg_Max_NumOfSA.Location = new System.Drawing.Point(557, 174);
+            this.MB_SmallBldg_Max_NumOfSA.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.MB_SmallBldg_Max_NumOfSA.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.MB_SmallBldg_Max_NumOfSA.Name = "MB_SmallBldg_Max_NumOfSA";
             this.MB_SmallBldg_Max_NumOfSA.Size = new System.Drawing.Size(93, 22);
             this.MB_SmallBldg_Max_NumOfSA.TabIndex = 9;
+            this.MB_SmallBldg_Max_NumOfSA.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // label18
             // 
@@ -927,7 +942,7 @@
         private System.Windows.Forms.TextBox MB_MiddleName;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox MB_sisID;
+        private System.Windows.Forms.TextBox MB_sisIDText;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox MB_LastName;
         private System.Windows.Forms.TextBox MB_FileHeaderLine;

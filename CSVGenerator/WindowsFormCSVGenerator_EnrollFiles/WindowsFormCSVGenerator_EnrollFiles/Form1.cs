@@ -278,7 +278,7 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                     if (enrollBuilding.School_Name != "") {
                         enrollStudent.School_Name = enrollBuilding.School_Name;
                     }
-                    if (MB_sisID.Text != "") {
+                    if (MB_sisIDText.Text != "") {
                         enrollStudent.Sis_Id = sis_id_student_text.Text + i;
                     }
                     if (MB_LastName.Text != "") {
