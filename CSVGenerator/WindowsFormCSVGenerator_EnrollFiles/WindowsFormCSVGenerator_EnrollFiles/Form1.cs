@@ -34,7 +34,8 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
         string buildingXMLFileName = "\\BuildingXMLData.xml";
         string studentXMLFileName = "\\StudentCSVData.xml";
         string facultyXMLFileName = "\\FacultyCSVData.xml";
-
+        int trackingStudentRollingID= 0;
+        int trackingFacultyRollingID = 0;
 
         public Form1() {
             InitializeComponent();
@@ -59,6 +60,7 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
             #region  Build The Student Object From The Form
             studentsForCSVFileListSmallBuilding = new List<EnrollStudent>();
             int trackRollingGradeState = 1;
+            
             for(int i = 0; i < studentsToGenerateNumber.Value; i++) {
                 enrollStudent = new EnrollStudent();
                 if (school_id_text.Text != "") {
@@ -68,16 +70,16 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                     enrollStudent.School_Name = school_name_text.Text;
                 }
                 if (sis_id_student_text.Text != "") {
-                    enrollStudent.Sis_Id = sis_id_student_text.Text + i;
+                    enrollStudent.Sis_Id = sis_id_student_text.Text + trackingStudentRollingID;
                 }
                 if (last_name_text.Text != "") {
-                    enrollStudent.Last_Name = last_name_text.Text + i;
+                    enrollStudent.Last_Name = last_name_text.Text + trackingStudentRollingID;
                 }
                 if (first_name_text.Text != "") {
-                    enrollStudent.First_Name = first_name_text.Text + i;
+                    enrollStudent.First_Name = first_name_text.Text + trackingStudentRollingID;
                 }
                 if(middle_name_text.Text != "") {
-                    enrollStudent.Middle_Name = middle_name_text.Text + i;
+                    enrollStudent.Middle_Name = middle_name_text.Text + trackingStudentRollingID;
                 }
                 #region Grade
                 if (rolling_grade_checkbox.Checked) {
@@ -101,16 +103,17 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                 #endregion
 
                 if (username_text.Text != "") {
-                    enrollStudent.Username = username_text.Text + i;
+                    enrollStudent.Username = username_text.Text + trackingStudentRollingID;
                 }
                 if (password_text.Text != "") {
                     if (auto_increment_password_checkbox.Checked) {
-                        enrollStudent.Password = password_text.Text + i;
+                        enrollStudent.Password = password_text.Text + trackingStudentRollingID;
                     } else {
                         enrollStudent.Password = password_text.Text;
                     }                    
                 }
                 studentsForCSVFileListSmallBuilding.Add(enrollStudent);
+                trackingStudentRollingID++;
             }
             #endregion
 
@@ -200,6 +203,7 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                 randomize_grade_checkbox.Enabled = false;
             }
         }
+
         private void MB_Rolling_Chbx_CheckedChanged(object sender, EventArgs e) {
             if (MB_Rolling_Chbx.Checked) {
                 MB_Grade_ComboBox.Enabled = false;
@@ -235,8 +239,6 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                 MB_RandomGradeCHBX.Enabled = false;
             }
         }
-
-
 
         private void GenerateBuildingData_Click(object sender, EventArgs e) {
             #region Take the file given and convert it to XML for easy parsing of different district sizes            
@@ -402,7 +404,7 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                 #endregion
             }
             if (MB_GenerateStudentFileCHBX.Checked) {
-                MessageBox.Show("File Was Created");
+                MessageBox.Show("Student File Was Created");
             } else if (MB_GenerateFacultyFileCHBX.Checked){
                 MessageBox.Show("Faculty File Was Created");
             }
@@ -491,16 +493,16 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                         enrollStudent.School_Name = enrollBuilding.School_Name;
                     }
                     if (MB_sisIDText.Text != "") {
-                        enrollStudent.Sis_Id = MB_sisIDText.Text + i;
+                        enrollStudent.Sis_Id = MB_sisIDText.Text + trackingStudentRollingID;
                     }
                     if (MB_LastName.Text != "") {
-                        enrollStudent.Last_Name = MB_LastName.Text + i;
+                        enrollStudent.Last_Name = MB_LastName.Text + trackingStudentRollingID;
                     }
                     if (MB_FirstName.Text != "") {
-                        enrollStudent.First_Name = MB_FirstName.Text + i;
+                        enrollStudent.First_Name = MB_FirstName.Text + trackingStudentRollingID;
                     }
                     if (MB_MiddleName.Text != "") {
-                        enrollStudent.Middle_Name = MB_MiddleName.Text + i;
+                        enrollStudent.Middle_Name = MB_MiddleName.Text + trackingStudentRollingID;
                     }
                     #region Grade
                     if (MB_Rolling_Chbx.Checked) {
@@ -524,17 +526,17 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                     #endregion
 
                     if (MB_Username.Text != "") {
-                        enrollStudent.Username = MB_Username.Text + i;
+                        enrollStudent.Username = MB_Username.Text + trackingStudentRollingID;
                     }
                     if (MB_Password.Text != "") {
                         if (MB_AutoIncrementPW.Checked) {
-                            enrollStudent.Password = MB_Password.Text + i;
+                            enrollStudent.Password = MB_Password.Text + trackingStudentRollingID;
                         } else {
                             enrollStudent.Password = MB_Password.Text;
                         }
                     }
                     ListOfStudents.Add(enrollStudent);
-
+                    trackingStudentRollingID++;
                 }
             }//Ends Foreach           
 
@@ -564,29 +566,29 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                         enrollFaculty.School_Name = enrollBuilding.School_Name;
                     }
                     if (MB_sisIDText.Text != "") {
-                        enrollFaculty.Sis_Id = MB_sisIDText.Text + i;
+                        enrollFaculty.Sis_Id = MB_sisIDText.Text + trackingFacultyRollingID;
                     }
                     if (MB_LastName.Text != "") {
-                        enrollFaculty.Last_Name = MB_LastName.Text + i;
+                        enrollFaculty.Last_Name = MB_LastName.Text + trackingFacultyRollingID;
                     }
                     if (MB_FirstName.Text != "") {
-                        enrollFaculty.First_Name = MB_FirstName.Text + i;
+                        enrollFaculty.First_Name = MB_FirstName.Text + trackingFacultyRollingID;
                     }
                     if (MB_Email.Text != "") {
-                        enrollFaculty.Email = MB_Email.Text + i;
+                        enrollFaculty.Email = MB_Email.Text + trackingFacultyRollingID;
                     }
                     if (MB_Username.Text != "") {
-                        enrollFaculty.Username = MB_Username.Text + i;
+                        enrollFaculty.Username = MB_Username.Text + trackingFacultyRollingID;
                     }
                     if (MB_Password.Text != "") {
                         if (MB_AutoIncrementPW.Checked) {
-                            enrollFaculty.Password = MB_Password.Text + i;
+                            enrollFaculty.Password = MB_Password.Text + trackingFacultyRollingID;
                         } else {
                             enrollFaculty.Password = MB_Password.Text;
                         }
                     }
                     ListOfFaculty.Add(enrollFaculty);
-
+                    trackingFacultyRollingID++;
                 }//Ends For
             }//Ends Foreach           
 
@@ -739,21 +741,32 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                 }
 
                 int i = 0;
-                while(shortFaculty >0) {
+                trackingFacultyRollingID = rosterCount-1;
+                while (shortFaculty >0) {
                     //continues where faculty need to be filled in
-                    //User must specify FA username if they want one that isn't numbers for filling in the roster.
-                    enrollRosterList[rosterCount].Faculty_SISID = MB_Username.Text + i;
+                    //User must specify FA username if they want one that isn't numbers for filling in the roster.                   
+                    enrollRosterList[rosterCount].Faculty_SISID = MB_Username.Text + trackingFacultyRollingID;
                     rosterCount++;
+                    trackingFacultyRollingID++;
                     shortFaculty--;
                     i++;
                 }
             }
                 StringBuilder csvcontentRoster = new StringBuilder();
 
+            //adds header info to the csv content
+            csvcontentRoster.AppendLine(MB_rosterFileHeaders.Text);
             //Now we need to add the XML to the string builder so we can write the file
             //Adds Each Student To a line in string builder
+            int j = 1;
             foreach (EnrollRoster rosterLine in enrollRosterList) {
-                csvcontentRoster.AppendLine(rosterLine.Student_SISID + "," + rosterLine.Faculty_SISID);
+                if (j != 1) {
+                    csvcontentRoster.AppendLine(rosterLine.Student_SISID + "," + rosterLine.Faculty_SISID);
+                } else {
+                    //skips the sis_id headers row
+                }
+                j++;
+
             }
             File.AppendAllText(rosterOutputFilePathName, csvcontentRoster.ToString());
             MessageBox.Show("Roster File Was Created");
