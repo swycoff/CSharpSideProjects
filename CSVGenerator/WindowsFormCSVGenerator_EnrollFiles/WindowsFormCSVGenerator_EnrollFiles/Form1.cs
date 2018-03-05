@@ -29,6 +29,11 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
         List<EnrollBuilding> extraLargeBuildingsList;
         StringBuilder csvcontent;
         EnrollFaculty enrollFaculty;
+        List<EnrollRoster> enrollRosterList;
+        EnrollRoster enrollRoster;
+        string buildingXMLFileName = "\\BuildingXMLData.xml";
+        string studentXMLFileName = "\\StudentCSVData.xml";
+        string facultyXMLFileName = "\\FacultyCSVData.xml";
 
 
         public Form1() {
@@ -237,14 +242,14 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
             #region Take the file given and convert it to XML for easy parsing of different district sizes            
             string[] lines = File.ReadAllLines(MB_buildingCsvFilePath.Text);
             XElement xml = buildingDataCSVStructure(lines);
-            xml.Save(MB_output_xml_path.Text);
+            xml.Save(MB_output_xml_path.Text + buildingXMLFileName);
             #endregion
 
             #region Takes XML, parses into elements of XML that allows us to build a list of what we need
             // Xpath loads the XML document into a list of objects we can enumerate over
             XElement xelement;
             IEnumerable<XElement> enrollBuildingsInXML;
-            xelement = XElement.Load(MB_output_xml_path.Text);
+            xelement = XElement.Load(MB_output_xml_path.Text + buildingXMLFileName);
             enrollBuildingsInXML = xelement.Elements();
 
             #region List of building objects to hold XML data sorted by size           
@@ -315,7 +320,7 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
             csvcontent = new StringBuilder();
             #endregion
 
-            #region Builds Header Information Into StringBuilder (csvcontent)
+            #region Builds Header Information Into StringBuilder (csvcontent) 
             ////Builds Header Information Based on File Header Text Feild
                 if (MB_GenerateStudentFileCHBX.Checked) {
                     csvcontent.AppendLine(MB_StudentFileHeader.Text);                    
@@ -336,77 +341,6 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                 facultyForCSVFileListSmallBuilding = GenerateListOfEnrollFacultyWithBldgData(smallBuildingsList, 
                     smallBuildingMinRange, smallBuildingMaxRange);
             }
-
-            //int trackRollingGradeStateSmallBldg = 1;
-            //studentsForCSVFileListSmallBuilding = new List<EnrollStudent>();
-            //foreach (EnrollBuilding enrollBuilding in smallBuildingsList) {
-            //    rnd = new Random();
-            //    int smallBuildingMinRange = Convert.ToInt32(MB_SmallBldg_Min_NumOfSA.Value);
-            //    int smallBuildingMaxRange = Convert.ToInt32(MB_SmallBldg_Max_NumOfSA.Value + 1);
-            //    int numberOfStudentsToGenerateForThisBldg = rnd.Next(smallBuildingMinRange, smallBuildingMaxRange);
-            //    System.Threading.Thread.Sleep(50);
-
-            //    for (int i = 0; i < numberOfStudentsToGenerateForThisBldg; i++) {
-            //        enrollStudent = new EnrollStudent();
-            //        if (enrollBuilding.School_Id != "") {
-            //            enrollStudent.School_Id = enrollBuilding.School_Id;
-            //        }
-            //        if (enrollBuilding.School_Name != "") {
-            //            enrollStudent.School_Name = enrollBuilding.School_Name;
-            //        }
-            //        if (MB_sisIDText.Text != "") {
-            //            enrollStudent.Sis_Id = MB_sisIDText.Text + i;
-            //        }
-            //        if (MB_LastName.Text != "") {
-            //            enrollStudent.Last_Name = MB_LastName.Text + i;
-            //        }
-            //        if (MB_FirstName.Text != "") {
-            //            enrollStudent.First_Name = MB_FirstName.Text + i;
-            //        }
-            //        if (MB_MiddleName.Text != "") {
-            //            enrollStudent.Middle_Name = MB_MiddleName.Text + i;
-            //        }
-            //        #region Grade
-            //        if (MB_Rolling_Chbx.Checked) {
-            //            if (trackRollingGradeStateSmallBldg >= 0 || trackRollingGradeStateSmallBldg <= 14) {
-            //                enrollStudent.Grade = GetStudentGradeText(trackRollingGradeStateSmallBldg);
-            //                if (trackRollingGradeStateSmallBldg == 14) {
-            //                    trackRollingGradeStateSmallBldg = 1;
-            //                } else {
-            //                    trackRollingGradeStateSmallBldg++;
-            //                }
-            //            } else {
-            //                enrollStudent.Grade = "In generating a grade name, the number was not between 1 and 14 for the db grade ID";
-            //            }
-            //        } else if (MB_RandomGradeCHBX.Checked) {
-            //            rnd = new Random();
-            //            enrollStudent.Grade = GetStudentGradeText(rnd.Next(1, 15));
-            //            System.Threading.Thread.Sleep(5);
-            //        } else {
-            //            enrollStudent.Grade = MB_Grade_ComboBox.Text;
-            //        }
-            //        #endregion
-
-            //        if (MB_Username.Text != "") {
-            //            enrollStudent.Username = MB_Username.Text + i;
-            //        }
-            //        if (MB_Password.Text != "") {
-            //            if (MB_AutoIncrementPW.Checked) {
-            //                enrollStudent.Password = MB_Password.Text + i;
-            //            } else {
-            //                enrollStudent.Password = MB_Password.Text;
-            //            }
-            //        }
-            //        studentsForCSVFileListSmallBuilding.Add(enrollStudent);
-            //    }
-            //}//Ends Foreach
-
-            //    //Adds Each Student To a line in string builder
-            //    foreach (EnrollStudent student in studentsForCSVFileListSmallBuilding) {
-            //        csvcontent.AppendLine(student.School_Id + "," + student.School_Name + "," + student.Sis_Id + "," +
-            //            student.Last_Name + "," + student.First_Name + "," + student.Middle_Name + "," + student.Grade + "," +
-            //            student.Username + "," + student.Password);
-            //    }
             #endregion
 
             #region MEDIUM BUILDINGS     
@@ -419,77 +353,6 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                 facultyForCSVFileListMediumBuilding = GenerateListOfEnrollFacultyWithBldgData(mediumBuildingsList,
                  medBuildingMinRange, medBuildingMaxRange);
             }
-
-            //int trackRollingGradeStateMedBldg = 1;
-            //studentsForCSVFileListMediumBuilding = new List<EnrollStudent>();
-            //foreach (EnrollBuilding enrollBuildingMed in mediumBuildingsList) {
-            //    rnd = new Random();
-            //    int medBuildingMinRange = Convert.ToInt32(MB_MediumBldg_Min_NumOfSA.Value);
-            //    int medBuildingMaxRange = Convert.ToInt32(MB_MediumBldg_Min_NumOfSA.Value + 1);
-            //    int numberOfStudentsToGenerateForThisMediumBldg = rnd.Next(medBuildingMinRange, medBuildingMaxRange);
-            //    System.Threading.Thread.Sleep(100);
-
-            //    for (int i = 0; i < numberOfStudentsToGenerateForThisMediumBldg; i++) {
-            //        enrollStudent = new EnrollStudent();
-            //        if (enrollBuildingMed.School_Id != "") {
-            //            enrollStudent.School_Id = enrollBuildingMed.School_Id;
-            //        }
-            //        if (enrollBuildingMed.School_Name != "") {
-            //            enrollStudent.School_Name = enrollBuildingMed.School_Name;
-            //        }
-            //        if (MB_sisIDText.Text != "") {
-            //            enrollStudent.Sis_Id = MB_sisIDText.Text + i;
-            //        }
-            //        if (MB_LastName.Text != "") {
-            //            enrollStudent.Last_Name = MB_LastName.Text + i;
-            //        }
-            //        if (MB_FirstName.Text != "") {
-            //            enrollStudent.First_Name = MB_FirstName.Text + i;
-            //        }
-            //        if (MB_MiddleName.Text != "") {
-            //            enrollStudent.Middle_Name = MB_MiddleName.Text + i;
-            //        }
-            //        #region Grade
-            //        if (MB_Rolling_Chbx.Checked) {
-            //            if (trackRollingGradeStateMedBldg >= 0 || trackRollingGradeStateMedBldg <= 14) {
-            //                enrollStudent.Grade = GetStudentGradeText(trackRollingGradeStateMedBldg);
-            //                if (trackRollingGradeStateMedBldg == 14) {
-            //                    trackRollingGradeStateMedBldg = 1;
-            //                } else {
-            //                    trackRollingGradeStateMedBldg++;
-            //                }
-            //            } else {
-            //                enrollStudent.Grade = "In generating a grade name, the number was not between 1 and 14 for the db grade ID";
-            //            }
-            //        } else if (MB_RandomGradeCHBX.Checked) {
-            //            rnd = new Random();
-            //            enrollStudent.Grade = GetStudentGradeText(rnd.Next(1, 15));
-            //            System.Threading.Thread.Sleep(5);
-            //        } else {
-            //            enrollStudent.Grade = MB_Grade_ComboBox.Text;
-            //        }
-            //        #endregion
-
-            //        if (MB_Username.Text != "") {
-            //            enrollStudent.Username = MB_Username.Text + i;
-            //        }
-            //        if (MB_Password.Text != "") {
-            //            if (MB_AutoIncrementPW.Checked) {
-            //                enrollStudent.Password = MB_Password.Text + i;
-            //            } else {
-            //                enrollStudent.Password = MB_Password.Text;
-            //            }
-            //        }
-            //        studentsForCSVFileListMediumBuilding.Add(enrollStudent);
-            //    }
-            //}//Ends Foreach Building
-
-            ////Adds Each Student To a line in string builder
-            //foreach (EnrollStudent student in studentsForCSVFileListMediumBuilding) {
-            //    csvcontent.AppendLine(student.School_Id + "," + student.School_Name + "," + student.Sis_Id + "," +
-            //        student.Last_Name + "," + student.First_Name + "," + student.Middle_Name + "," + student.Grade + "," +
-            //        student.Username + "," + student.Password);
-            //}
             #endregion
 
             #region LARGE BUILDINGS
@@ -502,76 +365,7 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                 facultyForCSVFileListLargeBuilding = GenerateListOfEnrollFacultyWithBldgData(largeBuildingsList,
                     largeBuildingMinRange, largeBuildingMaxRange);
 
-            }
-            //int trackRollingGradeStateLargeBldg = 1;
-            //studentsForCSVFileListLargeBuilding = new List<EnrollStudent>();
-            //foreach (EnrollBuilding enrollBuildingLarge in largeBuildingsList) {
-            //    rnd = new Random();
-            //    int largeBuildingMinRange = Convert.ToInt32(MB_LargeBldg_Min_NumOfSA.Value);
-            //    int largeBuildingMaxRange = Convert.ToInt32(MB_LargeBldg_Max_NumOfSA.Value + 1);
-            //    int numberOfStudentsToGenerateForThisLargeBldg = rnd.Next(largeBuildingMinRange, largeBuildingMaxRange);
-            //    System.Threading.Thread.Sleep(50);
-
-            //    for (int i = 0; i < numberOfStudentsToGenerateForThisLargeBldg; i++) {
-            //        enrollStudent = new EnrollStudent();
-            //        if (enrollBuildingLarge.School_Id != "") {
-            //            enrollStudent.School_Id = enrollBuildingLarge.School_Id;
-            //        }
-            //        if (enrollBuildingLarge.School_Name != "") {
-            //            enrollStudent.School_Name = enrollBuildingLarge.School_Name;
-            //        }
-            //        if (MB_sisIDText.Text != "") {
-            //            enrollStudent.Sis_Id = MB_sisIDText.Text + i;
-            //        }
-            //        if (MB_LastName.Text != "") {
-            //            enrollStudent.Last_Name = MB_LastName.Text + i;
-            //        }
-            //        if (MB_FirstName.Text != "") {
-            //            enrollStudent.First_Name = MB_FirstName.Text + i;
-            //        }
-            //        if (MB_MiddleName.Text != "") {
-            //            enrollStudent.Middle_Name = MB_MiddleName.Text + i;
-            //        }
-            //        #region Grade
-            //        if (MB_Rolling_Chbx.Checked) {
-            //            if (trackRollingGradeStateLargeBldg >= 0 || trackRollingGradeStateLargeBldg <= 14) {
-            //                enrollStudent.Grade = GetStudentGradeText(trackRollingGradeStateLargeBldg);
-            //                if (trackRollingGradeStateLargeBldg == 14) {
-            //                    trackRollingGradeStateLargeBldg = 1;
-            //                } else {
-            //                    trackRollingGradeStateLargeBldg++;
-            //                }
-            //            } else {
-            //                enrollStudent.Grade = "In generating a grade name, the number was not between 1 and 14 for the db grade ID";
-            //            }
-            //        } else if (MB_RandomGradeCHBX.Checked) {
-            //            rnd = new Random();
-            //            enrollStudent.Grade = GetStudentGradeText(rnd.Next(1, 15));
-            //            System.Threading.Thread.Sleep(5);
-            //        } else {
-            //            enrollStudent.Grade = MB_Grade_ComboBox.Text;
-            //        }
-            //        #endregion
-
-            //        if (MB_Username.Text != "") {
-            //            enrollStudent.Username = MB_Username.Text + i;
-            //        }
-            //        if (MB_Password.Text != "") {
-            //            if (MB_AutoIncrementPW.Checked) {
-            //                enrollStudent.Password = MB_Password.Text + i;
-            //            } else {
-            //                enrollStudent.Password = MB_Password.Text;
-            //            }
-            //        }
-            //        studentsForCSVFileListLargeBuilding.Add(enrollStudent);
-            //    }
-            //}//Ends Foreach Building
-            // //Adds Each Student To a line in string builder
-            //foreach (EnrollStudent student in studentsForCSVFileListLargeBuilding) {
-            //    csvcontent.AppendLine(student.School_Id + "," + student.School_Name + "," + student.Sis_Id + "," +
-            //        student.Last_Name + "," + student.First_Name + "," + student.Middle_Name + "," + student.Grade + "," +
-            //        student.Username + "," + student.Password);
-            //}
+            }            
             #endregion
 
             #region XL BUILDINGS
@@ -584,88 +378,34 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
                 facultyForCSVFileListXLargeBuilding = GenerateListOfEnrollFacultyWithBldgData(extraLargeBuildingsList,
                     XLargeBuildingMinRange, XLargeBuildingMaxRange);
             }
-
-            //int trackRollingGradeStateXLargeBldg = 1;
-            //studentsForCSVFileListXLargeBuilding = new List<EnrollStudent>();
-            //foreach (EnrollBuilding enrollBuildingXLarge in extraLargeBuildingsList) {
-            //    rnd = new Random();
-            //    int XLargeBuildingMinRange = Convert.ToInt32(MB_XLargeBldg_Min_NumOfSA.Value);
-            //    int XLargeBuildingMaxRange = Convert.ToInt32(MB_XLargeBldg_Max_NumOfSA.Value + 1);
-            //    int numberOfStudentsToGenerateForThisLargeBldg = rnd.Next(XLargeBuildingMinRange, XLargeBuildingMaxRange);
-            //    System.Threading.Thread.Sleep(50);
-
-            //    for (int i = 0; i < numberOfStudentsToGenerateForThisLargeBldg; i++) {
-            //        enrollStudent = new EnrollStudent();
-            //        if (enrollBuildingXLarge.School_Id != "") {
-            //            enrollStudent.School_Id = enrollBuildingXLarge.School_Id;
-            //        }
-            //        if (enrollBuildingXLarge.School_Name != "") {
-            //            enrollStudent.School_Name = enrollBuildingXLarge.School_Name;
-            //        }
-            //        if (MB_sisIDText.Text != "") {
-            //            enrollStudent.Sis_Id = MB_sisIDText.Text + i;
-            //        }
-            //        if (MB_LastName.Text != "") {
-            //            enrollStudent.Last_Name = MB_LastName.Text + i;
-            //        }
-            //        if (MB_FirstName.Text != "") {
-            //            enrollStudent.First_Name = MB_FirstName.Text + i;
-            //        }
-            //        if (MB_MiddleName.Text != "") {
-            //            enrollStudent.Middle_Name = MB_MiddleName.Text + i;
-            //        }
-            //        #region Grade
-            //        if (MB_Rolling_Chbx.Checked) {
-            //            if (trackRollingGradeStateXLargeBldg >= 0 || trackRollingGradeStateXLargeBldg <= 14) {
-            //                enrollStudent.Grade = GetStudentGradeText(trackRollingGradeStateXLargeBldg);
-            //                if (trackRollingGradeStateXLargeBldg == 14) {
-            //                    trackRollingGradeStateXLargeBldg = 1;
-            //                } else {
-            //                    trackRollingGradeStateXLargeBldg++;
-            //                }
-            //            } else {
-            //                enrollStudent.Grade = "In generating a grade name, the number was not between 1 and 14 for the db grade ID";
-            //            }
-            //        } else if (MB_RandomGradeCHBX.Checked) {
-            //            rnd = new Random();
-            //            enrollStudent.Grade = GetStudentGradeText(rnd.Next(1, 15));
-            //            System.Threading.Thread.Sleep(5);
-            //        } else {
-            //            enrollStudent.Grade = MB_Grade_ComboBox.Text;
-            //        }
-            //        #endregion
-
-            //        if (MB_Username.Text != "") {
-            //            enrollStudent.Username = MB_Username.Text + i;
-            //        }
-            //        if (MB_Password.Text != "") {
-            //            if (MB_AutoIncrementPW.Checked) {
-            //                enrollStudent.Password = MB_Password.Text + i;
-            //            } else {
-            //                enrollStudent.Password = MB_Password.Text;
-            //            }
-            //        }
-            //        studentsForCSVFileListXLargeBuilding.Add(enrollStudent);
-            //    }
-            //}//Ends Foreach Building
-
-            ////Adds Each Student To a line in string builder
-            //foreach (EnrollStudent student in studentsForCSVFileListXLargeBuilding) {
-            //    csvcontent.AppendLine(student.School_Id + "," + student.School_Name + "," + student.Sis_Id + "," +
-            //        student.Last_Name + "," + student.First_Name + "," + student.Middle_Name + "," + student.Grade + "," +
-            //        student.Username + "," + student.Password);
-            //}
             #endregion
             #endregion  Build Student Object                          
             #endregion Actions on Building Data
 
-            #region Add All Information To the CSV
+            #region Add All Information To the CSV / Generate Roster XML for Later
             if (MB_GenerateStudentFileCHBX.Checked) {
                 File.AppendAllText(studentFullFillePathAndFileName, csvcontent.ToString());
+
+                #region Generate the Student Roster XML File for later parsing            
+                string[] studentLines = File.ReadAllLines(studentFullFillePathAndFileName);
+                XElement studentXml = studentDataCSVStructure(studentLines);
+                studentXml.Save(MB_output_xml_path.Text + studentXMLFileName);
+                #endregion
+
             } else if (MB_GenerateFacultyFileCHBX.Checked) {
                 File.AppendAllText(facultyFullFillePathAndFileName, csvcontent.ToString());
+
+                #region Generate the Faculty Roster XML File for later parsing            
+                string[] facultyLines = File.ReadAllLines(facultyFullFillePathAndFileName);
+                XElement facultyXml = facultyDataCSVStructure(facultyLines);
+                facultyXml.Save(MB_output_xml_path.Text + facultyXMLFileName);
+                #endregion
             }
-            
+            if (MB_GenerateStudentFileCHBX.Checked) {
+                MessageBox.Show("File Was Created");
+            } else if (MB_GenerateFacultyFileCHBX.Checked){
+                MessageBox.Show("Faculty File Was Created");
+            }
             #endregion
         }
 
@@ -686,11 +426,57 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
             );
             return xml;
         }
+        /// <summary>
+        /// Converts a student CSV to XML - called by the generateStudentData Method
+        /// </summary>
+        /// <param name="lines"></param>
+        /// <returns></returns>
+        public XElement studentDataCSVStructure(string[] lines) {
+            XElement studentXml = new XElement("Root",
+                from str in lines
+                let columns = str.Split(',')
+                select new XElement("Building",
+                    new XElement("school_id", columns[0]),
+                    new XElement("school_name", columns[1]),
+                    new XElement("sis_id", columns[2]),
+                    new XElement("last_name", columns[3]),
+                    new XElement("first_name", columns[4]),
+                    new XElement("middle_name", columns[5]),
+                    new XElement("grade", columns[6]),
+                    new XElement("username", columns[7]),
+                    new XElement("password", columns[8])
+                      )
+            );
+            return studentXml;
+        }
+        /// <summary>
+        /// Converts a Faculty CSV to XML - called by the generateStudentData Method
+        /// </summary>
+        /// <param name="lines"></param>
+        /// <returns></returns>
+        public XElement facultyDataCSVStructure(string[] lines) {
+            XElement xml = new XElement("Root",
+                from str in lines
+                let columns = str.Split(',')
+                select new XElement("Building",
+                    new XElement("school_id", columns[0]),
+                    new XElement("school_name", columns[1]),
+                    new XElement("sis_id", columns[2]),
+                    new XElement("last_name", columns[3]),
+                    new XElement("first_name", columns[4]),
+                    new XElement("email", columns[5]),
+                    new XElement("username", columns[6]),
+                    new XElement("password", columns[7])
+                      )
+            );
+            return xml;
+        }
 
         private List<EnrollStudent> GenerateListOfEnrollStudentsWithBldgData(List<EnrollBuilding> buildingsList, 
             int numberOfStudentsMIN, int numberOfStudentsMax) {
             int trackRollingGradeState = 1;
-            List<EnrollStudent>ListOfStudents = new List<EnrollStudent>();
+            List<EnrollStudent>ListOfStudents = new List<EnrollStudent>();       
+
             foreach (EnrollBuilding enrollBuilding in buildingsList) {
                 rnd = new Random();              
                 int numberOfStudentsToGenerateForThisBldg = rnd.Next(numberOfStudentsMIN, numberOfStudentsMax);
@@ -815,6 +601,17 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
         }
 
         #region Unused Methods - designer freaks out if deleted
+        private void MB_EnrollCSVOutputFileName_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void MB_MediumBldg_Min_NumOfSA_ValueChanged(object sender, EventArgs e) {
+
+        }
+
+        private void label22_Click(object sender, EventArgs e) {
+
+        }
         private void label1_Click(object sender, EventArgs e) {
 
         }
@@ -867,14 +664,6 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
 
         #endregion
 
-        private void MB_MediumBldg_Min_NumOfSA_ValueChanged(object sender, EventArgs e) {
-
-        }
-
-        private void label22_Click(object sender, EventArgs e) {
-
-        }
-
         private void MB_GenerateStudentFileCHBX_CheckedChanged(object sender, EventArgs e) {
             if (MB_GenerateStudentFileCHBX.Checked) {
                 MB_GenerateFacultyFileCHBX.Enabled = false;
@@ -891,9 +680,6 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
             }
         }
 
-        private void MB_EnrollCSVOutputFileName_TextChanged(object sender, EventArgs e) {
-
-        }
 
         private bool checkForStudentOrFacultyCheckboxSelectedOneReq(string studentFilePathAndName, string facultyFilePathAndName) {
             if (MB_GenerateStudentFileCHBX.Checked) {
@@ -913,16 +699,64 @@ namespace WindowsFormCSVGenerator_EnrollFiles {
         }
 
         private void MB_GenerateRosterFile_BTN_Click(object sender, EventArgs e) {
-            string facultyFilePathName = MB_EnrollCSVOutputPath.Text + MB_EnrollCSVFacultyOutputFileName.Text;
-            string studentFilePathName = MB_EnrollCSVOutputPath.Text + MB_EnrollCSVStudentOutputFileName.Text;
+            enrollRosterList = new List<EnrollRoster>();
+            string facultyFilePathName = MB_output_xml_path.Text + facultyXMLFileName;
+            string studentFilePathName = MB_output_xml_path.Text + studentXMLFileName;
+            string rosterOutputFilePathName = MB_EnrollCSVOutputPath.Text + MB_RosterFilePath.Text;
+            //Make sure that the student and faculty XML are created
             if (File.Exists(facultyFilePathName) && File.Exists(studentFilePathName)) {
+                if (File.Exists(rosterOutputFilePathName)) {
+                    //If the roster file is created - delete it
+                    File.Delete(rosterOutputFilePathName);
+                }
+                // Xpath loads the XML document into a list of objects we can enumerate over
+                XElement xelementStudents;
+                IEnumerable<XElement> enrollStudentsInXML;
+                xelementStudents = XElement.Load(studentFilePathName);
+                enrollStudentsInXML = xelementStudents.Elements();
 
-                //Read the XML file and build a roster object, then write it to its own Roster.CSV file
-                
-            } else {
-                //figure out error prompting for user                
-                return;
+                // Xpath loads the XML document into a list of objects we can enumerate over
+                XElement xelementFaculty;
+                IEnumerable<XElement> enrollFacultyInXML;
+                xelementFaculty = XElement.Load(facultyFilePathName);
+                enrollFacultyInXML = xelementFaculty.Elements();
+
+                int numOfFac = enrollFacultyInXML.Count();
+                int numOfStudents = enrollStudentsInXML.Count();
+                int shortFaculty = numOfStudents - numOfFac;
+
+                //Make the List<EnrollRoster>
+                foreach(var student in enrollStudentsInXML) { 
+                    enrollRoster = new EnrollRoster();
+                    enrollRoster.Student_SISID = student.Element("sis_id").Value;
+                    enrollRosterList.Add(enrollRoster);
+                }
+                //Now we have all the students in the roster list, but no faculty
+                int rosterCount = 0;
+                foreach (var faculty in enrollFacultyInXML) {
+                    enrollRosterList[rosterCount].Faculty_SISID = faculty.Element("sis_id").Value;
+                    rosterCount++;                
+                }
+
+                int i = 0;
+                while(shortFaculty >0) {
+                    //continues where faculty need to be filled in
+                    //User must specify FA username if they want one that isn't numbers for filling in the roster.
+                    enrollRosterList[rosterCount].Faculty_SISID = MB_Username.Text + i;
+                    rosterCount++;
+                    shortFaculty--;
+                    i++;
+                }
             }
+                StringBuilder csvcontentRoster = new StringBuilder();
+
+            //Now we need to add the XML to the string builder so we can write the file
+            //Adds Each Student To a line in string builder
+            foreach (EnrollRoster rosterLine in enrollRosterList) {
+                csvcontentRoster.AppendLine(rosterLine.Student_SISID + "," + rosterLine.Faculty_SISID);
+            }
+            File.AppendAllText(rosterOutputFilePathName, csvcontentRoster.ToString());
+            MessageBox.Show("Roster File Was Created");
         }
     }
 }

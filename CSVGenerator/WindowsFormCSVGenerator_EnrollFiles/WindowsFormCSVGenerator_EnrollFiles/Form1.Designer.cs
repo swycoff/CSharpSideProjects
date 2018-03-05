@@ -60,6 +60,14 @@
             this.label38 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.MB_RosterFilePath = new System.Windows.Forms.TextBox();
+            this.label48 = new System.Windows.Forms.Label();
+            this.MB_rosterFileHeaders = new System.Windows.Forms.TextBox();
+            this.label47 = new System.Windows.Forms.Label();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
             this.MB_EnrollCSVFacultyOutputFileName = new System.Windows.Forms.TextBox();
             this.label43 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -124,16 +132,13 @@
             this.MB_EnrollCSVOutputPath = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
             MB_GenerateRosterFile_BTN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.studentsToGenerateNumber)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -146,8 +151,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.MB_MediumBldg_Min_NumOfSA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MB_SmallBldg_Max_NumOfSA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MB_SmallBldg_Min_NumOfSA)).BeginInit();
-            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // MB_GenerateRosterFile_BTN
+            // 
+            MB_GenerateRosterFile_BTN.Location = new System.Drawing.Point(18, 114);
+            MB_GenerateRosterFile_BTN.Name = "MB_GenerateRosterFile_BTN";
+            MB_GenerateRosterFile_BTN.Size = new System.Drawing.Size(196, 43);
+            MB_GenerateRosterFile_BTN.TabIndex = 85;
+            MB_GenerateRosterFile_BTN.Text = "Generate Roster Files";
+            MB_GenerateRosterFile_BTN.UseVisualStyleBackColor = true;
+            MB_GenerateRosterFile_BTN.Click += new System.EventHandler(this.MB_GenerateRosterFile_BTN_Click);
             // 
             // generateCVSButton
             // 
@@ -458,7 +472,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1610, 808);
+            this.tabPage1.Size = new System.Drawing.Size(1406, 808);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Single Building Form";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -526,6 +540,10 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.LightCoral;
+            this.tabPage2.Controls.Add(this.MB_RosterFilePath);
+            this.tabPage2.Controls.Add(this.label48);
+            this.tabPage2.Controls.Add(this.MB_rosterFileHeaders);
+            this.tabPage2.Controls.Add(this.label47);
             this.tabPage2.Controls.Add(this.groupBox6);
             this.tabPage2.Controls.Add(this.MB_EnrollCSVFacultyOutputFileName);
             this.tabPage2.Controls.Add(this.label43);
@@ -550,9 +568,86 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Multi Building Form";
             // 
+            // MB_RosterFilePath
+            // 
+            this.MB_RosterFilePath.Location = new System.Drawing.Point(20, 608);
+            this.MB_RosterFilePath.Name = "MB_RosterFilePath";
+            this.MB_RosterFilePath.Size = new System.Drawing.Size(453, 22);
+            this.MB_RosterFilePath.TabIndex = 90;
+            this.MB_RosterFilePath.Text = "\\roster.csv";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(19, 581);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(408, 17);
+            this.label48.TabIndex = 89;
+            this.label48.Text = "What Do You Want Your Faculty File Called: (don\'t forget .csv)?";
+            // 
+            // MB_rosterFileHeaders
+            // 
+            this.MB_rosterFileHeaders.Location = new System.Drawing.Point(175, 728);
+            this.MB_rosterFileHeaders.Name = "MB_rosterFileHeaders";
+            this.MB_rosterFileHeaders.Size = new System.Drawing.Size(596, 22);
+            this.MB_rosterFileHeaders.TabIndex = 88;
+            this.MB_rosterFileHeaders.Text = "student_sis_id, faculty_sis_id ";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(21, 733);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(134, 17);
+            this.label47.TabIndex = 87;
+            this.label47.Text = "Roster File Headers";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label46);
+            this.groupBox6.Controls.Add(this.label45);
+            this.groupBox6.Controls.Add(this.label44);
+            this.groupBox6.Controls.Add(MB_GenerateRosterFile_BTN);
+            this.groupBox6.Location = new System.Drawing.Point(1066, 593);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(274, 173);
+            this.groupBox6.TabIndex = 86;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Generate Roster";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.Location = new System.Drawing.Point(18, 76);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(183, 20);
+            this.label46.TabIndex = 88;
+            this.label46.Text = "IF FA<SA Insert FA UN";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.Location = new System.Drawing.Point(17, 52);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(218, 20);
+            this.label45.TabIndex = 87;
+            this.label45.Text = "COMPLETE BEFORE THIS";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.Location = new System.Drawing.Point(18, 28);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(229, 20);
+            this.label44.TabIndex = 86;
+            this.label44.Text = "FA AND SA FILES MUST BE";
+            // 
             // MB_EnrollCSVFacultyOutputFileName
             // 
-            this.MB_EnrollCSVFacultyOutputFileName.Location = new System.Drawing.Point(20, 593);
+            this.MB_EnrollCSVFacultyOutputFileName.Location = new System.Drawing.Point(20, 554);
             this.MB_EnrollCSVFacultyOutputFileName.Name = "MB_EnrollCSVFacultyOutputFileName";
             this.MB_EnrollCSVFacultyOutputFileName.Size = new System.Drawing.Size(453, 22);
             this.MB_EnrollCSVFacultyOutputFileName.TabIndex = 84;
@@ -561,7 +656,7 @@
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(19, 567);
+            this.label43.Location = new System.Drawing.Point(19, 527);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(408, 17);
             this.label43.TabIndex = 83;
@@ -604,6 +699,8 @@
             // MB_GenerateStudentFileCHBX
             // 
             this.MB_GenerateStudentFileCHBX.AutoSize = true;
+            this.MB_GenerateStudentFileCHBX.Checked = true;
+            this.MB_GenerateStudentFileCHBX.CheckState = System.Windows.Forms.CheckState.Checked;
             this.MB_GenerateStudentFileCHBX.Location = new System.Drawing.Point(18, 27);
             this.MB_GenerateStudentFileCHBX.Name = "MB_GenerateStudentFileCHBX";
             this.MB_GenerateStudentFileCHBX.Size = new System.Drawing.Size(169, 21);
@@ -868,7 +965,7 @@
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Location = new System.Drawing.Point(20, 41);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(873, 177);
+            this.groupBox2.Size = new System.Drawing.Size(1320, 187);
             this.groupBox2.TabIndex = 75;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "SETUP Building Data File Location";
@@ -899,7 +996,7 @@
             this.MB_output_xml_path.Name = "MB_output_xml_path";
             this.MB_output_xml_path.Size = new System.Drawing.Size(626, 22);
             this.MB_output_xml_path.TabIndex = 12;
-            this.MB_output_xml_path.Text = "C:\\\\Users\\swycoff\\Desktop\\CSVGenerationProject\\BuildingXMLData.xml";
+            this.MB_output_xml_path.Text = "C:\\\\Users\\swycoff\\Desktop\\CSVGenerationProject";
             // 
             // label15
             // 
@@ -1252,17 +1349,17 @@
             // 
             // MB_EnrollCSVStudentOutputFileName
             // 
-            this.MB_EnrollCSVStudentOutputFileName.Location = new System.Drawing.Point(20, 526);
+            this.MB_EnrollCSVStudentOutputFileName.Location = new System.Drawing.Point(20, 498);
             this.MB_EnrollCSVStudentOutputFileName.Name = "MB_EnrollCSVStudentOutputFileName";
             this.MB_EnrollCSVStudentOutputFileName.Size = new System.Drawing.Size(453, 22);
             this.MB_EnrollCSVStudentOutputFileName.TabIndex = 48;
-            this.MB_EnrollCSVStudentOutputFileName.Text = "\\Students.csv";
+            this.MB_EnrollCSVStudentOutputFileName.Text = "\\students.csv";
             this.MB_EnrollCSVStudentOutputFileName.TextChanged += new System.EventHandler(this.MB_EnrollCSVOutputFileName_TextChanged);
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(19, 499);
+            this.label25.Location = new System.Drawing.Point(19, 473);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(412, 17);
             this.label25.TabIndex = 47;
@@ -1270,7 +1367,7 @@
             // 
             // MB_EnrollCSVOutputPath
             // 
-            this.MB_EnrollCSVOutputPath.Location = new System.Drawing.Point(22, 467);
+            this.MB_EnrollCSVOutputPath.Location = new System.Drawing.Point(22, 444);
             this.MB_EnrollCSVOutputPath.Name = "MB_EnrollCSVOutputPath";
             this.MB_EnrollCSVOutputPath.Size = new System.Drawing.Size(451, 22);
             this.MB_EnrollCSVOutputPath.TabIndex = 46;
@@ -1279,7 +1376,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(19, 436);
+            this.label27.Location = new System.Drawing.Point(19, 420);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(356, 17);
             this.label27.TabIndex = 45;
@@ -1293,64 +1390,11 @@
             this.label14.Size = new System.Drawing.Size(0, 17);
             this.label14.TabIndex = 1;
             // 
-            // MB_GenerateRosterFile_BTN
-            // 
-            MB_GenerateRosterFile_BTN.Location = new System.Drawing.Point(18, 114);
-            MB_GenerateRosterFile_BTN.Name = "MB_GenerateRosterFile_BTN";
-            MB_GenerateRosterFile_BTN.Size = new System.Drawing.Size(196, 43);
-            MB_GenerateRosterFile_BTN.TabIndex = 85;
-            MB_GenerateRosterFile_BTN.Text = "Generate Roster Files";
-            MB_GenerateRosterFile_BTN.UseVisualStyleBackColor = true;
-            MB_GenerateRosterFile_BTN.Click += new System.EventHandler(this.MB_GenerateRosterFile_BTN_Click);
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.label46);
-            this.groupBox6.Controls.Add(this.label45);
-            this.groupBox6.Controls.Add(this.label44);
-            this.groupBox6.Controls.Add(MB_GenerateRosterFile_BTN);
-            this.groupBox6.Location = new System.Drawing.Point(1066, 593);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(251, 173);
-            this.groupBox6.TabIndex = 86;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Generate Roster";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(18, 28);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(140, 20);
-            this.label44.TabIndex = 86;
-            this.label44.Text = "FA and SA FILES";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.Location = new System.Drawing.Point(17, 52);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(181, 20);
-            this.label45.TabIndex = 87;
-            this.label45.Text = "MUST BE COMPLETE";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label46.Location = new System.Drawing.Point(18, 76);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(121, 20);
-            this.label46.TabIndex = 88;
-            this.label46.Text = "BEFORE THIS";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1671, 1067);
+            this.ClientSize = new System.Drawing.Size(1671, 1057);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -1362,6 +1406,8 @@
             this.groupBox4.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -1378,8 +1424,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.MB_MediumBldg_Min_NumOfSA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MB_SmallBldg_Max_NumOfSA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MB_SmallBldg_Min_NumOfSA)).EndInit();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1489,6 +1533,10 @@
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.TextBox MB_rosterFileHeaders;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.TextBox MB_RosterFilePath;
+        private System.Windows.Forms.Label label48;
     }
 }
 
