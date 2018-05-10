@@ -31,11 +31,19 @@
             this.ReportOutputName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.ReportPriority2Tests = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // ConvertNUnitReport
             // 
-            this.ConvertNUnitReport.Location = new System.Drawing.Point(36, 265);
+            this.ConvertNUnitReport.Location = new System.Drawing.Point(33, 47);
             this.ConvertNUnitReport.Margin = new System.Windows.Forms.Padding(4);
             this.ConvertNUnitReport.Name = "ConvertNUnitReport";
             this.ConvertNUnitReport.Size = new System.Drawing.Size(393, 28);
@@ -103,29 +111,83 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(36, 323);
+            this.button1.Location = new System.Drawing.Point(33, 271);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(393, 29);
             this.button1.TabIndex = 9;
             this.button1.Text = "Report: Not Implemented Tests";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(15, 29);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(353, 28);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Report: Priority 1 Tests";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // ReportPriority2Tests
+            // 
+            this.ReportPriority2Tests.Location = new System.Drawing.Point(15, 89);
+            this.ReportPriority2Tests.Name = "ReportPriority2Tests";
+            this.ReportPriority2Tests.Size = new System.Drawing.Size(353, 28);
+            this.ReportPriority2Tests.TabIndex = 11;
+            this.ReportPriority2Tests.Text = "Report: Priority 2 Tests";
+            this.ReportPriority2Tests.UseVisualStyleBackColor = true;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(48, 269);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(812, 577);
+            this.tabControl1.TabIndex = 13;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.ConvertNUnitReport);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(804, 548);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "MainReports";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.ReportPriority2Tests);
+            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(804, 548);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Priority";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1760, 886);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1043, 897);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ReportOutputName);
             this.Controls.Add(this.GenerateReportToPath);
             this.Controls.Add(this.ExportLocationForReport);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PathNUnitExploreFileToAnalyze);
-            this.Controls.Add(this.ConvertNUnitReport);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,6 +203,11 @@
         private System.Windows.Forms.TextBox ReportOutputName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button ReportPriority2Tests;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }
 
