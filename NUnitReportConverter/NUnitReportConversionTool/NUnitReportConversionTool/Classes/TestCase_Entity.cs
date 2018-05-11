@@ -13,7 +13,7 @@ namespace NUnitReportConversionTool {
         private string className;
         private string runState;
         private string seed;
-        List<Properties_Entity> propertyList;
+
 
         public string Id { get { return iD; }set { iD = value; } }
         public string Name { get { return name; } set { name = value; } }
@@ -22,7 +22,7 @@ namespace NUnitReportConversionTool {
         public string ClassName { get { return className; }set { className = value; } }
         public string RunState { get { return runState; }set { runState = value; } }
         public string Seed { get { return seed; }set { seed = value; } }
-        public List<Properties_Entity> PropertyList { get { return propertyList; }set { propertyList = value; } }
+
 
     
     }

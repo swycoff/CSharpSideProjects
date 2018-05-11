@@ -12,11 +12,12 @@ namespace NUnitReportConversionTool {
         private string fullName;
         private string className;
         private string runState;
-        private int testCaseCount;
-        private string description;  // This is only a description at the test fixture level which we don't do often.  Its stored as a property in the XML
-
-        //This represents the TestFixture (class) that contains 1 or more tests.  Each test is a test case.
-        private List<TestCase_Entity> listOfTestCaseObjects;
+        private string testCaseCount;
+       
+        //Within the TestFixture, There are Methods (Parameterized Method).  
+        //Each one of these methods can have data sets sent into it (for example, run this method for all 14 grades)
+        //Each one of those 14 grades would be considerd a test case, which would be stored inside the parameterized method entity.
+        private List<ParameterizedMethod_Entity> listofParameterizedMethods;
         //Test fixtures have their own properties (categories)
         List<Properties_Entity> propertyList;
 
@@ -26,14 +27,13 @@ namespace NUnitReportConversionTool {
         public string FullName { get { return fullName; } set { fullName = value; } }
         public string ClassName {  get { return className; } set { className = value; } }
         public string RunState { get { return runState; } set { runState = value; } }
-        public int TestCaseCount { get { return testCaseCount; }set { testCaseCount = value; } }
-        public string Description { get { return description; } set { description = value; } }
-        public List<TestCase_Entity> ListOfTestCaseObjects { get { return listOfTestCaseObjects; }set { listOfTestCaseObjects = value; } }
+        public string TestCaseCount { get { return testCaseCount; }set { testCaseCount = value; } }
+        public List<ParameterizedMethod_Entity> ListOfParameterizedMethods { get { return listofParameterizedMethods; }set { listofParameterizedMethods = value; } }
         public List<Properties_Entity> PropertyList { get { return propertyList; } set { propertyList = value; } }
 
         #region Constructor
         public TestFixture_Entity() {
-            ListOfTestCaseObjects = new List<TestCase_Entity>();
+            listofParameterizedMethods = new List<ParameterizedMethod_Entity>();
             PropertyList = new List<Properties_Entity>();
         }
         #endregion

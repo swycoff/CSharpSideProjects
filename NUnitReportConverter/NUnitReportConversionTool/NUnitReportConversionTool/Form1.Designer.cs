@@ -36,6 +36,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button3 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -48,9 +49,9 @@
             this.ConvertNUnitReport.Name = "ConvertNUnitReport";
             this.ConvertNUnitReport.Size = new System.Drawing.Size(393, 28);
             this.ConvertNUnitReport.TabIndex = 0;
-            this.ConvertNUnitReport.Text = "Report: All Test Library Data";
+            this.ConvertNUnitReport.Text = "Report: All Test Library Data to CSV";
             this.ConvertNUnitReport.UseVisualStyleBackColor = true;
-            this.ConvertNUnitReport.Click += new System.EventHandler(this.ConvertNUnitReport_Click);
+            this.ConvertNUnitReport.Click += new System.EventHandler(this.ConvertNUnitReport_SelectedDataForAllTests);
             // 
             // PathNUnitExploreFileToAnalyze
             // 
@@ -91,6 +92,7 @@
             this.GenerateReportToPath.Size = new System.Drawing.Size(835, 22);
             this.GenerateReportToPath.TabIndex = 4;
             this.GenerateReportToPath.Text = "C:\\Users\\SWycoff\\Desktop\\temp";
+ //           this.GenerateReportToPath.TextChanged += new System.EventHandler(this.GenerateReportToPath_TextChanged);
             // 
             // ReportOutputName
             // 
@@ -148,6 +150,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.ConvertNUnitReport);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
@@ -169,6 +172,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Priority";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(33, 100);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(393, 28);
+            this.button3.TabIndex = 10;
+            this.button3.Text = "Report: All Test Library Data to XML";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -208,6 +221,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button button3;
     }
 }
 

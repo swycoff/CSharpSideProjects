@@ -48,6 +48,7 @@
     <Compile Include="Classes\TestCaseProperties_Entity.cs" />
     <Compile Include="Classes\TestCase_Entity.cs" />
     <Compile Include="Classes\TestFixture_Entity.cs" />
+    <Compile Include="Classes\ParameterizedMethod_Entity.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
