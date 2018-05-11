@@ -53,7 +53,7 @@ namespace NUnitReportConversionTool {
             XmlNodeList testSuiteElements = xmlDoc.SelectNodes("//test-suite");
             foreach (XmlNode testSuiteElement in testSuiteElements) {
                 #region  Checks to see if we are at the element that is the top of the data (TestFixture) that starts off the test fixture and its tests.
-                if (testSuiteElement.Attributes[0].Value == "TestFixture") {
+                if (testSuiteElement.Attributes[0].Value == "TestFixture" && testSuiteElement.Attributes[1].Value== "0-1594") {
                     //Each Time We Find a Test Fixture, We Need a new TestFixture Object
                     testFixtureEntity = new TestFixture_Entity();
                     //Looks at each attribute in the text fixture node
@@ -195,10 +195,11 @@ namespace NUnitReportConversionTool {
                         #region Add the Test Param Methods to the Test Fixture
                         testFixtureEntity.ListOfParameterizedMethods = parameterizedMethodEntityList;
                         #endregion
-                        #region For each Test Fixture after all information is added, we add it to the TestFixtureList
-                        testFixtureEntityList.Add(testFixtureEntity);
-                        #endregion
-                    }
+                        
+                    }//end foreach param method
+                    #region For each Test Fixture after all information is added, we add it to the TestFixtureList
+                    testFixtureEntityList.Add(testFixtureEntity);
+                    #endregion
                 }
             }
                 return testFixtureEntityList;
@@ -257,42 +258,44 @@ namespace NUnitReportConversionTool {
                 concatFixtureCategoryList = new StringBuilder();
                 foreach (var property in testFixture.PropertyList) {
                     if(property.PropValue != "Self") {
-                        concatFixtureCategoryList.Append(property.PropValue + " | ");
+                            concatFixtureCategoryList.Append(property.PropValue + " | ");
                     }                    
                 }
+                //Now this continues in that one fixture adding in parameterized methods in that fixture.
                 #region Parameterized Method Data                
                 foreach (var paramMethod in testFixture.ListOfParameterizedMethods) {               
                     concatParamMethodCategoryList = new StringBuilder();
+                    testParamMethodProperty_Description = "";
                     foreach (var property in paramMethod.ParamMethodPropertiesList) {
                         if (property.PropName == "Description") {
                             testParamMethodProperty_Description = property.PropValue;
                         } else if(property.PropName == "Category"){
-                            concatParamMethodCategoryList.Append(property.PropValue + " | ");
+                                concatParamMethodCategoryList.Append(property.PropValue + " | ");
                         }
                     }
+                    //Now lets combine the test fixture and test case categories together
+                    string testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
+
+                    //This continues for this one parameter method to add the associated test cases, before looping back around to get the rest of the parameter methods in the fixture.
                     #endregion
                     #region Test Case Data
-                    foreach (var testcase in paramMethod.TestCaseEntityList) {
-                        //Now lets combine the test fixture and test case categories together
-                        string testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
+                    foreach (var testcase in paramMethod.TestCaseEntityList) {                       
 
                         //Now that we have the test fixture and test parameterized method data for one test case, we report a line for that test case before repeating
                         // Combine the test fixture and test case categories together
 
-                        #region Write Report Line
-                        StringBuilder reportLine = new StringBuilder();
-                        reportLine.Append(testFixture.ID + ",");
-                        reportLine.Append(testFixture.Name + ",");
-                        reportLine.Append(testFixtureAndParameterizedMethodCategories + ",");
-                        reportLine.Append(paramMethod.Id + ",");
-                        reportLine.Append(paramMethod.Name + ",");
-                        reportLine.Append(testcase.RunState + ",");
-                        reportLine.Append(testcase.Id + ",");
-                        reportLine.Append(testcase.Name + ",");
-                        reportLine.Append(testParamMethodProperty_Description);
-                        fullreportCSV.AppendLine(reportLine.ToString());
-                    
-                        
+                        #region Write Report Line                        
+                                        StringBuilder reportLine = new StringBuilder();
+                                        reportLine.Append(testFixture.ID + ",");
+                                        reportLine.Append(testFixture.Name + ",");
+                                        reportLine.Append(testFixtureAndParameterizedMethodCategories + ",");
+                                        reportLine.Append(paramMethod.Id + ",");
+                                        reportLine.Append(paramMethod.Name + ",");
+                                        reportLine.Append(testcase.RunState + ",");
+                                        reportLine.Append(testcase.Id + ",");
+                                        reportLine.Append(testcase.Name + ",");
+                                        reportLine.Append(testParamMethodProperty_Description);
+                                        fullreportCSV.AppendLine(reportLine.ToString());
 
                         //fullreportCSV.AppendLine(testFixture.ID + "," + testFixture.Name + "," + testFixtureAndParameterizedMethodCategories + "," + paramMethod.Id + ","+ paramMethod.Name + "," + testCaseEntity.RunState + "," + testCaseEntity.Name + "," + testParamMethodProperty_Description);
                         #endregion
