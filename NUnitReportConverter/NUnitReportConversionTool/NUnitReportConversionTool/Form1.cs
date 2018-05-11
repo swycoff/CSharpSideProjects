@@ -235,6 +235,7 @@ namespace NUnitReportConversionTool {
             //Param Methods > Properties
             testFixtureEntityList = ReadAllDataFromXML_PlaceIntoObjects();
 
+
             #region Write the data that we want to a CSV File
             fullreportCSV = new StringBuilder();
 
@@ -258,7 +259,8 @@ namespace NUnitReportConversionTool {
                 concatFixtureCategoryList = new StringBuilder();
                 foreach (var property in testFixture.PropertyList) {
                     if(property.PropValue != "Self") {
-                            concatFixtureCategoryList.Append(property.PropValue + " | ");
+                        //assumes priorities are always on the test level
+                            concatFixtureCategoryList.Append(property.PropValue + " | ");                        
                     }                    
                 }
                 //Now this continues in that one fixture adding in parameterized methods in that fixture.
@@ -270,9 +272,19 @@ namespace NUnitReportConversionTool {
                         if (property.PropName == "Description") {
                             testParamMethodProperty_Description = property.PropValue;
                         } else if(property.PropName == "Category"){
+                            if(property.PropValue == "priority1") {
                                 concatParamMethodCategoryList.Append(property.PropValue + " | ");
+                            }if(property.PropValue == "priority3") {
+                                concatParamMethodCategoryList.Append(property.PropValue + " | ");
+                            }
                         }
                     }
+
+                    #region Checks to see based on priorities desired if test should continue to process
+                    if(concatParamMethodCategoryList.Length >0) {
+                        //If we found a matching category, we continue, otherwise it skips to the end.
+                  
+                    #endregion
                     //Now lets combine the test fixture and test case categories together
                     string testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
 
@@ -301,6 +313,7 @@ namespace NUnitReportConversionTool {
                         #endregion
 
                 }
+                    }//End if matching categories found
                     #endregion
                 } // End foreach param method
                 #endregion
