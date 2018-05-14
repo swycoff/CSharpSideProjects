@@ -36,6 +36,22 @@ namespace NUnitReportConversionTool {
         #region Strings
         //Description is a specific property value reported separately from categories.
         string testParamMethodProperty_Description = "";
+        string testFixtureAndParameterizedMethodCategories = "";
+        string selectedPriority = "";
+        string firstCategoryFilter = "";
+        string secondCategoryFilter = "";
+        string priorityConcatVariable = "";
+        string categoryConcatVariable = "";
+        int countOfFilteredTestCases = 0;
+        int countOfFilteredTestMethods =0;
+        //Tracking Variables for each testMethod in the test fixture
+        bool testMethodMatchedPriority = false;
+        bool testMethodMatchedFirstCategory = false;
+        bool testMethodMatchedSecondCategory = false;
+        //Tracking Variables for each test fixture
+        bool testMatchedFixturePriority = false; // Shouldn't really have priorities at the fixture level, but here just in case
+        bool testMatchedFixtureFirstCategory = false;
+        bool testMatchedFixtureSecondCategory = false;
         #endregion
 
         public Form1() {
@@ -53,7 +69,10 @@ namespace NUnitReportConversionTool {
             XmlNodeList testSuiteElements = xmlDoc.SelectNodes("//test-suite");
             foreach (XmlNode testSuiteElement in testSuiteElements) {
                 #region  Checks to see if we are at the element that is the top of the data (TestFixture) that starts off the test fixture and its tests.
-                if (testSuiteElement.Attributes[0].Value == "TestFixture" && testSuiteElement.Attributes[1].Value== "0-1594") {
+                if (testSuiteElement.Attributes[0].Value == "TestFixture") {
+                    /* DEBUG
+                     * To simplify the data output for testing, in the if statement above add  && testSuiteElement.Attributes[1].Value == "0-1594" and use the test fixture #
+                     */
                     //Each Time We Find a Test Fixture, We Need a new TestFixture Object
                     testFixtureEntity = new TestFixture_Entity();
                     //Looks at each attribute in the text fixture node
@@ -195,15 +214,15 @@ namespace NUnitReportConversionTool {
                         #region Add the Test Param Methods to the Test Fixture
                         testFixtureEntity.ListOfParameterizedMethods = parameterizedMethodEntityList;
                         #endregion
-                        
+
                     }//end foreach param method
                     #region For each Test Fixture after all information is added, we add it to the TestFixtureList
                     testFixtureEntityList.Add(testFixtureEntity);
                     #endregion
                 }
             }
-                return testFixtureEntityList;
-            
+            return testFixtureEntityList;
+
             #endregion
             #endregion
             #endregion
@@ -218,23 +237,22 @@ namespace NUnitReportConversionTool {
         }
         private int CountTotalTestCasesInAllTestFixtures() {
             int totalTestCases = 0;
-            foreach(TestFixture_Entity TestFixture in testFixtureEntityList) {
-                    foreach(var paramMethodEntity in TestFixture.ListOfParameterizedMethods) {
-                        int count = paramMethodEntity.TestCaseEntityList.Count;
-                        totalTestCases += count;
-                    }             
+            foreach (TestFixture_Entity TestFixture in testFixtureEntityList) {
+                foreach (var paramMethodEntity in TestFixture.ListOfParameterizedMethods) {
+                    int count = paramMethodEntity.TestCaseEntityList.Count;
+                    totalTestCases += count;
+                }
             }
             return totalTestCases;
         }
 
-            private void ConvertNUnitReport_SelectedDataForAllTests(object sender, EventArgs e) {
+        private void ConvertNUnitReport_SelectedDataForAllTests(object sender, EventArgs e) {
             //Takes all the data in the NUnit report (that we specify) and puts it into testfixture objects 
             //TestFixture>ParamMethods
             //TestFixture > Properties
             //Param Methods > TestCases
             //Param Methods > Properties
             testFixtureEntityList = ReadAllDataFromXML_PlaceIntoObjects();
-
 
             #region Write the data that we want to a CSV File
             fullreportCSV = new StringBuilder();
@@ -245,79 +263,227 @@ namespace NUnitReportConversionTool {
             int testCaseCount = CountTotalTestCasesInAllTestFixtures();
             #endregion
             #region Headers
-            fullreportCSV.AppendLine("FixtureCount");
+            fullreportCSV.AppendLine("WholeLibrary: FixtureCount");
             fullreportCSV.AppendLine(fixtureCount.ToString());
-            fullreportCSV.AppendLine("ParameterizedMethodCount");
+            fullreportCSV.AppendLine("WholeLibrary: ParameterizedMethodCount");
             fullreportCSV.AppendLine(parameterizedMethodCount.ToString());
-            fullreportCSV.AppendLine("TestCaseCount");
+            fullreportCSV.AppendLine("WholeLibrary: TestCaseCount");
             fullreportCSV.AppendLine(testCaseCount.ToString());
             //We only want this written once so it stays here
             fullreportCSV.AppendLine("TestFixtureID, TestFixtureName, Categories, ParamMethodID, ParamMethodName, TestCaseRunState, TestCaseID, TestCaseName, Test Case Description");
             #endregion
-            #region Fixture and Test Case Data            
+            #region Fixture and Test Case Data           
+            //We get these values from the form            
+            if(prioritySelectBox.SelectedItem != null) {
+                selectedPriority = prioritySelectBox.SelectedItem.ToString();
+            }            
+            if (Category1TextBox.Text != "") {
+                firstCategoryFilter = Category1TextBox.Text.ToLower();
+            }            
+            if(Category2TextBox.Text != "") {
+                secondCategoryFilter = Category2TextBox.Text.ToLower();
+            }
+
             foreach (var testFixture in testFixtureEntityList) {
+                testMatchedFixturePriority = false;
+                testMatchedFixtureFirstCategory = false;
+                testMatchedFixtureSecondCategory = false;
+                if (selectedPriority == "") {
+                    //We want prioritymatch to be true always since there is no criteria for that
+                    testMatchedFixturePriority = true;
+                } 
+                if (firstCategoryFilter == "") {
+                    //We didn't select categories to filter by
+                    testMatchedFixtureFirstCategory = true;
+                }
+                if(secondCategoryFilter == "") {
+                    //We didn't select categories to filter by
+                    testMatchedFixtureSecondCategory = true;
+                }
+             
                 concatFixtureCategoryList = new StringBuilder();
                 foreach (var property in testFixture.PropertyList) {
-                    if(property.PropValue != "Self") {
-                        //assumes priorities are always on the test level
-                            concatFixtureCategoryList.Append(property.PropValue + " | ");                        
-                    }                    
+                    if (property.PropValue != "Self") {
+                        //If it meets any category or priority at this point, write it to the concat fixture string for now, we will compare AND/OR Later
+                        if (property.PropValue == selectedPriority) {
+                            testMatchedFixturePriority = true;
+                        } else if (property.PropValue == firstCategoryFilter) {
+                            testMatchedFixtureFirstCategory = true;
+                        } else if (property.PropValue == secondCategoryFilter) {
+                            testMatchedFixtureSecondCategory = true;
+                        }
+                        //We still want a list of all the categories regardless of the match to report on if it ends up meeting the criteria.
+                        concatFixtureCategoryList.Append(property.PropValue + " | ");
+                    }
                 }
+                //After we went through all fixture categories we have if it matched the priority/ first or second categories
+
                 //Now this continues in that one fixture adding in parameterized methods in that fixture.
-                #region Parameterized Method Data                
-                foreach (var paramMethod in testFixture.ListOfParameterizedMethods) {               
+                #region Parameterized Method Data                     
+                foreach (var paramMethod in testFixture.ListOfParameterizedMethods) {
+                    testMethodMatchedPriority = false;
+                    testMethodMatchedFirstCategory = false;
+                    testMethodMatchedSecondCategory = false;
+
+                    if (selectedPriority == "") {
+                        //We want prioritymatch to be true always since there is no criteria for that
+                        testMethodMatchedPriority = true;
+                    }
+                    if (firstCategoryFilter == "") {
+                        //We didn't select categories to filter by
+                        testMethodMatchedFirstCategory = true;
+                    }
+                    if (secondCategoryFilter == "") {
+                        //We didn't select categories to filter by
+                        testMethodMatchedSecondCategory = true;
+                    }
+
                     concatParamMethodCategoryList = new StringBuilder();
                     testParamMethodProperty_Description = "";
                     foreach (var property in paramMethod.ParamMethodPropertiesList) {
+                        //If it matched any priority or category, add it to the list for now.  We will compare AND/OR later
                         if (property.PropName == "Description") {
                             testParamMethodProperty_Description = property.PropValue;
-                        } else if(property.PropName == "Category"){
-                            if(property.PropValue == "priority1") {
-                                concatParamMethodCategoryList.Append(property.PropValue + " | ");
-                            }if(property.PropValue == "priority3") {
-                                concatParamMethodCategoryList.Append(property.PropValue + " | ");
+                        } else if (property.PropName == "Category") {
+                            if (property.PropValue == selectedPriority) {
+                                testMethodMatchedPriority = true;
+                            } else if (property.PropValue == firstCategoryFilter) {
+                                testMethodMatchedFirstCategory = true;
+                            } else if (property.PropValue == secondCategoryFilter) {
+                                testMethodMatchedSecondCategory = true;
                             }
+                            // We still want a list of ALL categories in case this test matches criteria
+                            concatParamMethodCategoryList.Append(property.PropValue + " | ");
                         }
                     }
 
-                    #region Checks to see based on priorities desired if test should continue to process
-                    if(concatParamMethodCategoryList.Length >0) {
-                        //If we found a matching category, we continue, otherwise it skips to the end.
-                  
+                    //We are still inside the foreach param method (so for each testfixture/test we do this comparison after we get through all parameters)
+                    #region Looks at the list of categories/Priorities so far and compares AND/OR Criteria
+                    if (ANDORPropertySelector.SelectedItem != null) {
+                        priorityConcatVariable = ANDORPropertySelector.SelectedItem.ToString();
+                    }
+                    if (ANDORSelectorCategory.SelectedItem != null) {
+                        categoryConcatVariable = ANDORSelectorCategory.SelectedItem.ToString();
+                    }
+                    //We want a blank string to concat values to each time
+                    testFixtureAndParameterizedMethodCategories = "";
+                    if (priorityConcatVariable == "and") {
+                        if (categoryConcatVariable == "and") {
+                            //We want to know if both of our two categories are contained in the categories built from the testFixture and Test
+                            //We also want to know if the priority matched
+                            if ((testMatchedFixtureFirstCategory || testMethodMatchedFirstCategory)
+                                && (testMatchedFixtureSecondCategory || testMethodMatchedSecondCategory)
+                                && (testMatchedFixturePriority || testMethodMatchedPriority)) {
+                                //Everything Matched so we will use the concatParamMethodCategoryList Contents that contains all categories for the tests
+                                //And combine it with the fixture categories.
+                                testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
+                                countOfFilteredTestMethods++;
+                            }
+                        } else if (categoryConcatVariable == "or") {
+                            //We want to know if either the first category or the second category is found within the list.
+                            //We also want to know if the priority matched
+                            if ((testMatchedFixtureFirstCategory || testMethodMatchedFirstCategory)
+                                && ((testMatchedFixtureSecondCategory || testMethodMatchedSecondCategory) 
+                                || (testMatchedFixturePriority || testMethodMatchedPriority))) {
+                                //Either the first or second category matched, so we combine the full list of categories for the report
+                                testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
+                                countOfFilteredTestMethods++;
+                            }
+                        } else if (categoryConcatVariable == "") {
+                            //No category concat was selected, but a priority still could have been selected
+                            if((testMatchedFixtureFirstCategory || testMethodMatchedFirstCategory) 
+                                && (testMatchedFixturePriority || testMethodMatchedPriority)) {
+                                //Either a category was selected or they were marked true for == Null
+                                //Either a priority was selected and matched or they were marked true for == Null
+                                testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
+                                countOfFilteredTestMethods++;
+                            }                           
+                        }
+                    }else if (priorityConcatVariable == "or") {
+                        if (categoryConcatVariable == "and") {
+                            //We want to know if both of our two categories are contained in the categories built from the testFixture and Test
+                            //We also want to know if the priority matched
+                            if ((testMatchedFixtureFirstCategory || testMethodMatchedFirstCategory)
+                                || ((testMatchedFixtureSecondCategory || testMethodMatchedSecondCategory)
+                                && (testMatchedFixturePriority || testMethodMatchedPriority))) {
+                                //Everything Matched so we will use the concatParamMethodCategoryList Contents that contains all categories for the tests
+                                //And combine it with the fixture categories.
+                                testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
+                                countOfFilteredTestMethods++;
+                            }
+                        } else if (categoryConcatVariable == "or") {
+                            //We want to know if either the first category or the second category is found within the list.
+                            //We also want to know if the priority matched
+                            if ((testMatchedFixtureFirstCategory || testMethodMatchedFirstCategory)
+                                || ((testMatchedFixtureSecondCategory || testMethodMatchedSecondCategory)
+                                || (testMatchedFixturePriority || testMethodMatchedPriority))) {
+                                //Either the first or second category matched, so we combine the full list of categories for the report
+                                testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
+                                countOfFilteredTestMethods++;
+                            }
+                        } else if (categoryConcatVariable == "") {
+                            //No category concat was selected, but a priority still could have been selected
+                            if ((testMatchedFixtureFirstCategory || testMethodMatchedFirstCategory)
+                                || (testMatchedFixturePriority || testMethodMatchedPriority)) {
+                                //Either a category was selected or they were marked true for == Null
+                                //Either a priority was selected and matched or they were marked true for == Null
+                                testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
+                                countOfFilteredTestMethods++;
+                            }
+                        }
+                    } else {
+                        //nothing was selected, all data expected to output with the correct priority or correct category
+                        if((testMatchedFixturePriority || testMethodMatchedPriority) && (testMatchedFixtureFirstCategory || testMethodMatchedFirstCategory)) {
+                            testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
+                            countOfFilteredTestMethods++;
+                        }
+                    }
+
+
                     #endregion
-                    //Now lets combine the test fixture and test case categories together
-                    string testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
 
-                    //This continues for this one parameter method to add the associated test cases, before looping back around to get the rest of the parameter methods in the fixture.
-                    #endregion
-                    #region Test Case Data
-                    foreach (var testcase in paramMethod.TestCaseEntityList) {                       
-
-                        //Now that we have the test fixture and test parameterized method data for one test case, we report a line for that test case before repeating
-                        // Combine the test fixture and test case categories together
-
-                        #region Write Report Line                        
-                                        StringBuilder reportLine = new StringBuilder();
-                                        reportLine.Append(testFixture.ID + ",");
-                                        reportLine.Append(testFixture.Name + ",");
-                                        reportLine.Append(testFixtureAndParameterizedMethodCategories + ",");
-                                        reportLine.Append(paramMethod.Id + ",");
-                                        reportLine.Append(paramMethod.Name + ",");
-                                        reportLine.Append(testcase.RunState + ",");
-                                        reportLine.Append(testcase.Id + ",");
-                                        reportLine.Append(testcase.Name + ",");
-                                        reportLine.Append(testParamMethodProperty_Description);
-                                        fullreportCSV.AppendLine(reportLine.ToString());
-
-                        //fullreportCSV.AppendLine(testFixture.ID + "," + testFixture.Name + "," + testFixtureAndParameterizedMethodCategories + "," + paramMethod.Id + ","+ paramMethod.Name + "," + testCaseEntity.RunState + "," + testCaseEntity.Name + "," + testParamMethodProperty_Description);
+                    #region Checks to see based on priorities and categories desired if test should continue to process
+                    
+                    if (testFixtureAndParameterizedMethodCategories.Length > 0) {
+                        //If we found a matching category, we continue, otherwise it skips to the end.       
+                        //This continues for this one parameter method to add the associated test cases, before looping back around to get the rest of the parameter methods in the fixture.
+                        #region Test Case Data
+                        foreach (var testcase in paramMethod.TestCaseEntityList) {
+                            //Now that we have the test fixture and test parameterized method data for one test case, we report a line for that test case before repeating
+                            // Combine the test fixture and test case categories together
+                            #region Write Report Line                        
+                            StringBuilder reportLine = new StringBuilder();
+                            reportLine.Append(testFixture.ID + ",");
+                            reportLine.Append(testFixture.Name + ",");
+                            reportLine.Append(testFixtureAndParameterizedMethodCategories + ",");
+                            reportLine.Append(paramMethod.Id + ",");
+                            reportLine.Append(paramMethod.Name + ",");
+                            reportLine.Append(testcase.RunState + ",");
+                            reportLine.Append(testcase.Id + ",");
+                            reportLine.Append(testcase.Name + ",");
+                            reportLine.Append(testParamMethodProperty_Description.Replace(",", "~"));
+                            fullreportCSV.AppendLine(reportLine.ToString());
+                            countOfFilteredTestCases++;
+                            #endregion
+                        }//Foreach Test Case in TestCaseEntityList
                         #endregion
-
-                }
                     }//End if matching categories found
-                    #endregion
+                    #endregion (Checks to see based on priorities desired if test should continue to process)
                 } // End foreach param method
-                #endregion
-            }
+                #endregion Parameterized Method Data
+
+                #endregion (Fixture and Test Case Data)
+
+              
+                #endregion (Write the Data that we want to a CSV File)
+            }  //End Foreach Test Fixture
+            #region Add a few more reporting details for filtered test cases
+            //eventually get this in the upper part of excel by specifying column and row specifics
+            fullreportCSV.AppendLine("");
+            fullreportCSV.AppendLine("Filtered Count of Test Methods: ");
+            fullreportCSV.AppendLine(countOfFilteredTestMethods.ToString());
+            fullreportCSV.AppendLine("Filtered Count of Test Cases: ");
+            fullreportCSV.AppendLine(countOfFilteredTestCases.ToString());
             #endregion
 
             #region Output Report
@@ -358,62 +524,14 @@ namespace NUnitReportConversionTool {
                         buttons = MessageBoxButtons.RetryCancel;
                         result = MessageBox.Show("The file is open (we could not delete it), please close the file", "FILE ACCESS ERROR", buttons);
                     }
-                }
-
-
-
-
-
-
-
-                //    if (!File.Exists(filePath)) {
-                //        MessageBoxButtons buttonsSuccess = MessageBoxButtons.OK;
-                //        File.WriteAllText(filePath, fullreportCSV.ToString());
-                //        DialogResult successResult = MessageBox.Show("Your file has processed successfully.", "SUCCESS", buttonsSuccess);
-                //    } else {
-                //        try {                           
-                //        } catch (System.IO.IOException ex2) {
-                //            result = MessageBox.Show("The file is open, please close the file", "FILE ACCESS ERROR", buttons);
-                //        }
-                //    }
-                //}
-            //} else {
-            //    MessageBoxButtons buttons = MessageBoxButtons.RetryCancel;
-            //    DialogResult result = MessageBox.Show("The file is open, please close the file", "FILE ACCESS ERROR", buttons);
-            //    while (result == System.Windows.Forms.DialogResult.Retry) {
-            //        if (!File.Exists(filePath)) {
-            //            MessageBoxButtons buttonsSuccess = MessageBoxButtons.OK;
-            //            File.WriteAllText(filePath, fullreportCSV.ToString());
-            //            DialogResult successResult = MessageBox.Show("Your file has processed successfully.", "SUCCESS", buttonsSuccess);
-            //        } else {
-            //            result = MessageBox.Show("The file is open, please close the file", "FILE ACCESS ERROR", buttons);
-            //        }
-            //     }
-        }
-            //} catch(System.IO.IOException ex) {
-            //    MessageBoxButtons buttons = MessageBoxButtons.RetryCancel;
-            //    DialogResult result = MessageBox.Show("The file is open, please close the file", "FILE ACCESS ERROR", buttons);                
-            //    while (result == System.Windows.Forms.DialogResult.Retry) {
-            //        if (!File.Exists(filePath)) {
-            //            MessageBoxButtons buttonsSuccess = MessageBoxButtons.OK;
-            //            File.WriteAllText(filePath, fullreportCSV.ToString());
-            //            DialogResult successResult = MessageBox.Show("Your file has processed successfully.", "SUCCESS", buttonsSuccess);
-            //        } else {
-            //            try {
-            //                File.Delete(filePath);
-            //                File.WriteAllText(filePath, fullreportCSV.ToString());
-            //            } catch(System.IO.IOException ex2) {
-            //                result = MessageBox.Show("The file is open, please close the file", "FILE ACCESS ERROR", buttons);
-            //            }                       
-            //        }
-            //    } 
-
-           // }
-            
+                } //End while
+            }  //End Catch                            
             #endregion
-
             #endregion
-        }
+        }//End Convert Data For Tests
 
+        //private void richTextBox1_TextChanged(object sender, EventArgs e) {
+
+        //}
     }
 }
