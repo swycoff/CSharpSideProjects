@@ -493,6 +493,7 @@ namespace NUnitReportConversionTool {
                     MessageBoxButtons buttonsSuccess = MessageBoxButtons.OK;
                     File.WriteAllText(filePath, fullreportCSV.ToString());
                     DialogResult successResult = MessageBox.Show("Your file has processed successfully.", "SUCCESS", buttonsSuccess);
+                    Application.Exit();
                     return;
                 } else {
                     //The file exists, we should delete it and start fresh.
@@ -500,6 +501,7 @@ namespace NUnitReportConversionTool {
                     MessageBoxButtons buttonsSuccess = MessageBoxButtons.OK;
                     File.WriteAllText(filePath, fullreportCSV.ToString());
                     DialogResult successResult = MessageBox.Show("Your file has processed successfully.", "SUCCESS", buttonsSuccess);
+                    Application.Exit();
                     return;
                 }
             } catch (Exception ex) {
@@ -511,6 +513,7 @@ namespace NUnitReportConversionTool {
                             MessageBoxButtons buttonsSuccess = MessageBoxButtons.OK;
                             File.WriteAllText(filePath, fullreportCSV.ToString());
                             DialogResult successResult = MessageBox.Show("Your file has processed successfully.", "SUCCESS", buttonsSuccess);
+                            Application.Exit();
                             return;
                         } else {
                             //The file exists, we should delete it and start fresh.
@@ -518,6 +521,7 @@ namespace NUnitReportConversionTool {
                             MessageBoxButtons buttonsSuccess = MessageBoxButtons.OK;
                             File.WriteAllText(filePath, fullreportCSV.ToString());
                             DialogResult successResult = MessageBox.Show("Your file has processed successfully.", "SUCCESS", buttonsSuccess);
+                            Application.Exit();
                             return;
                         }
                     } catch (Exception ex2) {
