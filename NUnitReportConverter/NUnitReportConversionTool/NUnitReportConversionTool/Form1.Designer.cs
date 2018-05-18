@@ -47,6 +47,7 @@
             this.Category1FormBox = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.excludeTestCasesChbox = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -116,7 +117,7 @@
             // 
             // ConvertNUnitReport
             // 
-            this.ConvertNUnitReport.Location = new System.Drawing.Point(7, 368);
+            this.ConvertNUnitReport.Location = new System.Drawing.Point(12, 371);
             this.ConvertNUnitReport.Margin = new System.Windows.Forms.Padding(4);
             this.ConvertNUnitReport.Name = "ConvertNUnitReport";
             this.ConvertNUnitReport.Size = new System.Drawing.Size(350, 28);
@@ -127,7 +128,7 @@
             // 
             // Category3FormBox
             // 
-            this.Category3FormBox.Location = new System.Drawing.Point(12, 323);
+            this.Category3FormBox.Location = new System.Drawing.Point(12, 299);
             this.Category3FormBox.Name = "Category3FormBox";
             this.Category3FormBox.Size = new System.Drawing.Size(279, 22);
             this.Category3FormBox.TabIndex = 14;
@@ -135,7 +136,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 292);
+            this.label5.Location = new System.Drawing.Point(13, 268);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(120, 17);
             this.label5.TabIndex = 15;
@@ -143,7 +144,7 @@
             // 
             // Category2FormBox
             // 
-            this.Category2FormBox.Location = new System.Drawing.Point(13, 181);
+            this.Category2FormBox.Location = new System.Drawing.Point(13, 166);
             this.Category2FormBox.Name = "Category2FormBox";
             this.Category2FormBox.Size = new System.Drawing.Size(279, 22);
             this.Category2FormBox.TabIndex = 13;
@@ -155,7 +156,7 @@
             "",
             "and",
             "or"});
-            this.Cat2And3_ANDORSelector.Location = new System.Drawing.Point(14, 249);
+            this.Cat2And3_ANDORSelector.Location = new System.Drawing.Point(14, 230);
             this.Cat2And3_ANDORSelector.Name = "Cat2And3_ANDORSelector";
             this.Cat2And3_ANDORSelector.Size = new System.Drawing.Size(121, 24);
             this.Cat2And3_ANDORSelector.TabIndex = 16;
@@ -167,7 +168,7 @@
             "",
             "and",
             "or"});
-            this.Cat1And2_ANDORSelector.Location = new System.Drawing.Point(14, 107);
+            this.Cat1And2_ANDORSelector.Location = new System.Drawing.Point(14, 102);
             this.Cat1And2_ANDORSelector.Name = "Cat1And2_ANDORSelector";
             this.Cat1And2_ANDORSelector.Size = new System.Drawing.Size(121, 24);
             this.Cat1And2_ANDORSelector.TabIndex = 17;
@@ -193,7 +194,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(11, 145);
+            this.label8.Location = new System.Drawing.Point(11, 138);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(180, 17);
             this.label8.TabIndex = 21;
@@ -230,6 +231,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.excludeTestCasesChbox);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.Category1FormBox);
             this.groupBox1.Controls.Add(this.label8);
@@ -243,7 +245,7 @@
             this.groupBox1.Controls.Add(this.ConvertNUnitReport);
             this.groupBox1.Location = new System.Drawing.Point(510, 516);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(395, 464);
+            this.groupBox1.Size = new System.Drawing.Size(395, 419);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Section 2";
@@ -251,7 +253,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 224);
+            this.label2.Location = new System.Drawing.Point(17, 199);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(271, 17);
             this.label2.TabIndex = 23;
@@ -287,16 +289,24 @@
             this.richTextBox2.ReadOnly = true;
             this.richTextBox2.Size = new System.Drawing.Size(454, 198);
             this.richTextBox2.TabIndex = 27;
-            this.richTextBox2.Text = "Section 2: If you want to run the report with all data, leave all fields blank an" +
-    "d click Run Report.  Otherwise enter 1 or more category names with the AND/OR Se" +
-    "lectors to Filter The Data.";
+            this.richTextBox2.Text = resources.GetString("richTextBox2.Text");
+            // 
+            // excludeTestCasesChbox
+            // 
+            this.excludeTestCasesChbox.AutoSize = true;
+            this.excludeTestCasesChbox.Location = new System.Drawing.Point(13, 336);
+            this.excludeTestCasesChbox.Name = "excludeTestCasesChbox";
+            this.excludeTestCasesChbox.Size = new System.Drawing.Size(154, 21);
+            this.excludeTestCasesChbox.TabIndex = 24;
+            this.excludeTestCasesChbox.Text = "Exclude Test Cases";
+            this.excludeTestCasesChbox.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1128, 998);
+            this.ClientSize = new System.Drawing.Size(1128, 961);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -340,6 +350,7 @@
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.TextBox Category1FormBox;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox excludeTestCasesChbox;
     }
 }
 

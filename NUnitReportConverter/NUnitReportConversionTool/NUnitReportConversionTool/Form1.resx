@@ -120,4 +120,7 @@
   <data name="richTextBox1.Text" xml:space="preserve">
     <value>Tool Information: This report runs from the data gathered by running NUNIT from the console, using the --explore:Nunit3 feature.  More information is in the NUnit guide in the automation library.  1) Insert the path to your nunit3 output file (from running explore).  Notice it has no extention because its a type "File".  2) Pick a directory to output your filtered Excel data to  (technically a CSV file).  3) Name your report.  4) In section 2, filter your data as needed.</value>
   </data>
+  <data name="richTextBox2.Text" xml:space="preserve">
+    <value>Section 2: If you want to run the report with all data, leave all fields blank and click Run Report.  Otherwise enter 1 or more category names with the AND/OR Selectors to Filter The Data.  One additional option is to only report on the methods, and not each test case.</value>
+  </data>
 </root>

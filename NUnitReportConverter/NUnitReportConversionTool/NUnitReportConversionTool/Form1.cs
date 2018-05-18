@@ -266,14 +266,14 @@ namespace NUnitReportConversionTool {
             int testCaseCount = CountTotalTestCasesInAllTestFixtures();
             #endregion
             #region Headers
-            CSV_RollupReport.AppendLine("WholeLibrary: FixtureCount");
+            CSV_RollupReport.AppendLine("Whole Library: Fixture Count");
             CSV_RollupReport.AppendLine(fixtureCount.ToString());
-            CSV_RollupReport.AppendLine("WholeLibrary: ParameterizedMethodCount");
+            CSV_RollupReport.AppendLine("Whole Library: Parameterized Method Count");
             CSV_RollupReport.AppendLine(parameterizedMethodCount.ToString());
-            CSV_RollupReport.AppendLine("WholeLibrary: TestCaseCount");
+            CSV_RollupReport.AppendLine("Whole Library: Test Case Count");
             CSV_RollupReport.AppendLine(testCaseCount.ToString());
             //We only want this written once so it stays here
-            CSV_HeaderAndData.AppendLine("TestFixtureID, TestFixtureName, Categories, ParamMethodID, ParamMethodName, TestCaseRunState, TestCaseID, TestCaseName, Test Case Description");
+            CSV_HeaderAndData.AppendLine("Test Fixture ID, Test Fixture Name, Categories, Param Method ID, Param Method Name, Param Method Description, Test Case Run State, Test Case ID, Test Case Name");
             #endregion
             #region Grab Form Data
             //We get these values from the form            
@@ -412,9 +412,22 @@ namespace NUnitReportConversionTool {
 
                         #region Checks to see based on priorities and categories desired if test should continue to process
                         if (testFixtureAndParameterizedMethodCategories.Length > 0) {
-                            //If we found a matching category, we continue, otherwise it skips to the end.       
-                            //This continues for this one parameter method to add the associated test cases, before looping back around to get the rest of the parameter methods in the fixture.
-                            #region Test Case Data
+                        //If we found a matching category, we continue, otherwise it skips to the end.       
+                        //This continues for this one parameter method to add the associated test cases, before looping back around to get the rest of the parameter methods in the fixture.
+                        #region Test Case Data
+                        if (excludeTestCasesChbox.Checked) {
+                            #region Write Report Line                        
+                            StringBuilder reportLine = new StringBuilder();
+                            reportLine.Append(testFixture.ID + ",");
+                            reportLine.Append(testFixture.Name + ",");
+                            reportLine.Append(testFixtureAndParameterizedMethodCategories + ",");
+                            reportLine.Append(paramMethod.Id + ",");
+                            reportLine.Append(paramMethod.Name + ",");
+                            string descriptionTemp = testParamMethodProperty_Description.Replace(",", "~");
+                            reportLine.Append(descriptionTemp + ",");
+                            CSV_HeaderAndData.AppendLine(reportLine.ToString());
+                            #endregion
+                        } else {
                             foreach (var testcase in paramMethod.TestCaseEntityList) {
                                 //Now that we have the test fixture and test parameterized method data for one test case, we report a line for that test case before repeating
                                 // Combine the test fixture and test case categories together
@@ -425,14 +438,16 @@ namespace NUnitReportConversionTool {
                                 reportLine.Append(testFixtureAndParameterizedMethodCategories + ",");
                                 reportLine.Append(paramMethod.Id + ",");
                                 reportLine.Append(paramMethod.Name + ",");
+                                string descriptionTemp = testParamMethodProperty_Description.Replace(",", "~");
+                                reportLine.Append(descriptionTemp + ",");
                                 reportLine.Append(testcase.RunState + ",");
                                 reportLine.Append(testcase.Id + ",");
                                 reportLine.Append(testcase.Name + ",");
-                                reportLine.Append(testParamMethodProperty_Description.Replace(",", "~"));
                                 CSV_HeaderAndData.AppendLine(reportLine.ToString());
                                 countOfFilteredTestCases++;
                                 #endregion
                             }//Foreach Test Case in TestCaseEntityList
+                        }                            
                             #endregion
                         }//End if matching categories found
                         #endregion (Checks to see based on priorities desired if test should continue to process)
