@@ -25,6 +25,11 @@ namespace NUnitReportConversionTool {
         List<ParameterizedMethod_Entity> parameterizedMethodEntityList;
         List<TestCase_Entity> testCaseEntityList;
         List<Properties_Entity> propertiesEntityList;
+
+        //Pretty Report
+        List<SimpleTestData_Entity> listPrettyTests;
+        Category_Entity categoryEntity;
+
         #endregion
 
         #region StringBuilders
@@ -300,6 +305,8 @@ namespace NUnitReportConversionTool {
                 testFixtureMatchedCat3 = false;
 
                 concatFixtureCategoryList = new StringBuilder();
+                //Pretty test
+                
                 foreach (var property in testFixture.PropertyList) {
                     if (property.PropValue != "Self") {
                         //If it meets any category or priority at this point, write it to the concat fixture string for now, we will compare AND/OR Later
@@ -339,6 +346,7 @@ namespace NUnitReportConversionTool {
                             }
                             // We still want a list of ALL categories in case this test matches criteria
                             concatParamMethodCategoryList.Append(property.PropValue + " | ");
+
                         }
                     }
 
@@ -346,12 +354,15 @@ namespace NUnitReportConversionTool {
                     #region Looks at the list of categories/Priorities so far and compares AND/OR Criteria
                     //We want a blank string to concat values to each time
                     testFixtureAndParameterizedMethodCategories = "";
+                    //For the pretty report we are only gathering test name (param method name), description and then wanting to format categories differently
+                    //So we add it to it's own object for later use
+                    SimpleTestData_Entity prettyTest = new SimpleTestData_Entity();
 
                     //Run the full report, nothing was selected.
                     if (category1Text == "" && firstConcatANDORChoice == "" && category2Text == ""
                         && secondConcatANDORChoice == "" && category3Text == "") {                        
                             //Only writes this for this method if it matched the category on the fixture level or the test parameterized test level.
-                            testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
+                            testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();                            
                             countOfFilteredTestMethods++;
                         // If we only have one category selected and nothing else.
                     }else if (category1Text !="" && firstConcatANDORChoice == "" && category2Text=="" 
@@ -359,6 +370,10 @@ namespace NUnitReportConversionTool {
                         if(testFixtureMatchedCat1 || testMethodMatchedCat1) {
                             //Only writes this for this method if it matched the category on the fixture level or the test parameterized test level.
                             testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
+                            
+                            //Write this here for testing and then make own methods.
+
+
                             countOfFilteredTestMethods++;
                         }
                         //Category 1 && Category2
@@ -420,10 +435,10 @@ namespace NUnitReportConversionTool {
                             StringBuilder reportLine = new StringBuilder();
                             reportLine.Append(testFixture.ID + ",");
                             reportLine.Append(testFixture.Name + ",");
-                            reportLine.Append(testFixtureAndParameterizedMethodCategories + ",");
+                            reportLine.Append(testFixtureAndParameterizedMethodCategories + ","); //categories we want
                             reportLine.Append(paramMethod.Id + ",");
-                            reportLine.Append(paramMethod.Name + ",");
-                            string descriptionTemp = testParamMethodProperty_Description.Replace(",", "~");
+                            reportLine.Append(paramMethod.Name + ","); // The test name we want
+                            string descriptionTemp = testParamMethodProperty_Description.Replace(",", "~"); //The desription we want
                             reportLine.Append(descriptionTemp + ",");
                             CSV_HeaderAndData.AppendLine(reportLine.ToString());
                             #endregion
@@ -435,10 +450,10 @@ namespace NUnitReportConversionTool {
                                 StringBuilder reportLine = new StringBuilder();
                                 reportLine.Append(testFixture.ID + ",");
                                 reportLine.Append(testFixture.Name + ",");
-                                reportLine.Append(testFixtureAndParameterizedMethodCategories + ",");
+                                reportLine.Append(testFixtureAndParameterizedMethodCategories + ","); //The categories we want
                                 reportLine.Append(paramMethod.Id + ",");
-                                reportLine.Append(paramMethod.Name + ",");
-                                string descriptionTemp = testParamMethodProperty_Description.Replace(",", "~");
+                                reportLine.Append(paramMethod.Name + ","); //The test name we want
+                                string descriptionTemp = testParamMethodProperty_Description.Replace(",", "~"); //The description we want
                                 reportLine.Append(descriptionTemp + ",");
                                 reportLine.Append(testcase.RunState + ",");
                                 reportLine.Append(testcase.Id + ",");
@@ -514,12 +529,25 @@ namespace NUnitReportConversionTool {
                             result = MessageBox.Show("The file is open (we could not delete it), please close the file", "FILE ACCESS ERROR", buttons);
                         }
                     } //End while
-                }  //End Catch                            
+
+                #endregion
+                #region Make pretty
+                //If Make Pretty Is Checked - we want to read the output file and make a new prettier one
+                if (makePretty.Checked) {
+
+                }
                 #endregion
 
-            }//End Convert Data For Tests
+            }  //End Catch                            
 
-        }//class
+
+
+        }//End Convert Data For Tests
+
+        private void ReportOutputName_TextChanged(object sender, EventArgs e) {
+
+        }
+    }//class
 
         }//namespace
  

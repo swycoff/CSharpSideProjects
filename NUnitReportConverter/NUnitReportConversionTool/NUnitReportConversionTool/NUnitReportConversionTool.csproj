@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\PrettyReport\Category_Entity.cs" />
+    <Compile Include="Classes\PrettyReport\SimpleTestData_Entity.cs" />
     <Compile Include="Classes\TestCaseProperties_Entity.cs" />
     <Compile Include="Classes\TestCase_Entity.cs" />
     <Compile Include="Classes\TestFixture_Entity.cs" />
