@@ -27,9 +27,10 @@ namespace NUnitReportConversionTool {
         List<Properties_Entity> propertiesEntityList;
 
         //Pretty Report
-        List<SimpleTestData_Entity> listPrettyTests;
-        Category_Entity categoryEntity;
-
+        List<SimpleTestData_Entity> simpleTestData_EntityList;
+        SimpleTestData_Entity simpleTestData_Entity;
+        Category_Entity category_Entity;
+        List<Category_Entity> category_EntityList;
         #endregion
 
         #region StringBuilders
@@ -299,14 +300,18 @@ namespace NUnitReportConversionTool {
             }
             #endregion
             #region Fixture and Test Case Data          
+            simpleTestData_EntityList = new List<SimpleTestData_Entity>();
+
             foreach (var testFixture in testFixtureEntityList) {
                 testFixtureMatchedCat1 = false;
                 testFixtureMatchedCat2 = false;
                 testFixtureMatchedCat3 = false;
 
                 concatFixtureCategoryList = new StringBuilder();
-                //Pretty test
+                simpleTestData_Entity = new SimpleTestData_Entity();
                 
+                category_EntityList = new List<Category_Entity>();
+
                 foreach (var property in testFixture.PropertyList) {
                     if (property.PropValue != "Self") {
                         //If it meets any category or priority at this point, write it to the concat fixture string for now, we will compare AND/OR Later
@@ -319,6 +324,11 @@ namespace NUnitReportConversionTool {
                         }
                         //We still want a list of all the categories regardless of the match to report on if it ends up meeting the criteria.
                         concatFixtureCategoryList.Append(property.PropValue + " | ");
+
+                        //one category entity per category, added to a list
+                        category_Entity = new Category_Entity();
+                        category_Entity.setCategoryInfoBasedOnTextName(property.PropValue);
+                        category_EntityList.Add(category_Entity);
                     }
                 }
                 //After we went through all fixture categories we have if it matched the priority/ first or second categories
@@ -347,6 +357,10 @@ namespace NUnitReportConversionTool {
                             // We still want a list of ALL categories in case this test matches criteria
                             concatParamMethodCategoryList.Append(property.PropValue + " | ");
 
+                            //one category entity per category, added to a list
+                            category_Entity = new Category_Entity();
+                            category_Entity.setCategoryInfoBasedOnTextName(property.PropValue);
+                            category_EntityList.Add(category_Entity);
                         }
                     }
 
@@ -354,9 +368,10 @@ namespace NUnitReportConversionTool {
                     #region Looks at the list of categories/Priorities so far and compares AND/OR Criteria
                     //We want a blank string to concat values to each time
                     testFixtureAndParameterizedMethodCategories = "";
+
                     //For the pretty report we are only gathering test name (param method name), description and then wanting to format categories differently
                     //So we add it to it's own object for later use
-                    SimpleTestData_Entity prettyTest = new SimpleTestData_Entity();
+                    simpleTestData_Entity = new SimpleTestData_Entity();
 
                     //Run the full report, nothing was selected.
                     if (category1Text == "" && firstConcatANDORChoice == "" && category2Text == ""
@@ -370,9 +385,9 @@ namespace NUnitReportConversionTool {
                         if(testFixtureMatchedCat1 || testMethodMatchedCat1) {
                             //Only writes this for this method if it matched the category on the fixture level or the test parameterized test level.
                             testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
-                            
-                            //Write this here for testing and then make own methods.
 
+                            //Write this here for testing and then make own methods.
+                            simpleTestData_Entity.Category_EntityList.Add(category_Entity);
 
                             countOfFilteredTestMethods++;
                         }

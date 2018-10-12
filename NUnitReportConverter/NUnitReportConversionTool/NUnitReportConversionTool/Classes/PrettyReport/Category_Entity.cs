@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace NUnitReportConversionTool {
     public enum CategoryTypes {
+        Null,
         Role,
         PermissionType,
         GradeScope,
@@ -14,6 +15,7 @@ namespace NUnitReportConversionTool {
         Unknown //May need to be added to the list
     }
     public enum Roles {
+        Null,
         SA,
         FA,
         BS,
@@ -22,6 +24,7 @@ namespace NUnitReportConversionTool {
         NonRole
     }
     public enum PermissionTypes {        
+        Null,
         Reader,
         Books,
         SharedLogin,
@@ -36,6 +39,7 @@ namespace NUnitReportConversionTool {
         Other
     }
     public enum GradeScopes {
+        Null,
         AllGrades,
         UpperLevelAllGrades,
         LowerLevelAllGrades,
@@ -44,6 +48,7 @@ namespace NUnitReportConversionTool {
         Other
     }
     public enum Priority {
+        Null,
         Priority1=1,
         Priority2=2,
         Priority3=3,
@@ -76,6 +81,7 @@ namespace NUnitReportConversionTool {
         VisualValidationPriority15 = 15,        
     }
     public enum AppArea {
+        Null,
         AppAreaHomePage,
         AppAreaLogin,
         AppAreaDashboard,
@@ -380,7 +386,7 @@ namespace NUnitReportConversionTool {
                     AppArea = AppArea.AppAreaUserInfo;
                     break;
                 default:
-                    CategoryType = CategoryTypes.Unknown; //This means we don't have the specified category in the switch and enums above 
+                    CategoryType = CategoryTypes.Null; //This means we don't have the specified category in the switch and enums above 
                     //It may need to be added
                     break;
 
