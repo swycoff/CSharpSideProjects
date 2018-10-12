@@ -21,10 +21,11 @@ namespace NUnitReportConversionTool {
         public string ReportOnSimpleTestData() {
             //This reports all the information for this object onto a line assuming a reporting structure set in the main program
             StringBuilder simpleTestString = new StringBuilder();
-            string role = "";
-            string permissionType = "";
-            
-            foreach(Category_Entity cat in category_EntityList) {
+            string role = ", , , , , , , "; ; //default in case there isn't a role in the list
+            string permissionType = ", , , , ,";
+            string gradeScope = "";
+
+            foreach (Category_Entity cat in category_EntityList) {
                 if(cat.CategoryType == CategoryTypes.Role) {
                     //Category Order SA,FA,BS,BA,DA
                     switch (cat.Role) {
@@ -86,10 +87,35 @@ namespace NUnitReportConversionTool {
                             //    break;
                     }
                 }
+                if (cat.CategoryType == CategoryTypes.GradeScope) {
+                    switch (cat.GradeScope) {
+                        case GradeScopes.AllGrades:
+                            gradeScope = "x, ,, , , , ";
+                            break;
+                        case GradeScopes.LowerLevelOneGrade:
+                            gradeScope = ",x,, , , , ";
+                            break;
+                        case GradeScopes.UpperLevelOneGrade:
+                            gradeScope = ", ,x, , , , ";
+                            break;                    
+                        case GradeScopes.LowerLevelAllGrades:
+                            gradeScope = ", , ,x, , , , ";
+                            break;
+                        case GradeScopes.UpperLevelAllGrades:
+                            gradeScope = ", , , ,x, , , ";
+                            break;
+                        case GradeScopes.Random:
+                            gradeScope = ", , , , ,x, , ";
+                            break;
+                        default:
+                            gradeScope = ", , , , , ,x,";
+                            break;
+                    }
+                }
             }//End Foreach Category
-
             simpleTestString.Append(role);
             simpleTestString.Append(permissionType);
+            simpleTestString.Append(gradeScope);
             return simpleTestString.ToString();
         }
     }

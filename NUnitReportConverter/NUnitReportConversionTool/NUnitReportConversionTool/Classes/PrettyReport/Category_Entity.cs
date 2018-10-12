@@ -6,49 +6,50 @@ using System.Threading.Tasks;
 
 namespace NUnitReportConversionTool {
     public enum CategoryTypes {
-        Null,
-        Role,
-        PermissionType,
-        GradeScope,
-        Priority,
-        AppArea,
-        Unknown //May need to be added to the list
+        Null =0,
+        Role =1,
+        PermissionType =2,
+        GradeScope=3,
+        Priority=4,
+        AppArea=5,
+        Unknown=6 //May need to be added to the list
     }
     public enum Roles {
-        Null,
-        SA,
-        FA,
-        BS,
-        BA,
-        DA,
-        NonRole
+        Null=0,
+        SA=1,
+        FA=2,
+        BS=3,
+        BA=4,
+        DA=5,
+        NonRole=6
     }
     public enum PermissionTypes {        
-        Null,
-        Reader,
-        Books,
-        SharedLogin,
-        NewsOnly,
-        ThirdPartyDisneyOnly,
-        SpecialCollectionOnly,
-        UpperElementaryOnly,
-        EarlyReadersOnly,
-        ElementaryOnly,
-        LexileOnly,        
-        NoPermissions,
-        Other
+        Null=0,
+        Reader=1,
+        Books=2,
+        SharedLogin=3,
+        NewsOnly=4,
+        ThirdPartyDisneyOnly=5,
+        SpecialCollectionOnly=6,
+        UpperElementaryOnly=7,
+        EarlyReadersOnly=8,
+        ElementaryOnly=9,
+        LexileOnly=10,        
+        NoPermissions=11,
+        Other=12
     }
     public enum GradeScopes {
-        Null,
-        AllGrades,
-        UpperLevelAllGrades,
-        LowerLevelAllGrades,
-        UpperLevelOneGrade,
-        LowerLevelOneGrade,
-        Other
+        Null=0,
+        AllGrades=1,
+        UpperLevelAllGrades=2,
+        LowerLevelAllGrades=3,
+        UpperLevelOneGrade=4,
+        LowerLevelOneGrade=5,
+        Random=6,
+        Other=7
     }
-    public enum Priority {
-        Null,
+    public enum Priorities {
+        Null=0,
         Priority1=1,
         Priority2=2,
         Priority3=3,
@@ -80,43 +81,53 @@ namespace NUnitReportConversionTool {
         VisualValidationPriority14 = 14,
         VisualValidationPriority15 = 15,        
     }
-    public enum AppArea {
-        Null,
-        AppAreaHomePage,
-        AppAreaLogin,
-        AppAreaDashboard,
-        AppAreaRecommended,
-        AppAreaBrowse,
-        AppAreaMyList,
-        AppAreaSearch,
-        AppAreaBookPlayer,
-        AppAreaTopNavigation,
-        AppAreaNews,
-        AppAreaReports,
-        AppAreaProjects,
-        AppAreaUserInfo,
-        AppAreaPlacementFromLogin,
-        AppAreaPlacementFromProjectTask,
-        AppAreaBenchmarkFromEnvelope,
-        AppAreaBenchmarkFromPostBook,
-        AppAreaBenchmarkFromProjectTask
+    public enum AppAreas {
+        Null=0,
+        AppAreaHomePage=1,
+        AppAreaLogin=2,
+        AppAreaDashboard=3,
+        AppAreaRecommended=4,
+        AppAreaBrowse=5,
+        AppAreaMyList=6,
+        AppAreaSearch=7,
+        AppAreaBookPlayer=8,
+        AppAreaTopNavigation=9,
+        AppAreaNews=10,
+        AppAreaReports=11,
+        AppAreaProjects=12,
+        AppAreaUserInfo=13,
+        AppAreaPlacementFromLogin=14,
+        AppAreaPlacementFromProjectTask=15,
+        AppAreaBenchmarkFromEnvelope=16,
+        AppAreaBenchmarkFromPostBook=17,
+        AppAreaBenchmarkFromProjectTask=18
 }
     public class Category_Entity {
         private CategoryTypes categoryType;
         private Roles role;
         private PermissionTypes permissionType;
         private GradeScopes gradeScope;
-        private Priority priority;
-        private AppArea appArea;
+        private Priorities priority;
+        private AppAreas appArea;
         private string categoryName;
         
         public CategoryTypes CategoryType { get { return categoryType; } set { categoryType = value; } }
         public PermissionTypes PermissionType { get { return permissionType; } set { permissionType = value; } }
         public GradeScopes GradeScope { get { return gradeScope; } set { gradeScope = value; } }
         public Roles Role { get { return role; } set { role = value; } }
-        public Priority Priority { get { return priority; } set { priority = value; } }
-        public AppArea AppArea { get { return appArea; } set { appArea = value; } }
+        public Priorities Priority { get { return priority; } set { priority = value; } }
+        public AppAreas AppArea { get { return appArea; } set { appArea = value; } }
         public string CategoryName { get { return categoryName; } set { categoryName = value; } }
+
+        public Category_Entity() {
+            CategoryType = CategoryTypes.Null;
+            PermissionType = PermissionTypes.Null;
+            GradeScope = GradeScopes.Null;
+            Role = Roles.Null;
+            Priority = Priorities.Null;
+            AppArea = AppAreas.Null;
+            CategoryName = "";
+        }
 
         public void setCategoryInfoBasedOnTextName(string categoryName) {
             CategoryName = categoryName;
@@ -213,177 +224,181 @@ namespace NUnitReportConversionTool {
                     CategoryType = CategoryTypes.GradeScope;
                     gradeScope = GradeScopes.AllGrades;
                     break;
+                case "graderandom":
+                    CategoryType = CategoryTypes.GradeScope;
+                    gradeScope = GradeScopes.Random;
+                    break;
                 case "priority1":
                     CategoryType = CategoryTypes.Priority;
-                     Priority= Priority.Priority1;
+                     Priority= Priorities.Priority1;
                     break;
                 case "priority2":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.Priority2;
+                    Priority = Priorities.Priority2;
                     break;
                 case "priority3":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.Priority3;
+                    Priority = Priorities.Priority3;
                     break;
                 case "priority4":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.Priority4;
+                    Priority = Priorities.Priority4;
                     break;
                 case "priority5":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.Priority5;
+                    Priority = Priorities.Priority5;
                     break;
                 case "priority6":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.Priority6;
+                    Priority = Priorities.Priority6;
                     break;
                 case "priority7":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.Priority7;
+                    Priority = Priorities.Priority7;
                     break;
                 case "priority8":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.Priority8;
+                    Priority = Priorities.Priority8;
                     break;
                 case "priority9":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.Priority9;
+                    Priority = Priorities.Priority9;
                     break;
                 case "priority10":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.Priority10;
+                    Priority = Priorities.Priority10;
                     break;
                 case "priority11":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.Priority11;
+                    Priority = Priorities.Priority11;
                     break;
                 case "priority12":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.Priority12;
+                    Priority = Priorities.Priority12;
                     break;
                 case "priority13":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.Priority13;
+                    Priority = Priorities.Priority13;
                     break;
                 case "priority14":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.Priority14;
+                    Priority = Priorities.Priority14;
                     break;
                 case "priority15":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.Priority15;
+                    Priority = Priorities.Priority15;
                     break;
                 case "visualvalidationp1":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.VisualValidationPriority1;
+                    Priority = Priorities.VisualValidationPriority1;
                     break;
                 case "visualvalidationp2":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.VisualValidationPriority2;
+                    Priority = Priorities.VisualValidationPriority2;
                     break;
                 case "visualvalidationp3":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.VisualValidationPriority3;
+                    Priority = Priorities.VisualValidationPriority3;
                     break;
                 case "visualvalidationp4":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.VisualValidationPriority4;
+                    Priority = Priorities.VisualValidationPriority4;
                     break;
                 case "visualvalidationp5":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.VisualValidationPriority5;
+                    Priority = Priorities.VisualValidationPriority5;
                     break;
                 case "visualvalidationp6":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.VisualValidationPriority6;
+                    Priority = Priorities.VisualValidationPriority6;
                     break;
                 case "visualvalidationp7":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.VisualValidationPriority7;
+                    Priority = Priorities.VisualValidationPriority7;
                     break;
                 case "visualvalidationp8":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.VisualValidationPriority8;
+                    Priority = Priorities.VisualValidationPriority8;
                     break;
                 case "visualvalidationp9":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.VisualValidationPriority9;
+                    Priority = Priorities.VisualValidationPriority9;
                     break;
                 case "visualvalidationp10":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.VisualValidationPriority10;
+                    Priority = Priorities.VisualValidationPriority10;
                     break;
                 case "visualvalidationp11":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.VisualValidationPriority11;
+                    Priority = Priorities.VisualValidationPriority11;
                     break;
                 case "visualvalidationp12":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.VisualValidationPriority12;
+                    Priority = Priorities.VisualValidationPriority12;
                     break;
                 case "visualvalidationp13":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.VisualValidationPriority13;
+                    Priority = Priorities.VisualValidationPriority13;
                     break;
                 case "visualvalidationp14":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.VisualValidationPriority14;
+                    Priority = Priorities.VisualValidationPriority14;
                     break;
                 case "visualvalidationp15":
                     CategoryType = CategoryTypes.Priority;
-                    Priority = Priority.VisualValidationPriority15;
+                    Priority = Priorities.VisualValidationPriority15;
                     break;
                 case "appareahomepage":
                     CategoryType = CategoryTypes.AppArea;
-                    AppArea = AppArea.AppAreaHomePage;
+                    AppArea = AppAreas.AppAreaHomePage;
                     break;
                 case "apparealogin":
                     CategoryType = CategoryTypes.AppArea;
-                    AppArea = AppArea.AppAreaLogin;
+                    AppArea = AppAreas.AppAreaLogin;
                     break;
                 case "appareadashboard":
                     CategoryType = CategoryTypes.AppArea;
-                    AppArea = AppArea.AppAreaDashboard;
+                    AppArea = AppAreas.AppAreaDashboard;
                     break;
                 case "apparearecommended":
                     CategoryType = CategoryTypes.AppArea;
-                    AppArea = AppArea.AppAreaRecommended;
+                    AppArea = AppAreas.AppAreaRecommended;
                     break;
                 case "appareabrowse":
                     CategoryType = CategoryTypes.AppArea;
-                    AppArea = AppArea.AppAreaBrowse;
+                    AppArea = AppAreas.AppAreaBrowse;
                     break;
                 case "appareamylist":
                     CategoryType = CategoryTypes.AppArea;
-                    AppArea = AppArea.AppAreaMyList;
+                    AppArea = AppAreas.AppAreaMyList;
                     break;
                 case "appareasearch":
                     CategoryType = CategoryTypes.AppArea;
-                    AppArea = AppArea.AppAreaSearch;
+                    AppArea = AppAreas.AppAreaSearch;
                     break;
                 case "appareabookplayer":
                     CategoryType = CategoryTypes.AppArea;
-                    AppArea = AppArea.AppAreaBookPlayer;
+                    AppArea = AppAreas.AppAreaBookPlayer;
                     break;
                 case "appareatopnavigation":
                     CategoryType = CategoryTypes.AppArea;
-                    AppArea = AppArea.AppAreaTopNavigation;
+                    AppArea = AppAreas.AppAreaTopNavigation;
                     break;
                 case "appareanews":
                     CategoryType = CategoryTypes.AppArea;
-                    AppArea = AppArea.AppAreaNews;
+                    AppArea = AppAreas.AppAreaNews;
                     break;
                 case "appareareports":
                     CategoryType = CategoryTypes.AppArea;
-                    AppArea = AppArea.AppAreaReports;
+                    AppArea = AppAreas.AppAreaReports;
                     break;
                 case "appareaprojects":
                     CategoryType = CategoryTypes.AppArea;
-                    AppArea = AppArea.AppAreaProjects;
+                    AppArea = AppAreas.AppAreaProjects;
                     break;
                 case "appareauserinfo":
                     CategoryType = CategoryTypes.AppArea;
-                    AppArea = AppArea.AppAreaUserInfo;
+                    AppArea = AppAreas.AppAreaUserInfo;
                     break;
                 default:
                     CategoryType = CategoryTypes.Null; //This means we don't have the specified category in the switch and enums above 

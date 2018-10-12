@@ -326,10 +326,14 @@ namespace NUnitReportConversionTool {
                         //We still want a list of all the categories regardless of the match to report on if it ends up meeting the criteria.
                         concatFixtureCategoryList.Append(property.PropValue + " | ");
 
+
+                        //START HERE - ITS ADDING ALL GRADES FROM ALL TESTS IN THE FIXTURE INSTEAD OF JUST THE TEST
                         //one category entity per category, added to a list
                         category_Entity = new Category_Entity();
-                        category_Entity.setCategoryInfoBasedOnTextName(property.PropValue);
-                        category_EntityList.Add(category_Entity);
+                        if (property.PropValue == "Category") {
+                            category_Entity.setCategoryInfoBasedOnTextName(property.PropValue);
+                            category_EntityList.Add(category_Entity);
+                        }
                     }
                 }
                 //After we went through all fixture categories we have if it matched the priority/ first or second categories
@@ -340,7 +344,9 @@ namespace NUnitReportConversionTool {
                     testMethodMatchedCat1 = false;
                     testMethodMatchedCat2 = false;
                     testMethodMatchedCat3 = false;
-
+                    if (paramMethod.Name.Contains("SA000002D")) {
+                        bool stop = true;
+                    }
                     concatParamMethodCategoryList = new StringBuilder();
                     testParamMethodProperty_Description = "";
                     foreach (var property in paramMethod.ParamMethodPropertiesList) {
@@ -360,8 +366,10 @@ namespace NUnitReportConversionTool {
 
                             //one category entity per category, added to a list
                             category_Entity = new Category_Entity();
-                            category_Entity.setCategoryInfoBasedOnTextName(property.PropValue);
-                            category_EntityList.Add(category_Entity);
+                            if (property.PropName == "Category") {
+                                category_Entity.setCategoryInfoBasedOnTextName(property.PropValue);
+                                category_EntityList.Add(category_Entity);
+                            }                            
                         }
                     }
 
@@ -508,7 +516,7 @@ namespace NUnitReportConversionTool {
             #region Make pretty
             //If Make Pretty Is Checked - we want to read the output file and make a new prettier one
             if (makePretty.Checked && simpleTestData_EntityList.Count > 0) {
-                string reportPrettyHeaders = "TestName, Test Description, SA, FA, BS, BA, DA, Non Role, Other, Reader, Books, Shared Login, News Only, Other";
+                string reportPrettyHeaders = "TestName, Test Description, SA, FA, BS, BA, DA, NR, O, Reader, Books, Shared, News, O, AllGrade, 1LL, 1UL, LLAll, ULAll, Rnd, O";
                 reportAllTests = new StringBuilder();
                 reportAllTests.AppendLine(reportPrettyHeaders);            
                 foreach(SimpleTestData_Entity testData in simpleTestData_EntityList) {                    
