@@ -31,6 +31,7 @@ namespace NUnitReportConversionTool {
         SimpleTestData_Entity simpleTestData_Entity;
         Category_Entity category_Entity;
         List<Category_Entity> category_EntityList;
+        StringBuilder reportAllTests;
         #endregion
 
         #region StringBuilders
@@ -377,18 +378,16 @@ namespace NUnitReportConversionTool {
                     if (category1Text == "" && firstConcatANDORChoice == "" && category2Text == ""
                         && secondConcatANDORChoice == "" && category3Text == "") {                        
                             //Only writes this for this method if it matched the category on the fixture level or the test parameterized test level.
-                            testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();                            
-                            countOfFilteredTestMethods++;
+                            testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
+                        simpleTestData_Entity.Category_EntityList = category_EntityList;
+                        countOfFilteredTestMethods++;
                         // If we only have one category selected and nothing else.
                     }else if (category1Text !="" && firstConcatANDORChoice == "" && category2Text=="" 
                         && secondConcatANDORChoice == "" && category3Text == "") {
                         if(testFixtureMatchedCat1 || testMethodMatchedCat1) {
                             //Only writes this for this method if it matched the category on the fixture level or the test parameterized test level.
                             testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
-
-                            //Write this here for testing and then make own methods.
-                            simpleTestData_Entity.Category_EntityList.Add(category_Entity);
-
+                            simpleTestData_Entity.Category_EntityList = category_EntityList;
                             countOfFilteredTestMethods++;
                         }
                         //Category 1 && Category2
@@ -396,6 +395,7 @@ namespace NUnitReportConversionTool {
                         && secondConcatANDORChoice == "" && category3Text == "") {
                         if ((testFixtureMatchedCat1 || testMethodMatchedCat1) && (testFixtureMatchedCat2 || testMethodMatchedCat2)) {
                             testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
+                            simpleTestData_Entity.Category_EntityList = category_EntityList;
                             countOfFilteredTestMethods++;
                         }
                         //Category 1 || Category 2
@@ -403,6 +403,7 @@ namespace NUnitReportConversionTool {
                         && secondConcatANDORChoice == "" && category3Text == "") {
                         if ((testFixtureMatchedCat1 || testMethodMatchedCat1) || (testFixtureMatchedCat2 || testMethodMatchedCat2)) {
                             testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
+                            simpleTestData_Entity.Category_EntityList = category_EntityList;
                             countOfFilteredTestMethods++;
                         }
                         //Category 1 && Category2 && Category3
@@ -411,6 +412,7 @@ namespace NUnitReportConversionTool {
                         if ((testFixtureMatchedCat1 || testMethodMatchedCat1) && (testFixtureMatchedCat2 || testMethodMatchedCat2)
                             && (testFixtureMatchedCat3 || testMethodMatchedCat3)) {
                             testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
+                            simpleTestData_Entity.Category_EntityList = category_EntityList;
                             countOfFilteredTestMethods++;
                         }
                         //Category1 && Category2 || Category3
@@ -419,6 +421,7 @@ namespace NUnitReportConversionTool {
                         if (((testFixtureMatchedCat1 || testMethodMatchedCat1) && (testFixtureMatchedCat2 || testMethodMatchedCat2))
                             || (testFixtureMatchedCat3 || testMethodMatchedCat3)) {
                             testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
+                            simpleTestData_Entity.Category_EntityList = category_EntityList;
                             countOfFilteredTestMethods++;
                         }
                         //Category1 || Category2 && Category3
@@ -427,6 +430,7 @@ namespace NUnitReportConversionTool {
                         if ((testFixtureMatchedCat1 || testMethodMatchedCat1) || ((testFixtureMatchedCat2 || testMethodMatchedCat2)
                             && (testFixtureMatchedCat3 || testMethodMatchedCat3))) {
                             testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
+                            simpleTestData_Entity.Category_EntityList = category_EntityList;
                             countOfFilteredTestMethods++;
                         }
                         //Category1 || Category2 || Category3
@@ -435,9 +439,11 @@ namespace NUnitReportConversionTool {
                         if ((testFixtureMatchedCat1 || testMethodMatchedCat1) || (testFixtureMatchedCat2 || testMethodMatchedCat2)
                             || (testFixtureMatchedCat3 || testMethodMatchedCat3)) {
                             testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
+                            simpleTestData_Entity.Category_EntityList = category_EntityList;
                             countOfFilteredTestMethods++;
                         }
                     }
+
                         #endregion
 
                         #region Checks to see based on priorities and categories desired if test should continue to process
@@ -453,9 +459,12 @@ namespace NUnitReportConversionTool {
                             reportLine.Append(testFixtureAndParameterizedMethodCategories + ","); //categories we want
                             reportLine.Append(paramMethod.Id + ",");
                             reportLine.Append(paramMethod.Name + ","); // The test name we want
+                            simpleTestData_Entity.TestName = paramMethod.Name;
                             string descriptionTemp = testParamMethodProperty_Description.Replace(",", "~"); //The desription we want
+                            simpleTestData_Entity.TestDescription = descriptionTemp;
                             reportLine.Append(descriptionTemp + ",");
                             CSV_HeaderAndData.AppendLine(reportLine.ToString());
+                            simpleTestData_EntityList.Add(simpleTestData_Entity);
                             #endregion
                         } else {
                             foreach (var testcase in paramMethod.TestCaseEntityList) {
@@ -483,10 +492,7 @@ namespace NUnitReportConversionTool {
                         #endregion (Checks to see based on priorities desired if test should continue to process)
                     } // End foreach param method
                     #endregion Parameterized Method Data
-
                     #endregion (Fixture and Test Case Data)
-
-
                     #endregion (Write the Data that we want to a CSV File)
                 }  //End Foreach Test Fixture
                 #region Add a few more reporting details for filtered test cases
@@ -496,26 +502,49 @@ namespace NUnitReportConversionTool {
                 CSV_RollupReport.AppendLine(countOfFilteredTestMethods.ToString());
                 CSV_RollupReport.AppendLine("Filtered Count of Test Cases: ");
                 CSV_RollupReport.AppendLine(countOfFilteredTestCases.ToString());
-                #endregion
+            #endregion
 
-                #region Output Report
-                //First we need to put together the different stringbuilder methods we have going
-                CSV_FullReport.Append(CSV_RollupReport);
+            #region Output Report
+            #region Make pretty
+            //If Make Pretty Is Checked - we want to read the output file and make a new prettier one
+            if (makePretty.Checked && simpleTestData_EntityList.Count > 0) {
+                string reportPrettyHeaders = "TestName, Test Description, SA, FA, BS, BA, DA, Non Role, Other, Reader, Books, Shared Login, News Only, Other";
+                reportAllTests = new StringBuilder();
+                reportAllTests.AppendLine(reportPrettyHeaders);            
+                foreach(SimpleTestData_Entity testData in simpleTestData_EntityList) {                    
+                    string reportTestLine = testData.TestName +"," + testData.TestDescription + "," + testData.ReportOnSimpleTestData();
+                    reportAllTests.AppendLine(reportTestLine);
+                }
+            }
+
+            #endregion
+
+            //First we need to put together the different stringbuilder methods we have going
+            CSV_FullReport.Append(CSV_RollupReport);
                 CSV_FullReport.Append(CSV_HeaderAndData);
                 string filePath = @GenerateReportToPath.Text + @"\" + @ReportOutputName.Text + ".csv";
-                try {
-                    if (!File.Exists(filePath)) {
+                string filePathPretty = @GenerateReportToPath.Text + @"\" + @ReportOutputName.Text + "_Pretty"+ ".csv";
+            try {
+                    if (!File.Exists(filePath) || !File.Exists(filePathPretty)) {
                         MessageBoxButtons buttonsSuccess = MessageBoxButtons.OK;
                         File.WriteAllText(filePath, CSV_FullReport.ToString());
+                        File.WriteAllText(filePathPretty, reportAllTests.ToString());
                         DialogResult successResult = MessageBox.Show("Your file has processed successfully.", "SUCCESS", buttonsSuccess);
                         Application.Exit();
                         return;
                     } else {
-                        //The file exists, we should delete it and start fresh.
+                    //The file exists, we should delete it and start fresh.
+                    if (!File.Exists(filePath)) {
                         File.Delete(filePath);
+                    }
+                    if (!File.Exists(filePathPretty)) {
+                        File.Delete(filePathPretty);
+                    }                        
                         MessageBoxButtons buttonsSuccess = MessageBoxButtons.OK;
                         File.WriteAllText(filePath, CSV_FullReport.ToString());
-                        DialogResult successResult = MessageBox.Show("Your file has processed successfully.", "SUCCESS", buttonsSuccess);
+                        File.WriteAllText(filePathPretty, reportAllTests.ToString());
+
+                    DialogResult successResult = MessageBox.Show("Your file has processed successfully.", "SUCCESS", buttonsSuccess);
                         Application.Exit();
                         return;
                     }
@@ -543,19 +572,14 @@ namespace NUnitReportConversionTool {
                             buttons = MessageBoxButtons.RetryCancel;
                             result = MessageBox.Show("The file is open (we could not delete it), please close the file", "FILE ACCESS ERROR", buttons);
                         }
-                    } //End while
-
-                #endregion
-                #region Make pretty
-                //If Make Pretty Is Checked - we want to read the output file and make a new prettier one
-                if (makePretty.Checked) {
-
-                }
-                #endregion
-
-            }  //End Catch                            
 
 
+                } //End while                  
+
+            }  //End Catch 
+            #endregion
+
+          
 
         }//End Convert Data For Tests
 
