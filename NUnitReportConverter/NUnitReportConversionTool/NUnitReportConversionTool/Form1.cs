@@ -30,7 +30,8 @@ namespace NUnitReportConversionTool {
         List<SimpleTestData_Entity> simpleTestData_EntityList;
         SimpleTestData_Entity simpleTestData_Entity;
         Category_Entity category_Entity;
-        List<Category_Entity> category_EntityList;
+        List<Category_Entity> categoryFixture_EntityList;
+        List<Category_Entity> categoryTestLevel_EntityList;
         StringBuilder reportAllTests;
         #endregion
 
@@ -311,10 +312,14 @@ namespace NUnitReportConversionTool {
                 concatFixtureCategoryList = new StringBuilder();
                 simpleTestData_Entity = new SimpleTestData_Entity();
                 
-                category_EntityList = new List<Category_Entity>();
+                categoryFixture_EntityList = new List<Category_Entity>();
 
                 foreach (var property in testFixture.PropertyList) {
                     if (property.PropValue != "Self") {
+                        //Debug
+                        if(property.PropValue == "SA") {
+                            bool sa = true;
+                        }
                         //If it meets any category or priority at this point, write it to the concat fixture string for now, we will compare AND/OR Later
                         if (property.PropValue == category1Text) {
                             testFixtureMatchedCat1 = true;
@@ -330,9 +335,9 @@ namespace NUnitReportConversionTool {
                         //START HERE - ITS ADDING ALL GRADES FROM ALL TESTS IN THE FIXTURE INSTEAD OF JUST THE TEST
                         //one category entity per category, added to a list
                         category_Entity = new Category_Entity();
-                        if (property.PropValue == "Category") {
+                        if (property.PropName == "Category") {
                             category_Entity.setCategoryInfoBasedOnTextName(property.PropValue);
-                            category_EntityList.Add(category_Entity);
+                            categoryFixture_EntityList.Add(category_Entity);
                         }
                     }
                 }
@@ -341,6 +346,7 @@ namespace NUnitReportConversionTool {
                 //Now this continues in that one fixture adding in parameterized methods in that fixture.
                 #region Parameterized Method Data                     
                 foreach (var paramMethod in testFixture.ListOfParameterizedMethods) {
+                    categoryTestLevel_EntityList = new List<Category_Entity>(); //this has to be new for each parm method (test)  because we are looping over tests in the fixture with different categories
                     testMethodMatchedCat1 = false;
                     testMethodMatchedCat2 = false;
                     testMethodMatchedCat3 = false;
@@ -368,7 +374,7 @@ namespace NUnitReportConversionTool {
                             category_Entity = new Category_Entity();
                             if (property.PropName == "Category") {
                                 category_Entity.setCategoryInfoBasedOnTextName(property.PropValue);
-                                category_EntityList.Add(category_Entity);
+                                categoryTestLevel_EntityList.Add(category_Entity);
                             }                            
                         }
                     }
@@ -387,7 +393,8 @@ namespace NUnitReportConversionTool {
                         && secondConcatANDORChoice == "" && category3Text == "") {                        
                             //Only writes this for this method if it matched the category on the fixture level or the test parameterized test level.
                             testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
-                        simpleTestData_Entity.Category_EntityList = category_EntityList;
+                        simpleTestData_Entity.Category_EntityList.AddRange(categoryFixture_EntityList);
+                        simpleTestData_Entity.Category_EntityList.AddRange(categoryTestLevel_EntityList);
                         countOfFilteredTestMethods++;
                         // If we only have one category selected and nothing else.
                     }else if (category1Text !="" && firstConcatANDORChoice == "" && category2Text=="" 
@@ -395,7 +402,8 @@ namespace NUnitReportConversionTool {
                         if(testFixtureMatchedCat1 || testMethodMatchedCat1) {
                             //Only writes this for this method if it matched the category on the fixture level or the test parameterized test level.
                             testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
-                            simpleTestData_Entity.Category_EntityList = category_EntityList;
+                            simpleTestData_Entity.Category_EntityList.AddRange(categoryFixture_EntityList);
+                            simpleTestData_Entity.Category_EntityList.AddRange(categoryTestLevel_EntityList);                            
                             countOfFilteredTestMethods++;
                         }
                         //Category 1 && Category2
@@ -403,7 +411,8 @@ namespace NUnitReportConversionTool {
                         && secondConcatANDORChoice == "" && category3Text == "") {
                         if ((testFixtureMatchedCat1 || testMethodMatchedCat1) && (testFixtureMatchedCat2 || testMethodMatchedCat2)) {
                             testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
-                            simpleTestData_Entity.Category_EntityList = category_EntityList;
+                            simpleTestData_Entity.Category_EntityList.AddRange(categoryFixture_EntityList);
+                            simpleTestData_Entity.Category_EntityList.AddRange(categoryTestLevel_EntityList);
                             countOfFilteredTestMethods++;
                         }
                         //Category 1 || Category 2
@@ -411,7 +420,8 @@ namespace NUnitReportConversionTool {
                         && secondConcatANDORChoice == "" && category3Text == "") {
                         if ((testFixtureMatchedCat1 || testMethodMatchedCat1) || (testFixtureMatchedCat2 || testMethodMatchedCat2)) {
                             testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
-                            simpleTestData_Entity.Category_EntityList = category_EntityList;
+                            simpleTestData_Entity.Category_EntityList.AddRange(categoryFixture_EntityList);
+                            simpleTestData_Entity.Category_EntityList.AddRange(categoryTestLevel_EntityList);
                             countOfFilteredTestMethods++;
                         }
                         //Category 1 && Category2 && Category3
@@ -420,7 +430,8 @@ namespace NUnitReportConversionTool {
                         if ((testFixtureMatchedCat1 || testMethodMatchedCat1) && (testFixtureMatchedCat2 || testMethodMatchedCat2)
                             && (testFixtureMatchedCat3 || testMethodMatchedCat3)) {
                             testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
-                            simpleTestData_Entity.Category_EntityList = category_EntityList;
+                            simpleTestData_Entity.Category_EntityList.AddRange(categoryFixture_EntityList);
+                            simpleTestData_Entity.Category_EntityList.AddRange(categoryTestLevel_EntityList);
                             countOfFilteredTestMethods++;
                         }
                         //Category1 && Category2 || Category3
@@ -429,7 +440,8 @@ namespace NUnitReportConversionTool {
                         if (((testFixtureMatchedCat1 || testMethodMatchedCat1) && (testFixtureMatchedCat2 || testMethodMatchedCat2))
                             || (testFixtureMatchedCat3 || testMethodMatchedCat3)) {
                             testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
-                            simpleTestData_Entity.Category_EntityList = category_EntityList;
+                            simpleTestData_Entity.Category_EntityList.AddRange(categoryFixture_EntityList);
+                            simpleTestData_Entity.Category_EntityList.AddRange(categoryTestLevel_EntityList);
                             countOfFilteredTestMethods++;
                         }
                         //Category1 || Category2 && Category3
@@ -438,7 +450,8 @@ namespace NUnitReportConversionTool {
                         if ((testFixtureMatchedCat1 || testMethodMatchedCat1) || ((testFixtureMatchedCat2 || testMethodMatchedCat2)
                             && (testFixtureMatchedCat3 || testMethodMatchedCat3))) {
                             testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
-                            simpleTestData_Entity.Category_EntityList = category_EntityList;
+                            simpleTestData_Entity.Category_EntityList.AddRange(categoryFixture_EntityList);
+                            simpleTestData_Entity.Category_EntityList.AddRange(categoryTestLevel_EntityList);
                             countOfFilteredTestMethods++;
                         }
                         //Category1 || Category2 || Category3
@@ -447,7 +460,8 @@ namespace NUnitReportConversionTool {
                         if ((testFixtureMatchedCat1 || testMethodMatchedCat1) || (testFixtureMatchedCat2 || testMethodMatchedCat2)
                             || (testFixtureMatchedCat3 || testMethodMatchedCat3)) {
                             testFixtureAndParameterizedMethodCategories = concatFixtureCategoryList.ToString() + concatParamMethodCategoryList.ToString();
-                            simpleTestData_Entity.Category_EntityList = category_EntityList;
+                            simpleTestData_Entity.Category_EntityList.AddRange(categoryFixture_EntityList);
+                            simpleTestData_Entity.Category_EntityList.AddRange(categoryTestLevel_EntityList);
                             countOfFilteredTestMethods++;
                         }
                     }
