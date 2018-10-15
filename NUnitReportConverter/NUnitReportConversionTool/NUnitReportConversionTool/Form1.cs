@@ -316,10 +316,6 @@ namespace NUnitReportConversionTool {
 
                 foreach (var property in testFixture.PropertyList) {
                     if (property.PropValue != "Self") {
-                        //Debug
-                        if(property.PropValue == "SA") {
-                            bool sa = true;
-                        }
                         //If it meets any category or priority at this point, write it to the concat fixture string for now, we will compare AND/OR Later
                         if (property.PropValue == category1Text) {
                             testFixtureMatchedCat1 = true;
@@ -331,8 +327,6 @@ namespace NUnitReportConversionTool {
                         //We still want a list of all the categories regardless of the match to report on if it ends up meeting the criteria.
                         concatFixtureCategoryList.Append(property.PropValue + " | ");
 
-
-                        //START HERE - ITS ADDING ALL GRADES FROM ALL TESTS IN THE FIXTURE INSTEAD OF JUST THE TEST
                         //one category entity per category, added to a list
                         category_Entity = new Category_Entity();
                         if (property.PropName == "Category") {
@@ -350,9 +344,6 @@ namespace NUnitReportConversionTool {
                     testMethodMatchedCat1 = false;
                     testMethodMatchedCat2 = false;
                     testMethodMatchedCat3 = false;
-                    if (paramMethod.Name.Contains("SA000002D")) {
-                        bool stop = true;
-                    }
                     concatParamMethodCategoryList = new StringBuilder();
                     testParamMethodProperty_Description = "";
                     foreach (var property in paramMethod.ParamMethodPropertiesList) {
@@ -530,11 +521,37 @@ namespace NUnitReportConversionTool {
             #region Make pretty
             //If Make Pretty Is Checked - we want to read the output file and make a new prettier one
             if (makePretty.Checked && simpleTestData_EntityList.Count > 0) {
-                string reportPrettyHeaders = "TestName, Test Description, SA, FA, BS, BA, DA, NR, O, Reader, Books, Shared, News, O, AllGrade, 1LL, 1UL, LLAll, ULAll, Rnd, O";
+                //These are for proper header line wrapping in excel
+                string role_SAHeader = "\"" + "Role:" + "\n" + "\"" + "SA" + ",";
+                string role_FAHeader = "\"" + "Role:" + "\n" + "\"" + "FA" + ",";
+                string role_BSHeader = "\"" + "Role:" + "\n" + "\"" + "BS" + ",";
+                string role_BAHeader = "\"" + "Role:" + "\n" + "\"" + "BA" + ",";
+                string role_DAHeader = "\"" + "Role:" + "\n" + "\"" + "DA" + ",";
+                string role_NRHeader = "\"" + "Role:" + "\n" + "\"" + "NonRole" + ",";
+                string permission_ReaderHeader = "\"" + "Perm:" + "\n" + "\"" + "Reader" + ",";
+                string permission_BooksHeader = "\"" + "Perm:" + "\n" + "\"" + "Books" + ",";
+                string permission_SharedHeader = "\"" + "Perm:" + "\n" + "\"" + "Shared" + ",";
+                string permission_NewsHeader = "\"" + "Perm:" + "\n" + "\"" + "News" + ",";
+                string permission_OtherHeader = "\"" + "Perm:" + "\n" + "\"" + "OTHER" + ",";
+                string gradeScope_AllGradeHeader = "\"" + "Grade Scope:" + "\n" + "\"" + "All Grade" + ",";
+                string gradeScope_1LLHeader = "\"" + "Grade Scope:" + "\n" + "\"" + "1LL" + ",";
+                string gradeScope_1ULHeader = "\"" + "Grade Scope:" + "\n" + "\"" + "1UL" + ",";
+                string gradeScope_LLAllHeader = "\"" + "Grade Scope:" + "\n" + "\"" + "LLALL" + ",";
+                string gradeScope_ULAllHeader = "\"" + "Grade Scope:" + "\n" + "\"" + "UL ALL" + ",";
+                string gradeScope_RndHeader = "\"" + "Grade Scope:" + "\n" + "\"" + "Random" + ",";
+                string gradeScope_OtherHeader  = "\"" + "Grade Scope:"  + "\n" + "\"" + "OTHER" + ",";
+                string reportPrettyHeaders = "Test Number,Test Name,Test Description,"+ role_SAHeader + role_FAHeader + role_BSHeader + role_BAHeader + role_DAHeader + role_NRHeader
+                    + permission_ReaderHeader+ permission_BooksHeader + permission_SharedHeader + permission_NewsHeader + permission_OtherHeader
+                    + gradeScope_AllGradeHeader + gradeScope_1LLHeader + gradeScope_1ULHeader +  gradeScope_LLAllHeader + gradeScope_ULAllHeader + gradeScope_RndHeader + gradeScope_OtherHeader 
+                    + "Priority,AppArea";
                 reportAllTests = new StringBuilder();
                 reportAllTests.AppendLine(reportPrettyHeaders);            
-                foreach(SimpleTestData_Entity testData in simpleTestData_EntityList) {                    
-                    string reportTestLine = testData.TestName +"," + testData.TestDescription + "," + testData.ReportOnSimpleTestData();
+                foreach(SimpleTestData_Entity testData in simpleTestData_EntityList) {
+                    //For our report, since we want all related tests to be able to be filered together in excel, we parse the test number and test name separately.
+                    int firstUnderscorePosition = testData.TestName.IndexOf('_');
+                    string testNumber = testData.TestName.Substring(0, firstUnderscorePosition);
+                    string testName = testData.TestName.Substring(firstUnderscorePosition + 1);
+                    string reportTestLine = testNumber + "," + testName +"," + testData.TestDescription + "," + testData.ReportOnSimpleTestData();
                     reportAllTests.AppendLine(reportTestLine);
                 }
             }

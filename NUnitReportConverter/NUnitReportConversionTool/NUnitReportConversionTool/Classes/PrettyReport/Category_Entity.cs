@@ -65,21 +65,21 @@ namespace NUnitReportConversionTool {
         Priority13=13,
         Priority14 =14,
         Priority15 =15,
-        VisualValidationPriority1 = 1,
-        VisualValidationPriority2 = 2,
-        VisualValidationPriority3 = 3,
-        VisualValidationPriority4 = 4,
-        VisualValidationPriority5 = 5,
-        VisualValidationPriority6 = 6,
-        VisualValidationPriority7 = 7,
-        VisualValidationPriority8 = 8,
-        VisualValidationPriority9 = 9,
-        VisualValidationPriority10 = 10,
-        VisualValidationPriority11 = 11,
-        VisualValidationPriority12 = 12,
-        VisualValidationPriority13 = 13,
-        VisualValidationPriority14 = 14,
-        VisualValidationPriority15 = 15,        
+        VisualValidationPriority1 = 101,
+        VisualValidationPriority2 = 102,
+        VisualValidationPriority3 = 103,
+        VisualValidationPriority4 = 104,
+        VisualValidationPriority5 = 105,
+        VisualValidationPriority6 = 106,
+        VisualValidationPriority7 = 107,
+        VisualValidationPriority8 = 108,
+        VisualValidationPriority9 = 109,
+        VisualValidationPriority10 = 110,
+        VisualValidationPriority11 = 111,
+        VisualValidationPriority12 = 112,
+        VisualValidationPriority13 = 113,
+        VisualValidationPriority14 = 114,
+        VisualValidationPriority15 = 115,        
     }
     public enum AppAreas {
         Null=0,
@@ -156,13 +156,9 @@ namespace NUnitReportConversionTool {
                     CategoryType = CategoryTypes.Role;
                     Role = Roles.NonRole;
                     break;
-                case "reader":
-                    CategoryType = CategoryTypes.PermissionType;
-                    PermissionType = PermissionTypes.Reader;
-                    break;
                 case "permissionnopermission":
                     CategoryType = CategoryTypes.PermissionType;
-                    PermissionType = PermissionTypes.Reader;
+                    PermissionType = PermissionTypes.NoPermissions;
                     break;
                 case "permission3rdpartydisney":
                     CategoryType = CategoryTypes.PermissionType;

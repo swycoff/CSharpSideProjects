@@ -43,12 +43,12 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.makePretty = new System.Windows.Forms.CheckBox();
             this.excludeTestCasesChbox = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Category1FormBox = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.makePretty = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -101,7 +101,7 @@
             this.ReportOutputName.Name = "ReportOutputName";
             this.ReportOutputName.Size = new System.Drawing.Size(692, 23);
             this.ReportOutputName.TabIndex = 7;
-            this.ReportOutputName.Text = "Date10092018_Category_P1";
+            this.ReportOutputName.Text = "TestName";
             this.ReportOutputName.TextChanged += new System.EventHandler(this.ReportOutputName_TextChanged);
             // 
             // label3
@@ -263,9 +263,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Section 2";
             // 
+            // makePretty
+            // 
+            this.makePretty.AutoSize = true;
+            this.makePretty.Checked = true;
+            this.makePretty.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.makePretty.Location = new System.Drawing.Point(135, 272);
+            this.makePretty.Name = "makePretty";
+            this.makePretty.Size = new System.Drawing.Size(83, 17);
+            this.makePretty.TabIndex = 25;
+            this.makePretty.Text = "Make Pretty";
+            this.makePretty.UseVisualStyleBackColor = true;
+            // 
             // excludeTestCasesChbox
             // 
             this.excludeTestCasesChbox.AutoSize = true;
+            this.excludeTestCasesChbox.Checked = true;
+            this.excludeTestCasesChbox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.excludeTestCasesChbox.Location = new System.Drawing.Point(10, 273);
             this.excludeTestCasesChbox.Margin = new System.Windows.Forms.Padding(2);
             this.excludeTestCasesChbox.Name = "excludeTestCasesChbox";
@@ -319,16 +333,6 @@
             this.richTextBox2.Size = new System.Drawing.Size(342, 162);
             this.richTextBox2.TabIndex = 27;
             this.richTextBox2.Text = resources.GetString("richTextBox2.Text");
-            // 
-            // makePretty
-            // 
-            this.makePretty.AutoSize = true;
-            this.makePretty.Location = new System.Drawing.Point(135, 272);
-            this.makePretty.Name = "makePretty";
-            this.makePretty.Size = new System.Drawing.Size(83, 17);
-            this.makePretty.TabIndex = 25;
-            this.makePretty.Text = "Make Pretty";
-            this.makePretty.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
