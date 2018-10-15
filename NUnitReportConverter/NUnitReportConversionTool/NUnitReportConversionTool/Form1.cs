@@ -547,7 +547,7 @@ namespace NUnitReportConversionTool {
                 reportAllTests = new StringBuilder();
                 reportAllTests.AppendLine(reportPrettyHeaders);            
                 foreach(SimpleTestData_Entity testData in simpleTestData_EntityList) {
-                    //For our report, since we want all related tests to be able to be filered together in excel, we parse the test number and test name separately.
+                    //For our report, since we want all related tests to be able to be filered together in excel, we parse the test number and test name separately. .
                     int firstUnderscorePosition = testData.TestName.IndexOf('_');
                     string testNumber = testData.TestName.Substring(0, firstUnderscorePosition);
                     string testName = testData.TestName.Substring(firstUnderscorePosition + 1);
