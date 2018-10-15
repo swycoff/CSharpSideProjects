@@ -71,27 +71,36 @@ namespace NUnitReportConversionTool {
                             break;
                         case PermissionTypes.NewsOnly:
                             permissionType = ", , ,x , ,";
+                            break;          
+                        //If its a different permission, report the text name of the permission in other
+                        case PermissionTypes.EarlyReadersOnly:
+                            permissionType = ", , , ," + PermissionTypes.EarlyReadersOnly.ToString() + ",";
+                            break;
+                        case PermissionTypes.ThirdPartyDisneyOnly:
+                            permissionType = ", , , ," + PermissionTypes.ThirdPartyDisneyOnly.ToString() + ",";
+                            break;
+                        case PermissionTypes.SpecialCollectionOnly:
+                            permissionType = ", , , ," + PermissionTypes.SpecialCollectionOnly.ToString() + ",";
+                            break;
+                        case PermissionTypes.UpperElementaryOnly:
+                            permissionType = ", , , ," + PermissionTypes.UpperElementaryOnly.ToString() + ",";
+                            break;
+                        case PermissionTypes.ElementaryOnly:
+                            permissionType = ", , , ," + PermissionTypes.ElementaryOnly.ToString() + ",";
+                            break;
+                        case PermissionTypes.LexileOnly:
+                            permissionType = ", , , ," + PermissionTypes.LexileOnly.ToString() + ",";
+                            break;
+                        case PermissionTypes.NoPermissions:
+                            permissionType = ", , , ," + PermissionTypes.NoPermissions.ToString() + ",";
+                            break;
+                        case PermissionTypes.Other:
+                            permissionType = ", , , ,x ,";
                             break;
                         default:
-                            //There are a lot of permission types set that do not fall in our main permission types, they are all categorized under other.
+                          //Other Permissoin Types
                             permissionType = ", , , ,x,";
                             break;
-                            //    //Maybe report on these later - otherwise report will be to long
-                            //case PermissionTypes.EarlyReadersOnly:
-                            //    roles = ", , , ,x ,";
-                            //    break;
-                            //case PermissionTypes.ElementaryOnly:
-                            //    roles = ", , , , ,x,";
-                            //    break;
-                            //case PermissionTypes.LexileOnly:
-                            //    roles = ", , , , , ,x,";
-                            //    break;
-                            //case PermissionTypes.NoPermissions:
-                            //    roles = ", , , , , , ,x,";
-                            //    break;
-                            //case PermissionTypes.Other:
-                            //    roles = ", , , , , , , ,x";
-                            //    break;
                     }
                 }
                 if (cat.CategoryType == CategoryTypes.GradeScope) {
