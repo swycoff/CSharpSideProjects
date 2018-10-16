@@ -91,7 +91,7 @@
             this.GenerateReportToPath.Name = "GenerateReportToPath";
             this.GenerateReportToPath.Size = new System.Drawing.Size(692, 23);
             this.GenerateReportToPath.TabIndex = 4;
-            this.GenerateReportToPath.Text = "C:\\Users\\siwycoff\\Desktop\\temp\\nunitreporting";
+            this.GenerateReportToPath.Text = "C:\\Egnyte\\Shared\\myON_QA\\Automation\\AutomationTestSetReporting";
             // 
             // ReportOutputName
             // 
