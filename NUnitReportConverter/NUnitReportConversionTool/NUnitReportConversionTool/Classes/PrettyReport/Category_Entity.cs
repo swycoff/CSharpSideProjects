@@ -396,6 +396,26 @@ namespace NUnitReportConversionTool {
                     CategoryType = CategoryTypes.AppArea;
                     AppArea = AppAreas.AppAreaUserInfo;
                     break;
+                case "appareaplacementfromlogin":
+                    CategoryType = CategoryTypes.AppArea;
+                    AppArea = AppAreas.AppAreaPlacementFromLogin;
+                    break;
+                case "appareaplacementfromprojecttask":
+                    CategoryType = CategoryTypes.AppArea;
+                    AppArea = AppAreas.AppAreaPlacementFromProjectTask;
+                    break;
+                case "appareabenchmarkfromenvelope":
+                    CategoryType = CategoryTypes.AppArea;
+                    AppArea = AppAreas.AppAreaBenchmarkFromEnvelope;
+                    break;
+                case "appareabenchmarkfrompostbook":
+                    CategoryType = CategoryTypes.AppArea;
+                    AppArea = AppAreas.AppAreaBenchmarkFromPostBook;
+                    break;
+                case "appareabenchmarkfromprojecttask":
+                    CategoryType = CategoryTypes.AppArea;
+                    AppArea = AppAreas.AppAreaBenchmarkFromProjectTask;
+                    break;
                 default:
                     CategoryType = CategoryTypes.Null; //This means we don't have the specified category in the switch and enums above 
                     //It may need to be added
