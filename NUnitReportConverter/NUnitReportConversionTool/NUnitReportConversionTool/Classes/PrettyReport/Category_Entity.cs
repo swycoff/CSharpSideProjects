@@ -45,6 +45,7 @@ namespace NUnitReportConversionTool {
         LowerLevelAllGrades=3,
         UpperLevelOneGrade=4,
         LowerLevelOneGrade=5,
+        OneUpperlevelOneLowerLevel = 8,
         Random=6,
         Other=7
     }
@@ -215,6 +216,10 @@ namespace NUnitReportConversionTool {
                 case "1lowerlevelgrade":
                     CategoryType = CategoryTypes.GradeScope;
                     gradeScope = GradeScopes.LowerLevelOneGrade;
+                    break;
+                case "1upperlevel1lowerlevel":
+                    CategoryType = CategoryTypes.GradeScope;
+                    gradeScope = GradeScopes.OneUpperlevelOneLowerLevel;
                     break;
                 case "gradeallgrades":
                     CategoryType = CategoryTypes.GradeScope;

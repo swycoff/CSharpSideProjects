@@ -24,7 +24,7 @@ namespace NUnitReportConversionTool {
             //default in case there isn't a anything specified in the list (we need the comma's to make sure it's going into the right columns.
             string role = ", , , , , , "; 
             string permissionType = ", , , , ,";
-            string gradeScope = ", , , , , , , ";
+            string gradeScope = ", , , , , , , ,";
             string priority = ", ";
             string appArea = "Other,";
 
@@ -106,25 +106,28 @@ namespace NUnitReportConversionTool {
                 if (cat.CategoryType == CategoryTypes.GradeScope) {
                     switch (cat.GradeScope) {
                         case GradeScopes.AllGrades:
-                            gradeScope = "x, , , , , , ,";
+                            gradeScope = "x, , , , , , , , ";
                             break;
                         case GradeScopes.LowerLevelOneGrade:
-                            gradeScope = ",x, , , , , , ";
+                            gradeScope = ",x, , , , , , , ";
                             break;
                         case GradeScopes.UpperLevelOneGrade:
-                            gradeScope = ", ,x, , , , , ";
+                            gradeScope = ", ,x, , , , , , ";
                             break;                    
                         case GradeScopes.LowerLevelAllGrades:
-                            gradeScope = ", , ,x, , , , ";
+                            gradeScope = ", , ,x, , , , , ";
                             break;
                         case GradeScopes.UpperLevelAllGrades:
-                            gradeScope = ", , , ,x, , , ";
+                            gradeScope = ", , , ,x, , , , ";
+                            break;
+                        case GradeScopes.OneUpperlevelOneLowerLevel:
+                            gradeScope = ", , , , ,x, , , ";
                             break;
                         case GradeScopes.Random:
-                            gradeScope = ", , , , ,x, , ";
+                            gradeScope = ", , , , , ,x, , ";
                             break;
-                        default:                        
-                            gradeScope = ", , , , , ,x, ";
+                        default:
+                            gradeScope = ", , , , , , ,x, ";
                             break;
                     }
                 }

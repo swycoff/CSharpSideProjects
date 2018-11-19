@@ -536,13 +536,15 @@ namespace NUnitReportConversionTool {
                 string gradeScope_AllGradeHeader = "\"" + "Grade Scope:" + "\n" + "\"" + "All Grade" + ",";
                 string gradeScope_1LLHeader = "\"" + "Grade Scope:" + "\n" + "\"" + "1LL" + ",";
                 string gradeScope_1ULHeader = "\"" + "Grade Scope:" + "\n" + "\"" + "1UL" + ",";
-                string gradeScope_LLAllHeader = "\"" + "Grade Scope:" + "\n" + "\"" + "LLALL" + ",";
+                string gradeScope_LLAllHeader = "\"" + "Grade Scope:" + "\n" + "\"" + "LL ALL" + ",";
                 string gradeScope_ULAllHeader = "\"" + "Grade Scope:" + "\n" + "\"" + "UL ALL" + ",";
+                string gradeScope_ULANDLL = "\"" + "Grade Scope:" + "\n" + "\"" + "1UL + 1LL" + ",";
                 string gradeScope_RndHeader = "\"" + "Grade Scope:" + "\n" + "\"" + "Random" + ",";
                 string gradeScope_OtherHeader  = "\"" + "Grade Scope:"  + "\n" + "\"" + "OTHER" + ",";
                 string reportPrettyHeaders = "Test Number,Test Name,Test Description,"+ role_SAHeader + role_FAHeader + role_BSHeader + role_BAHeader + role_DAHeader + role_NRHeader
                     + permission_ReaderHeader+ permission_BooksHeader + permission_SharedHeader + permission_NewsHeader + permission_OtherHeader
-                    + gradeScope_AllGradeHeader + gradeScope_1LLHeader + gradeScope_1ULHeader +  gradeScope_LLAllHeader + gradeScope_ULAllHeader + gradeScope_RndHeader + gradeScope_OtherHeader 
+                    + gradeScope_AllGradeHeader + gradeScope_1LLHeader + gradeScope_1ULHeader +  gradeScope_LLAllHeader + gradeScope_ULAllHeader
+                    + gradeScope_ULANDLL + gradeScope_RndHeader + gradeScope_OtherHeader 
                     + "Priority,AppArea";
                 reportAllTests = new StringBuilder();
                 reportAllTests.AppendLine(reportPrettyHeaders);            

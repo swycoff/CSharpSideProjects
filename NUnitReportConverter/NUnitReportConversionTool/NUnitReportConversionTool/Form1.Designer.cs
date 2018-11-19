@@ -101,7 +101,7 @@
             this.ReportOutputName.Name = "ReportOutputName";
             this.ReportOutputName.Size = new System.Drawing.Size(692, 23);
             this.ReportOutputName.TabIndex = 7;
-            this.ReportOutputName.Text = "TestName";
+            this.ReportOutputName.Text = "TestName_RunDate";
             this.ReportOutputName.TextChanged += new System.EventHandler(this.ReportOutputName_TextChanged);
             // 
             // label3
