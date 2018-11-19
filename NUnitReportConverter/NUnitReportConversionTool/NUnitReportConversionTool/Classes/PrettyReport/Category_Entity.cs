@@ -12,7 +12,8 @@ namespace NUnitReportConversionTool {
         GradeScope=3,
         Priority=4,
         AppArea=5,
-        Unknown=6 //May need to be added to the list
+        AppAreaSubsets = 6,
+        Unknown=7 //May need to be added to the list
     }
     public enum Roles {
         Null=0,
@@ -92,7 +93,7 @@ namespace NUnitReportConversionTool {
         AppAreaMyList=6,
         AppAreaSearch=7,
         AppAreaBookPlayer=8,
-        AppAreaTopNavigation=9,
+        AppAreaTopAndSubNavigation=9,
         AppAreaNews=10,
         AppAreaReports=11,
         AppAreaProjects=12,
@@ -103,6 +104,25 @@ namespace NUnitReportConversionTool {
         AppAreaBenchmarkFromPostBook=17,
         AppAreaBenchmarkFromProjectTask=18
 }
+    public enum AppAreaSubsets {
+        Null = 0,
+        AppAreaSubset_HomePage = 1,
+        AppAreaSubset_Login = 2,
+        AppAreaSubset_Dashboard = 3,
+        AppAreaSubset_Recommended = 4,
+        AppAreaSubset_Browse = 5,
+        AppAreaSubset_MyList = 6,
+        AppAreaSubset_Search = 7,
+        AppAreaSubset_BookPlayer = 8,
+        AppAreaSubset_TopAndSubNavigation = 9,
+        AppAreaSubset_News = 10,
+        AppAreaSubset_Reports = 11,
+        AppAreaSubset_Projects = 12,
+        AppAreaSubset_UserInfo = 13,
+        AppAreaSubset_Placement = 14,
+        AppAreaSubset_Benchmark = 15,
+    }
+
     public class Category_Entity {
         private CategoryTypes categoryType;
         private Roles role;
@@ -110,6 +130,7 @@ namespace NUnitReportConversionTool {
         private GradeScopes gradeScope;
         private Priorities priority;
         private AppAreas appArea;
+        private AppAreaSubsets appAreaSubsets;
         private string categoryName;
         
         public CategoryTypes CategoryType { get { return categoryType; } set { categoryType = value; } }
@@ -118,6 +139,8 @@ namespace NUnitReportConversionTool {
         public Roles Role { get { return role; } set { role = value; } }
         public Priorities Priority { get { return priority; } set { priority = value; } }
         public AppAreas AppArea { get { return appArea; } set { appArea = value; } }
+        public AppAreaSubsets AppAreaSubsets { get { return appAreaSubsets; } set { appAreaSubsets = value; } }
+
         public string CategoryName { get { return categoryName; } set { categoryName = value; } }
 
         public Category_Entity() {
@@ -127,6 +150,7 @@ namespace NUnitReportConversionTool {
             Role = Roles.Null;
             Priority = Priorities.Null;
             AppArea = AppAreas.Null;
+            AppAreaSubsets = AppAreaSubsets.Null;
             CategoryName = "";
         }
 
@@ -383,7 +407,7 @@ namespace NUnitReportConversionTool {
                     break;
                 case "appareatopnavigation":
                     CategoryType = CategoryTypes.AppArea;
-                    AppArea = AppAreas.AppAreaTopNavigation;
+                    AppArea = AppAreas.AppAreaTopAndSubNavigation;
                     break;
                 case "appareanews":
                     CategoryType = CategoryTypes.AppArea;
@@ -420,6 +444,66 @@ namespace NUnitReportConversionTool {
                 case "appareabenchmarkfromprojecttask":
                     CategoryType = CategoryTypes.AppArea;
                     AppArea = AppAreas.AppAreaBenchmarkFromProjectTask;
+                    break;
+                case "appareasubset_homepage":
+                    CategoryType = CategoryTypes.AppAreaSubsets;
+                    AppAreaSubsets = AppAreaSubsets.AppAreaSubset_HomePage;
+                    break;
+                case "appareasubset_login":
+                    CategoryType = CategoryTypes.AppAreaSubsets;
+                    AppAreaSubsets = AppAreaSubsets.AppAreaSubset_Login;
+                    break;
+                case "appareasubset_dashboard":
+                    CategoryType = CategoryTypes.AppAreaSubsets;
+                    AppAreaSubsets = AppAreaSubsets.AppAreaSubset_Dashboard;
+                    break;
+                case "appareasubset_recommended":
+                    CategoryType = CategoryTypes.AppAreaSubsets;
+                    AppAreaSubsets = AppAreaSubsets.AppAreaSubset_Recommended;
+                    break;
+                case "appareasubset_browse":
+                    CategoryType = CategoryTypes.AppAreaSubsets;
+                    AppAreaSubsets = AppAreaSubsets.AppAreaSubset_Browse;
+                    break;
+                case "appareasubset_mylist":
+                    CategoryType = CategoryTypes.AppAreaSubsets;
+                    AppAreaSubsets = AppAreaSubsets.AppAreaSubset_MyList;
+                    break;
+                case "appareasubset_search":
+                    CategoryType = CategoryTypes.AppAreaSubsets;
+                    AppAreaSubsets = AppAreaSubsets.AppAreaSubset_Search;
+                    break;
+                case "appareasubset_bookplayer":
+                    CategoryType = CategoryTypes.AppAreaSubsets;
+                    AppAreaSubsets = AppAreaSubsets.AppAreaSubset_BookPlayer;
+                    break;
+                case "appareasubset_topandsubnav":
+                    CategoryType = CategoryTypes.AppAreaSubsets;
+                    AppAreaSubsets = AppAreaSubsets.AppAreaSubset_TopAndSubNavigation;
+                    break;
+                case "appareasubset_news":
+                    CategoryType = CategoryTypes.AppAreaSubsets;
+                    AppAreaSubsets = AppAreaSubsets.AppAreaSubset_News;
+                    break;
+                case "appareasubset_reports":
+                    CategoryType = CategoryTypes.AppAreaSubsets;
+                    AppAreaSubsets = AppAreaSubsets.AppAreaSubset_Reports;
+                    break;
+                case "appareasubset_projects":
+                    CategoryType = CategoryTypes.AppAreaSubsets;
+                    AppAreaSubsets = AppAreaSubsets.AppAreaSubset_Projects;
+                    break;
+                case "appareasubset_adminselfuserinfoedit":
+                    CategoryType = CategoryTypes.AppAreaSubsets;
+                    AppAreaSubsets = AppAreaSubsets.AppAreaSubset_UserInfo;
+                    break;
+                case "appareasubset_placements":
+                    CategoryType = CategoryTypes.AppAreaSubsets;
+                    AppAreaSubsets = AppAreaSubsets.AppAreaSubset_Placement;
+                    break;
+                case "appareasubset_benchmarks":
+                    CategoryType = CategoryTypes.AppAreaSubsets;
+                    AppAreaSubsets = AppAreaSubsets.AppAreaSubset_Benchmark;
                     break;
                 default:
                     CategoryType = CategoryTypes.Null; //This means we don't have the specified category in the switch and enums above 

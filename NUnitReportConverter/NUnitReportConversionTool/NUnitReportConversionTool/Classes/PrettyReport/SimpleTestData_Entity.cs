@@ -27,6 +27,7 @@ namespace NUnitReportConversionTool {
             string gradeScope = ", , , , , , , ,";
             string priority = ", ";
             string appArea = "Other,";
+            string appAreaSubset = "Other,";
 
             foreach (Category_Entity cat in category_EntityList) {
                 if(cat.CategoryType == CategoryTypes.Role) {
@@ -278,23 +279,76 @@ namespace NUnitReportConversionTool {
                         case AppAreas.AppAreaSearch:
                             appArea = AppAreas.AppAreaSearch.ToString() + ",";
                             break;
-                        case AppAreas.AppAreaTopNavigation:
-                            appArea = AppAreas.AppAreaTopNavigation.ToString() + ",";
+                        case AppAreas.AppAreaTopAndSubNavigation:
+                            appArea = AppAreas.AppAreaTopAndSubNavigation.ToString() + ",";
                             break;
                         case AppAreas.AppAreaUserInfo:
                             appArea = AppAreas.AppAreaUserInfo.ToString() + ",";
-                            break;                        
+                            break;
                         default:
                             appArea = "Other, ";
                             break;
                     }
                 }
+                    if (cat.CategoryType == CategoryTypes.AppAreaSubsets) {
+                        switch (cat.AppAreaSubsets) {
+                            case AppAreaSubsets.AppAreaSubset_HomePage:
+                                appAreaSubset = AppAreaSubsets.AppAreaSubset_HomePage.ToString() + ",";
+                                break;
+                            case AppAreaSubsets.AppAreaSubset_Login:
+                                appAreaSubset = AppAreaSubsets.AppAreaSubset_Login.ToString() + ",";
+                                break;
+                            case AppAreaSubsets.AppAreaSubset_Dashboard:
+                                appAreaSubset = AppAreaSubsets.AppAreaSubset_Dashboard.ToString() + ",";
+                                break;
+                            case AppAreaSubsets.AppAreaSubset_Recommended:
+                                appAreaSubset = AppAreaSubsets.AppAreaSubset_Recommended.ToString() + ",";
+                                break;
+                            case AppAreaSubsets.AppAreaSubset_Browse:
+                                appAreaSubset = AppAreaSubsets.AppAreaSubset_Browse.ToString() + ",";
+                                break;
+                            case AppAreaSubsets.AppAreaSubset_MyList:
+                                appAreaSubset = AppAreaSubsets.AppAreaSubset_MyList.ToString() + ",";
+                                break;
+                            case AppAreaSubsets.AppAreaSubset_Search:
+                                appAreaSubset = AppAreaSubsets.AppAreaSubset_Search.ToString() + ",";
+                                break;
+                            case AppAreaSubsets.AppAreaSubset_BookPlayer:
+                                appAreaSubset = AppAreaSubsets.AppAreaSubset_BookPlayer.ToString() + ",";
+                                break;
+                            case AppAreaSubsets.AppAreaSubset_TopAndSubNavigation:
+                                appAreaSubset = AppAreaSubsets.AppAreaSubset_TopAndSubNavigation.ToString() + ",";
+                                break;
+                            case AppAreaSubsets.AppAreaSubset_News:
+                                appAreaSubset = AppAreaSubsets.AppAreaSubset_News.ToString() + ",";
+                                break;
+                            case AppAreaSubsets.AppAreaSubset_Reports:
+                                appAreaSubset = AppAreaSubsets.AppAreaSubset_Reports.ToString() + ",";
+                                break;
+                            case AppAreaSubsets.AppAreaSubset_Projects:
+                                appAreaSubset = AppAreaSubsets.AppAreaSubset_Projects.ToString() + ",";
+                                break;
+                            case AppAreaSubsets.AppAreaSubset_UserInfo:
+                                appAreaSubset = AppAreaSubsets.AppAreaSubset_UserInfo.ToString() + ",";
+                                break;
+                            case AppAreaSubsets.AppAreaSubset_Placement:
+                                appAreaSubset = AppAreaSubsets.AppAreaSubset_Placement.ToString() + ",";
+                                break;
+                            case AppAreaSubsets.AppAreaSubset_Benchmark:
+                                appAreaSubset = AppAreaSubsets.AppAreaSubset_Benchmark.ToString() + ",";
+                                break;
+                            default:
+                                appAreaSubset = "Other,";
+                                break;
+                        }
+                    }
             }//End Foreach Category
             simpleTestString.Append(role);
             simpleTestString.Append(permissionType);
             simpleTestString.Append(gradeScope);
             simpleTestString.Append(priority);
             simpleTestString.Append(appArea);
+            simpleTestString.Append(appAreaSubset);
             return simpleTestString.ToString();
         }
     }
