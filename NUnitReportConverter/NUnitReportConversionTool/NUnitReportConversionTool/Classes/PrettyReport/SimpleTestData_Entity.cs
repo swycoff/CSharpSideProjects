@@ -107,28 +107,28 @@ namespace NUnitReportConversionTool {
                 if (cat.CategoryType == CategoryTypes.GradeScope) {
                     switch (cat.GradeScope) {
                         case GradeScopes.AllGrades:
-                            gradeScope = "x, , , , , , , , ";
+                            gradeScope = "x, , , , , , , ,";
                             break;
                         case GradeScopes.LowerLevelOneGrade:
-                            gradeScope = ",x, , , , , , , ";
+                            gradeScope = ",x, , , , , , ,";
                             break;
                         case GradeScopes.UpperLevelOneGrade:
-                            gradeScope = ", ,x, , , , , , ";
+                            gradeScope = ", ,x, , , , , ,";
                             break;                    
                         case GradeScopes.LowerLevelAllGrades:
-                            gradeScope = ", , ,x, , , , , ";
+                            gradeScope = ", , ,x, , , , ,";
                             break;
                         case GradeScopes.UpperLevelAllGrades:
-                            gradeScope = ", , , ,x, , , , ";
+                            gradeScope = ", , , ,x, , , ,";
                             break;
                         case GradeScopes.OneUpperlevelOneLowerLevel:
-                            gradeScope = ", , , , ,x, , , ";
+                            gradeScope = ", , , , ,x, , ,";
                             break;
                         case GradeScopes.Random:
-                            gradeScope = ", , , , , ,x, , ";
+                            gradeScope = ", , , , , ,x, ,";
                             break;
                         default:
-                            gradeScope = ", , , , , , ,x, ";
+                            gradeScope = ", , , , , , ,x,";
                             break;
                     }
                 }
@@ -180,49 +180,49 @@ namespace NUnitReportConversionTool {
                             priority = "15,";
                             break;
                         case Priorities.VisualValidationPriority1:
-                            priority = "VV1,";
+                            priority = "1VV,";
                             break;
                         case Priorities.VisualValidationPriority2:
-                            priority = "VV2,";
+                            priority = "2VV,";
                             break;
                         case Priorities.VisualValidationPriority3:
-                            priority = "VV3,";
+                            priority = "3VV,";
                             break;
                         case Priorities.VisualValidationPriority4:
-                            priority = "VV4,";
+                            priority = "4VV,";
                             break;
                         case Priorities.VisualValidationPriority5:
-                            priority = "VV5,";
+                            priority = "5VV,";
                             break;
                         case Priorities.VisualValidationPriority6:
-                            priority = "VV6,";
+                            priority = "6VV,";
                             break;
                         case Priorities.VisualValidationPriority7:
-                            priority = "VV7,";
+                            priority = "7VV,";
                             break;
                         case Priorities.VisualValidationPriority8:
-                            priority = "VV8,";
+                            priority = "8VV,";
                             break;
                         case Priorities.VisualValidationPriority9:
-                            priority = "VV9,";
+                            priority = "9VV,";
                             break;
                         case Priorities.VisualValidationPriority10:
-                            priority = "VV10,";
+                            priority = "10VV,";
                             break;
                         case Priorities.VisualValidationPriority11:
-                            priority = "VV11,";
+                            priority = "11VV,";
                             break;
                         case Priorities.VisualValidationPriority12:
-                            priority = "VV12,";
+                            priority = "12VV,";
                             break;
                         case Priorities.VisualValidationPriority13:
-                            priority = "VV13,";
+                            priority = "13VV,";
                             break;
                         case Priorities.VisualValidationPriority14:
-                            priority = "VV14,";
+                            priority = "14VV,";
                             break;
                         case Priorities.VisualValidationPriority15:
-                            priority = "VV15,";
+                            priority = "15VV,";
                             break;
                         default:
                             priority = "Null";
