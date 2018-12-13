@@ -28,6 +28,7 @@ namespace NUnitReportConversionTool {
             string priority = ", ";
             string appArea = "Other,";
             string appAreaSubset = "Other,";
+            string visualValidationTypeTest = ",";
 
             foreach (Category_Entity cat in category_EntityList) {
                 if(cat.CategoryType == CategoryTypes.Role) {
@@ -342,6 +343,77 @@ namespace NUnitReportConversionTool {
                                 break;
                         }
                     }
+                if (cat.CategoryType == CategoryTypes.AppArea) {
+                    switch (cat.AppArea) {
+                        case AppAreas.AppAreaBenchmarkFromEnvelope:
+                            appArea = AppAreas.AppAreaBenchmarkFromEnvelope.ToString() + ",";
+                            break;
+                        case AppAreas.AppAreaBenchmarkFromPostBook:
+                            appArea = AppAreas.AppAreaBenchmarkFromPostBook.ToString() + ",";
+                            break;
+                        case AppAreas.AppAreaBenchmarkFromProjectTask:
+                            appArea = AppAreas.AppAreaBenchmarkFromProjectTask.ToString() + ",";
+                            break;
+                        case AppAreas.AppAreaBookPlayer:
+                            appArea = AppAreas.AppAreaBookPlayer.ToString() + ",";
+                            break;
+                        case AppAreas.AppAreaBrowse:
+                            appArea = AppAreas.AppAreaBrowse.ToString() + ",";
+                            break;
+                        case AppAreas.AppAreaDashboard:
+                            appArea = AppAreas.AppAreaDashboard.ToString() + ",";
+                            break;
+                        case AppAreas.AppAreaHomePage:
+                            appArea = AppAreas.AppAreaHomePage.ToString() + ",";
+                            break;
+                        case AppAreas.AppAreaLogin:
+                            appArea = AppAreas.AppAreaLogin.ToString() + ",";
+                            break;
+                        case AppAreas.AppAreaMyList:
+                            appArea = AppAreas.AppAreaMyList.ToString() + ",";
+                            break;
+                        case AppAreas.AppAreaNews:
+                            appArea = AppAreas.AppAreaNews.ToString() + ",";
+                            break;
+                        case AppAreas.AppAreaPlacementFromLogin:
+                            appArea = AppAreas.AppAreaPlacementFromLogin.ToString() + ",";
+                            break;
+                        case AppAreas.AppAreaPlacementFromProjectTask:
+                            appArea = AppAreas.AppAreaPlacementFromProjectTask.ToString() + ",";
+                            break;
+                        case AppAreas.AppAreaProjects:
+                            appArea = AppAreas.AppAreaProjects.ToString() + ",";
+                            break;
+                        case AppAreas.AppAreaRecommended:
+                            appArea = AppAreas.AppAreaRecommended.ToString() + ",";
+                            break;
+                        case AppAreas.AppAreaReports:
+                            appArea = AppAreas.AppAreaReports.ToString() + ",";
+                            break;
+                        case AppAreas.AppAreaSearch:
+                            appArea = AppAreas.AppAreaSearch.ToString() + ",";
+                            break;
+                        case AppAreas.AppAreaTopAndSubNavigation:
+                            appArea = AppAreas.AppAreaTopAndSubNavigation.ToString() + ",";
+                            break;
+                        case AppAreas.AppAreaUserInfo:
+                            appArea = AppAreas.AppAreaUserInfo.ToString() + ",";
+                            break;
+                        default:
+                            appArea = "Other, ";
+                            break;
+                    }
+                }
+                if (cat.CategoryType == CategoryTypes.VisualValidationTypeTest) {
+                    switch (cat.VisualValidationTypeTest) {
+                        case VisualValidationTypeTest.VisualValidationTypeTest:
+                            visualValidationTypeTest = VisualValidationTypeTest.VisualValidationTypeTest.ToString() + ",";
+                            break;                    
+                        default:
+                            visualValidationTypeTest = VisualValidationTypeTest.Null.ToString() + ",";
+                            break;
+                    }
+                }
             }//End Foreach Category
             simpleTestString.Append(role);
             simpleTestString.Append(permissionType);
@@ -349,6 +421,7 @@ namespace NUnitReportConversionTool {
             simpleTestString.Append(priority);
             simpleTestString.Append(appArea);
             simpleTestString.Append(appAreaSubset);
+            simpleTestString.Append(visualValidationTypeTest);
             return simpleTestString.ToString();
         }
     }

@@ -13,6 +13,7 @@ namespace NUnitReportConversionTool {
         Priority=4,
         AppArea=5,
         AppAreaSubsets = 6,
+        VisualValidationTypeTest = 7,
         Unknown=7 //May need to be added to the list
     }
     public enum Roles {
@@ -122,6 +123,10 @@ namespace NUnitReportConversionTool {
         AppAreaSubset_Placement = 14,
         AppAreaSubset_Benchmark = 15,
     }
+    public enum VisualValidationTypeTest {
+        Null = 0,
+        VisualValidationTypeTest = 1,
+    }
 
     public class Category_Entity {
         private CategoryTypes categoryType;
@@ -131,6 +136,7 @@ namespace NUnitReportConversionTool {
         private Priorities priority;
         private AppAreas appArea;
         private AppAreaSubsets appAreaSubsets;
+        private VisualValidationTypeTest visualValidationTypeTest;
         private string categoryName;
         
         public CategoryTypes CategoryType { get { return categoryType; } set { categoryType = value; } }
@@ -140,6 +146,7 @@ namespace NUnitReportConversionTool {
         public Priorities Priority { get { return priority; } set { priority = value; } }
         public AppAreas AppArea { get { return appArea; } set { appArea = value; } }
         public AppAreaSubsets AppAreaSubsets { get { return appAreaSubsets; } set { appAreaSubsets = value; } }
+        public VisualValidationTypeTest VisualValidationTypeTest { get { return visualValidationTypeTest; } set { visualValidationTypeTest = value; } }
 
         public string CategoryName { get { return categoryName; } set { categoryName = value; } }
 
@@ -151,6 +158,7 @@ namespace NUnitReportConversionTool {
             Priority = Priorities.Null;
             AppArea = AppAreas.Null;
             AppAreaSubsets = AppAreaSubsets.Null;
+            VisualValidationTypeTest = VisualValidationTypeTest.Null;
             CategoryName = "";
         }
 
@@ -504,6 +512,10 @@ namespace NUnitReportConversionTool {
                 case "appareasubset_benchmarks":
                     CategoryType = CategoryTypes.AppAreaSubsets;
                     AppAreaSubsets = AppAreaSubsets.AppAreaSubset_Benchmark;
+                    break;
+                case "visualvalidationtypetest":
+                    CategoryType = CategoryTypes.VisualValidationTypeTest;
+                    VisualValidationTypeTest = VisualValidationTypeTest.VisualValidationTypeTest;
                     break;
                 default:
                     CategoryType = CategoryTypes.Null; //This means we don't have the specified category in the switch and enums above 

@@ -545,7 +545,7 @@ namespace NUnitReportConversionTool {
                     + permission_ReaderHeader+ permission_BooksHeader + permission_SharedHeader + permission_NewsHeader + permission_OtherHeader
                     + gradeScope_AllGradeHeader + gradeScope_1LLHeader + gradeScope_1ULHeader +  gradeScope_LLAllHeader + gradeScope_ULAllHeader
                     + gradeScope_ULANDLL + gradeScope_RndHeader + gradeScope_OtherHeader 
-                    + "Priority,AppArea,AppAreaSubset";
+                    + "Priority,AppArea,AppAreaSubset,VisualValidationTypeTest";
                 reportAllTests = new StringBuilder();
                 reportAllTests.AppendLine(reportPrettyHeaders);            
                 foreach(SimpleTestData_Entity testData in simpleTestData_EntityList) {
